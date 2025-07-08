@@ -2,7 +2,9 @@
 
 This project is the very beginning of a VanillaPlus modpack for Minecraft. The goal is to enhance the vanilla experience with quality-of-life improvements and new content, while keeping the core gameplay familiar.
 
-Currently, the project is in its initial setup phase. More features, mods, and documentation will be added as development progresses.
+Custom armor items are now added and organized for easy expansion. Initial support for custom elytra items is in progress but not functional. More features, mods, and documentation will be added as development progresses.
+
+- **Known issues:** Custom elytras do not render on the player or enable gliding yet. Armor/enchantment animations are not implemented.
 
 ## Asset Attribution
 

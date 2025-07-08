@@ -1,0 +1,6 @@
+{
+  "parent": "item/elytra",
+  "textures": {
+    "layer0": "vanillaplus:item/elytras/book_elytra"
+  }
+} 
