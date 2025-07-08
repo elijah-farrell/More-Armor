@@ -134,13 +134,13 @@ public class ModItems {
 
     // Galaxy Armor Set
     public static final RegistryObject<Item> GALAXY_HELMET = ITEMS.register("galaxy_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.GALAXY, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new GalaxyArmorItem(ModArmorMaterials.GALAXY, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> GALAXY_CHESTPLATE = ITEMS.register("galaxy_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.GALAXY, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new GalaxyArmorItem(ModArmorMaterials.GALAXY, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> GALAXY_LEGGINGS = ITEMS.register("galaxy_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.GALAXY, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new GalaxyArmorItem(ModArmorMaterials.GALAXY, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> GALAXY_BOOTS = ITEMS.register("galaxy_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.GALAXY, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new GalaxyArmorItem(ModArmorMaterials.GALAXY, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Gilded Armor Set
     public static final RegistryObject<Item> GILDED_HELMET = ITEMS.register("gilded_helmet",
