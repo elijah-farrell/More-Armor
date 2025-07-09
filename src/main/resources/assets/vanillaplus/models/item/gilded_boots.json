@@ -1,6 +1,6 @@
-﻿{
+{
   "parent": "item/generated",
   "textures": {
-    "layer0": "vanillaplus:item/averagetateman/armors/gilded/gilded_boots"
+    "layer0": "vanillaplus:item/averagetateman/armors/gilded/boots"
   }
 }

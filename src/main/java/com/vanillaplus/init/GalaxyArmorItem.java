@@ -14,9 +14,15 @@ public class GalaxyArmorItem extends ArmorItem {
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        int frameCount = 15; // Number of frames in your animation
-        int frame = (entity.tickCount / 5) % frameCount; // Change every 5 ticks
+        // Animation: frame 0 for 100 ticks, frames 1-23 for 3 ticks each, then loop
+        int totalTicks = entity.tickCount % 169; // 100 + (23*3) = 169
+        int frame;
+        if (totalTicks < 100) {
+            frame = 0;
+        } else {
+            frame = 1 + ((totalTicks - 100) / 3);
+        }
         String layer = (slot == EquipmentSlot.LEGS) ? "layer_2" : "layer_1";
-        return String.format("vanillaplus:textures/models/armor/galaxy/%s_frame%d.png", layer, frame);
+        return String.format("vanillaplus:textures/models/averagetateman/armor/galaxy/%s_frame%d.png", layer, frame);
     }
 } 

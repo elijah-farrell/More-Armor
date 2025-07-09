@@ -1,6 +1,6 @@
-﻿{
+{
   "parent": "item/generated",
   "textures": {
-    "layer0": "vanillaplus:item/averagetateman/armors/ender_dragon/ender_dragon_boots"
+    "layer0": "vanillaplus:item/averagetateman/armors/ender_dragon/boots"
   }
 }

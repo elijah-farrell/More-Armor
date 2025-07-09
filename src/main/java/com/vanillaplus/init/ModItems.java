@@ -44,13 +44,13 @@ public class ModItems {
 
     // Bee Armor Set
     public static final RegistryObject<Item> BEE_HELMET = ITEMS.register("bee_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.BEE, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new BeeArmorItem(ModArmorMaterials.BEE, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> BEE_CHESTPLATE = ITEMS.register("bee_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.BEE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new BeeArmorItem(ModArmorMaterials.BEE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> BEE_LEGGINGS = ITEMS.register("bee_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.BEE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new BeeArmorItem(ModArmorMaterials.BEE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> BEE_BOOTS = ITEMS.register("bee_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.BEE, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new BeeArmorItem(ModArmorMaterials.BEE, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Bone Armor Set
     public static final RegistryObject<Item> BONE_HELMET = ITEMS.register("bone_helmet",
@@ -124,13 +124,13 @@ public class ModItems {
 
     // Ender Dragon Armor Set
     public static final RegistryObject<Item> ENDER_DRAGON_HELMET = ITEMS.register("ender_dragon_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.ENDER_DRAGON, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new EnderDragonArmorItem(ModArmorMaterials.ENDER_DRAGON, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> ENDER_DRAGON_CHESTPLATE = ITEMS.register("ender_dragon_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.ENDER_DRAGON, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new EnderDragonArmorItem(ModArmorMaterials.ENDER_DRAGON, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> ENDER_DRAGON_LEGGINGS = ITEMS.register("ender_dragon_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.ENDER_DRAGON, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new EnderDragonArmorItem(ModArmorMaterials.ENDER_DRAGON, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> ENDER_DRAGON_BOOTS = ITEMS.register("ender_dragon_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.ENDER_DRAGON, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new EnderDragonArmorItem(ModArmorMaterials.ENDER_DRAGON, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Galaxy Armor Set
     public static final RegistryObject<Item> GALAXY_HELMET = ITEMS.register("galaxy_helmet",
@@ -164,13 +164,13 @@ public class ModItems {
 
     // Guardian Armor Set
     public static final RegistryObject<Item> GUARDIAN_HELMET = ITEMS.register("guardian_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.GUARDIAN, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new GuardianArmorItem(ModArmorMaterials.GUARDIAN, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> GUARDIAN_CHESTPLATE = ITEMS.register("guardian_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.GUARDIAN, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new GuardianArmorItem(ModArmorMaterials.GUARDIAN, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> GUARDIAN_LEGGINGS = ITEMS.register("guardian_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.GUARDIAN, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new GuardianArmorItem(ModArmorMaterials.GUARDIAN, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> GUARDIAN_BOOTS = ITEMS.register("guardian_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.GUARDIAN, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new GuardianArmorItem(ModArmorMaterials.GUARDIAN, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Lapis Armor Set
     public static final RegistryObject<Item> LAPIS_HELMET = ITEMS.register("lapis_helmet",
@@ -184,13 +184,13 @@ public class ModItems {
 
     // Machine Armor Set
     public static final RegistryObject<Item> MACHINE_HELMET = ITEMS.register("machine_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.MACHINE, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new MachineArmorItem(ModArmorMaterials.MACHINE, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> MACHINE_CHESTPLATE = ITEMS.register("machine_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.MACHINE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new MachineArmorItem(ModArmorMaterials.MACHINE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> MACHINE_LEGGINGS = ITEMS.register("machine_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.MACHINE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new MachineArmorItem(ModArmorMaterials.MACHINE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> MACHINE_BOOTS = ITEMS.register("machine_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.MACHINE, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new MachineArmorItem(ModArmorMaterials.MACHINE, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Magma Armor Set
     public static final RegistryObject<Item> MAGMA_HELMET = ITEMS.register("magma_helmet",
@@ -204,13 +204,13 @@ public class ModItems {
 
     // Music Armor Set
     public static final RegistryObject<Item> MUSIC_HELMET = ITEMS.register("music_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.MUSIC, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new MusicArmorItem(ModArmorMaterials.MUSIC, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> MUSIC_CHESTPLATE = ITEMS.register("music_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.MUSIC, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new MusicArmorItem(ModArmorMaterials.MUSIC, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> MUSIC_LEGGINGS = ITEMS.register("music_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.MUSIC, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new MusicArmorItem(ModArmorMaterials.MUSIC, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> MUSIC_BOOTS = ITEMS.register("music_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.MUSIC, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new MusicArmorItem(ModArmorMaterials.MUSIC, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Obsidian Armor Set
     public static final RegistryObject<Item> OBSIDIAN_HELMET = ITEMS.register("obsidian_helmet",
@@ -393,7 +393,7 @@ public class ModItems {
                                     net.minecraft.world.entity.EquipmentSlot slot, String type) {
             // Get the material name and convert to the correct path
             String materialName = this.getMaterial().getName().replace(VanillaPlus.MOD_ID + ":", "");
-            return "vanillaplus:textures/models/armor/averagetateman/" + materialName + "/" + materialName + "_layer_" + 
+            return "vanillaplus:textures/models/averagetateman/armor/" + materialName + "/layer_" + 
                    (slot == net.minecraft.world.entity.EquipmentSlot.LEGS ? "2" : "1") + ".png";
         }
     }
@@ -407,7 +407,7 @@ public class ModItems {
         @Override
         public String getArmorTexture(net.minecraft.world.item.ItemStack stack, net.minecraft.world.entity.Entity entity, 
                                     net.minecraft.world.entity.EquipmentSlot slot, String type) {
-            return "vanillaplus:textures/models/armor/averagetateman/book/book_layer_1";
+            return "vanillaplus:textures/models/elytra/averagetateman/book/book_layer_1";
         }
     }
 } 

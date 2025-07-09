@@ -1,6 +1,6 @@
-﻿{
+{
   "parent": "item/generated",
   "textures": {
-    "layer0": "vanillaplus:item/averagetateman/armors/skeleton/skeleton_chestplate"
+    "layer0": "vanillaplus:item/averagetateman/armors/skeleton/chestplate"
   }
 }

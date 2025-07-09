@@ -1,6 +1,6 @@
-﻿{
+{
   "parent": "item/generated",
   "textures": {
-    "layer0": "vanillaplus:item/averagetateman/armors/lapis/lapis_helmet"
+    "layer0": "vanillaplus:item/averagetateman/armors/lapis/helmet"
   }
 }

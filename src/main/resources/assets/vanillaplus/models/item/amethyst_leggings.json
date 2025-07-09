@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "vanillaplus:item/averagetateman/armors/amethyst/amethyst_leggings"
+    "layer0": "vanillaplus:item/averagetateman/armors/amethyst/leggings"
   }
-} 
+}

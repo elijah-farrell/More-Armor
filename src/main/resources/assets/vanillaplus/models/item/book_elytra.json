@@ -1,6 +1,6 @@
 {
-  "parent": "item/elytra",
+  "parent": "item/generated",
   "textures": {
-    "layer0": "vanillaplus:item/elytras/book_elytra"
+    "layer0": "vanillaplus:item/averagetateman/elytras/book_elytra"
   }
-} 
+}
