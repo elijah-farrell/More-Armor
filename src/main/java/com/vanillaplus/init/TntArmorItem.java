@@ -40,6 +40,6 @@ public class TntArmorItem extends ArmorItem {
         else frame = 11; // totalTicks < 200
         
         String layer = (slot == EquipmentSlot.LEGS) ? "layer_2" : "layer_1";
-        return String.format("vanillaplus:textures/models/averagetateman/armor/tnt/%s_frame%d.png", layer, frame);
+        return String.format("vanillaplus:textures/models/averagetateman/armors/tnt/%s_frame%d.png", layer, frame);
     }
 } 

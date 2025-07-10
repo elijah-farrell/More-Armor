@@ -19,7 +19,7 @@ public class MachineArmorItem extends ArmorItem {
             int[] layer2Sequence = {0, 1}; // 2-frame sequence
             int layer2FrameIndex = (entity.tickCount / 15) % layer2Sequence.length; // Change every 15 ticks
             int layer2Frame = layer2Sequence[layer2FrameIndex];
-            return String.format("vanillaplus:textures/models/averagetateman/armor/machine/layer_2_frame%d.png", layer2Frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/machine/layer_2_frame%d.png", layer2Frame);
         } else {
             // Layer 1 (helmet, chestplate, boots) - animated with complex sequence
             // Machine armor animation timing - based on OptiFine CIT config
@@ -27,7 +27,7 @@ public class MachineArmorItem extends ArmorItem {
             int[] layer1Sequence = {0, 1, 2, 1, 0, 3, 4, 5, 4, 3}; // 10-frame sequence
             int layer1FrameIndex = (entity.tickCount / 3) % layer1Sequence.length; // Change every 3 ticks
             int layer1Frame = layer1Sequence[layer1FrameIndex];
-            return String.format("vanillaplus:textures/models/averagetateman/armor/machine/layer_1_frame%d.png", layer1Frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/machine/layer_1_frame%d.png", layer1Frame);
         }
     }
 } 

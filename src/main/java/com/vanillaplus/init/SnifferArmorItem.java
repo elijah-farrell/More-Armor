@@ -18,7 +18,7 @@ public class SnifferArmorItem extends ArmorItem {
         // Layer 2 (leggings) is static
         if (slot == EquipmentSlot.LEGS) {
             // Static texture for leggings (layer 2)
-            return "vanillaplus:textures/models/averagetateman/armor/sniffer/layer_2.png";
+            return "vanillaplus:textures/models/averagetateman/armors/sniffer/layer_2.png";
         } else {
             // Animated texture for other pieces (layer 1)
             // Animation sequence: 0(100),2(3),0(3),2(3),0(100),1(3),0(3),1(3)
@@ -34,7 +34,7 @@ public class SnifferArmorItem extends ArmorItem {
             else if (totalTicks < 215) frame = 0;
             else frame = 1; // totalTicks < 218
             
-            return String.format("vanillaplus:textures/models/averagetateman/armor/sniffer/layer_1_frame%d.png", frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/sniffer/layer_1_frame%d.png", frame);
         }
     }
 } 

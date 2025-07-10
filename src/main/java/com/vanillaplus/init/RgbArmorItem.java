@@ -23,6 +23,6 @@ public class RgbArmorItem extends ArmorItem {
         int frame = (totalTicks / 5) % 18; // 5 ticks per frame, 18 frames
         
         String layer = (slot == EquipmentSlot.LEGS) ? "layer_2" : "layer_1";
-        return String.format("vanillaplus:textures/models/averagetateman/armor/rgb/%s_frame%d.png", layer, frame);
+        return String.format("vanillaplus:textures/models/averagetateman/armors/rgb/%s_frame%d.png", layer, frame);
     }
 } 

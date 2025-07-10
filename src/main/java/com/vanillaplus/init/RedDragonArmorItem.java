@@ -18,7 +18,7 @@ public class RedDragonArmorItem extends ArmorItem {
         // Layer 2 (leggings) is static
         if (slot == EquipmentSlot.LEGS) {
             // Static texture for leggings (layer 2)
-            return "vanillaplus:textures/models/averagetateman/armor/red_dragon/layer_2.png";
+            return "vanillaplus:textures/models/averagetateman/armors/red_dragon/layer_2.png";
         } else {
             // Animated texture for other pieces (layer 1)
             // Animation sequence: 0,1,0,2 (4 frames total)
@@ -31,7 +31,7 @@ public class RedDragonArmorItem extends ArmorItem {
             else if (framePosition == 2) frame = 0;
             else frame = 2; // framePosition == 3
             
-            return String.format("vanillaplus:textures/models/averagetateman/armor/red_dragon/layer_1_frame%d.png", frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/red_dragon/layer_1_frame%d.png", frame);
         }
     }
 } 

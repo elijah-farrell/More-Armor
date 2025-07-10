@@ -1,6 +1,7 @@
 package com.vanillaplus;
 
 import com.vanillaplus.init.ModItems;
+import com.vanillaplus.init.ModItems.CustomElytraItem;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -12,6 +13,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.Registries;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraft.world.entity.EquipmentSlot;
 
 @Mod(VanillaPlus.MOD_ID)
 public class VanillaPlus {
@@ -242,11 +246,18 @@ public class VanillaPlus {
                 
                 // Book Elytra Items
                 output.accept(ModItems.BOOK_ELYTRA.get());
-                output.accept(ModItems.TEST_ELYTRA.get());
+                output.accept(ModItems.CHICKEN_ELYTRA.get());
+                output.accept(ModItems.END_PORTAL_ELYTRA.get());
+                output.accept(ModItems.FAIRY_ELYTRA.get());
+                output.accept(ModItems.FIRE_ELYTRA.get());
+                output.accept(ModItems.FIRST_FLIGHT_ELYTRA.get());
+                output.accept(ModItems.ICE_ELYTRA.get());
+                output.accept(ModItems.LEAF_ELYTRA.get());
+                output.accept(ModItems.MELON_ELYTRA.get());
             })
             .build());
 
-    public VanillaPlus() {
+    public VanillaPlus() {        
         // Register items
         ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         
@@ -255,5 +266,25 @@ public class VanillaPlus {
         
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @SubscribeEvent
+    public void onLivingTick(LivingEvent.LivingTickEvent event) {
+        var entity = event.getEntity();
+        ItemStack chest = entity.getItemBySlot(EquipmentSlot.CHEST);
+        if (!chest.isEmpty() && chest.getItem() instanceof CustomElytraItem) {
+            if (chest.getDamageValue() >= chest.getMaxDamage() - 1 && chest.getMaxDamage() > 1) {
+                // Find the broken variant
+                String id = ForgeRegistries.ITEMS.getKey(chest.getItem()).getPath();
+                if (!id.startsWith("broken_")) {
+                    String brokenId = "broken_" + id;
+                    var brokenItem = ForgeRegistries.ITEMS.getValue(new net.minecraft.resources.ResourceLocation(VanillaPlus.MOD_ID, brokenId));
+                    if (brokenItem != null) {
+                        ItemStack brokenStack = new ItemStack(brokenItem);
+                        entity.setItemSlot(EquipmentSlot.CHEST, brokenStack);
+                    }
+                }
+            }
+        }
     }
 } 

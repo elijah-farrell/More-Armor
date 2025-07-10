@@ -16,7 +16,7 @@ public class EnderDragonArmorItem extends ArmorItem {
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
         if (slot == EquipmentSlot.LEGS) {
             // Layer 2 (leggings) - static, no animation
-            return "vanillaplus:textures/models/averagetateman/armor/ender_dragon/layer_2.png";
+            return "vanillaplus:textures/models/averagetateman/armors/ender_dragon/layer_2.png";
         } else {
             // Layer 1 (helmet, chestplate, boots) - animated
             // Ender dragon armor animation timing - based on OptiFine CIT config
@@ -25,7 +25,7 @@ public class EnderDragonArmorItem extends ArmorItem {
             int frameIndex = (entity.tickCount / 4) % frameSequence.length; // Change every 4 ticks (matches duration=4)
             int frame = frameSequence[frameIndex];
             
-            return String.format("vanillaplus:textures/models/averagetateman/armor/ender_dragon/layer_1_frame%d.png", frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/ender_dragon/layer_1_frame%d.png", frame);
         }
     }
 } 

@@ -3,8 +3,8 @@ package com.vanillaplus.init;
 import com.vanillaplus.VanillaPlus;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ElytraItem;
 import net.minecraft.world.item.Item;
+import java.util.List;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -372,15 +372,64 @@ public class ModItems {
     public static final RegistryObject<Item> WITHER_SKELETON_BOOTS = ITEMS.register("wither_skeleton_boots",
             () -> new CustomArmorItem(ModArmorMaterials.WITHER_SKELETON, ArmorItem.Type.BOOTS, new Item.Properties()));
 
-    // Book Elytra Items
+    // === Elytra Items ===
     public static final RegistryObject<Item> BOOK_ELYTRA = ITEMS.register("book_elytra",
-            () -> new CustomElytraItem(new Item.Properties()));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BROKEN_BOOK_ELYTRA = ITEMS.register("broken_book_elytra",
-            () -> new Item(new Item.Properties()));
-    
-    // Test Elytra (simple vanilla elytra for comparison)
-    public static final RegistryObject<Item> TEST_ELYTRA = ITEMS.register("test_elytra",
-            () -> new ElytraItem(new Item.Properties()));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> CHICKEN_ELYTRA = ITEMS.register("chicken_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_CHICKEN_ELYTRA = ITEMS.register("broken_chicken_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> END_PORTAL_ELYTRA = ITEMS.register("end_portal_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_END_PORTAL_ELYTRA = ITEMS.register("broken_end_portal_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> FAIRY_ELYTRA = ITEMS.register("fairy_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_FAIRY_ELYTRA = ITEMS.register("broken_fairy_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> FIRE_ELYTRA = ITEMS.register("fire_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_FIRE_ELYTRA = ITEMS.register("broken_fire_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> FIRST_FLIGHT_ELYTRA = ITEMS.register("first_flight_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_FIRST_FLIGHT_ELYTRA = ITEMS.register("broken_first_flight_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> ICE_ELYTRA = ITEMS.register("ice_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_ICE_ELYTRA = ITEMS.register("broken_ice_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> LEAF_ELYTRA = ITEMS.register("leaf_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_LEAF_ELYTRA = ITEMS.register("broken_leaf_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> MELON_ELYTRA = ITEMS.register("melon_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_MELON_ELYTRA = ITEMS.register("broken_melon_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    // List of all elytras for rendering and registration
+    public static final List<RegistryObject<Item>> ALL_ELYTRAS = List.of(
+        BOOK_ELYTRA, BROKEN_BOOK_ELYTRA,
+        CHICKEN_ELYTRA, BROKEN_CHICKEN_ELYTRA,
+        END_PORTAL_ELYTRA, BROKEN_END_PORTAL_ELYTRA,
+        FAIRY_ELYTRA, BROKEN_FAIRY_ELYTRA,
+        FIRE_ELYTRA, BROKEN_FIRE_ELYTRA,
+        FIRST_FLIGHT_ELYTRA, BROKEN_FIRST_FLIGHT_ELYTRA,
+        ICE_ELYTRA, BROKEN_ICE_ELYTRA,
+        LEAF_ELYTRA, BROKEN_LEAF_ELYTRA,
+        MELON_ELYTRA, BROKEN_MELON_ELYTRA
+    );
 
     // Dummy item for creative tab icon (not assigned to any creative tab)
     public static final RegistryObject<Item> ICON = ITEMS.register("icon",
@@ -397,21 +446,15 @@ public class ModItems {
                                     net.minecraft.world.entity.EquipmentSlot slot, String type) {
             // Get the material name and convert to the correct path
             String materialName = this.getMaterial().getName().replace(VanillaPlus.MOD_ID + ":", "");
-            return "vanillaplus:textures/models/averagetateman/armor/" + materialName + "/layer_" + 
+            return "vanillaplus:textures/models/averagetateman/armors/" + materialName + "/layer_" + 
                    (slot == net.minecraft.world.entity.EquipmentSlot.LEGS ? "2" : "1") + ".png";
         }
     }
     
     // Custom Elytra Item class that handles elytra functionality
-    private static class CustomElytraItem extends ElytraItem {
+    public static class CustomElytraItem extends net.minecraft.world.item.ElytraItem {
         public CustomElytraItem(Properties properties) {
             super(properties);
-        }
-        
-        @Override
-        public String getArmorTexture(net.minecraft.world.item.ItemStack stack, net.minecraft.world.entity.Entity entity, 
-                                    net.minecraft.world.entity.EquipmentSlot slot, String type) {
-            return "vanillaplus:textures/models/averagetateman/elytra/book/book_layer_1";
         }
         
         @Override
@@ -422,6 +465,14 @@ public class ModItems {
         @Override
         public boolean isValidRepairItem(net.minecraft.world.item.ItemStack toRepair, net.minecraft.world.item.ItemStack repair) {
             return repair.is(net.minecraft.world.item.Items.PHANTOM_MEMBRANE);
+        }
+
+        @Override
+        public net.minecraft.network.chat.Component getName(net.minecraft.world.item.ItemStack stack) {
+            // Use the translated name (no namespace prefix) and apply yellow formatting
+            return net.minecraft.world.item.ItemStack.EMPTY.getDescriptionId().equals(stack.getDescriptionId())
+                ? super.getName(stack)
+                : net.minecraft.network.chat.Component.translatable(this.getDescriptionId()).withStyle(net.minecraft.ChatFormatting.YELLOW);
         }
     }
 } 

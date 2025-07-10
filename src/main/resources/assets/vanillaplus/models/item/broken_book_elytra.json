@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "vanillaplus:item/averagetateman/elytras/broken_book_elytra"
+    "layer0": "vanillaplus:item/averagetateman/elytras/book/broken_book_elytra"
   }
 }

@@ -2,6 +2,14 @@
   "replace": false,
   "values": [
     "minecraft:elytra",
-    "vanillaplus:book_elytra"
+    "vanillaplus:book_elytra",
+    "vanillaplus:chicken_elytra",
+    "vanillaplus:end_portal_elytra",
+    "vanillaplus:fairy_elytra",
+    "vanillaplus:fire_elytra",
+    "vanillaplus:first_flight_elytra",
+    "vanillaplus:ice_elytra",
+    "vanillaplus:leaf_elytra",
+    "vanillaplus:melon_elytra"
   ]
 } 

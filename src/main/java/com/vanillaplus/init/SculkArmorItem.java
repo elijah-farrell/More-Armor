@@ -29,7 +29,7 @@ public class SculkArmorItem extends ArmorItem {
             else if (framePosition == 2) frame = 2;
             else frame = 1; // framePosition == 3
             
-            return String.format("vanillaplus:textures/models/averagetateman/armor/sculk/layer_2_frame%d.png", frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/sculk/layer_2_frame%d.png", frame);
         } else {
             // Layer 1 animation: 0,1,2,1,0,1,2,1,0,3,3,4,5,4,3,3 (16 frames total)
             int totalTicks = entity.tickCount % 320; // 16 frames * 20 ticks = 320 total
@@ -53,7 +53,7 @@ public class SculkArmorItem extends ArmorItem {
             else if (framePosition == 14) frame = 3;
             else frame = 3; // framePosition == 15
             
-            return String.format("vanillaplus:textures/models/averagetateman/armor/sculk/layer_1_frame%d.png", frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/sculk/layer_1_frame%d.png", frame);
         }
     }
 } 

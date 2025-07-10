@@ -23,6 +23,6 @@ public class GalaxyArmorItem extends ArmorItem {
             frame = 1 + ((totalTicks - 100) / 3);
         }
         String layer = (slot == EquipmentSlot.LEGS) ? "layer_2" : "layer_1";
-        return String.format("vanillaplus:textures/models/averagetateman/armor/galaxy/%s_frame%d.png", layer, frame);
+        return String.format("vanillaplus:textures/models/averagetateman/armors/galaxy/%s_frame%d.png", layer, frame);
     }
 } 

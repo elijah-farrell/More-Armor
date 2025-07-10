@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "vanillaplus:item/averagetateman/elytras/first_flight/broken_first_flight_elytra"
+  }
+} 

@@ -16,7 +16,7 @@ public class MusicArmorItem extends ArmorItem {
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
         if (slot == EquipmentSlot.LEGS) {
             // Layer 2 (leggings) - static, no animation
-            return "vanillaplus:textures/models/averagetateman/armor/music/layer_2.png";
+            return "vanillaplus:textures/models/averagetateman/armors/music/layer_2.png";
         } else {
             // Layer 1 (helmet, chestplate, boots) - animated with custom timing
             // Music armor animation timing - based on OptiFine CIT config
@@ -43,7 +43,7 @@ public class MusicArmorItem extends ArmorItem {
                 frame = (totalTicks - 115) % 6;
             }
             
-            return String.format("vanillaplus:textures/models/averagetateman/armor/music/layer_1_frame%d.png", frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/music/layer_1_frame%d.png", frame);
         }
     }
 } 

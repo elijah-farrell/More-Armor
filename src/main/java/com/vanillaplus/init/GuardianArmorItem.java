@@ -16,7 +16,7 @@ public class GuardianArmorItem extends ArmorItem {
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
         if (slot == EquipmentSlot.LEGS) {
             // Layer 2 (leggings) - static, no animation
-            return "vanillaplus:textures/models/averagetateman/armor/guardian/layer_2.png";
+            return "vanillaplus:textures/models/averagetateman/armors/guardian/layer_2.png";
         } else {
             // Layer 1 (helmet, chestplate, boots) - animated
             // Guardian armor animation timing - based on OptiFine CIT config
@@ -42,7 +42,7 @@ public class GuardianArmorItem extends ArmorItem {
             }
             
             int frame = frameSequence[frameIndex % frameSequence.length];
-            return String.format("vanillaplus:textures/models/averagetateman/armor/guardian/layer_1_frame%d.png", frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/guardian/layer_1_frame%d.png", frame);
         }
     }
 } 

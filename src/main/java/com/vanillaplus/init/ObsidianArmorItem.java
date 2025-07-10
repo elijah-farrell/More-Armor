@@ -18,7 +18,7 @@ public class ObsidianArmorItem extends ArmorItem {
         // Layer 2 (leggings) is static
         if (slot == EquipmentSlot.LEGS) {
             // Static texture for leggings (layer 2)
-            return "vanillaplus:textures/models/averagetateman/armor/obsidian/layer_2.png";
+            return "vanillaplus:textures/models/averagetateman/armors/obsidian/layer_2.png";
         } else {
             // Animated texture for other pieces (layer 1) - ping-pong: 0,1,2,3,4,3,2,1,0
             int totalTicks = entity.tickCount % 24; // 8 frames * 3 ticks = 24 total
@@ -33,7 +33,7 @@ public class ObsidianArmorItem extends ArmorItem {
                 frame = 7 - framePosition;
             }
             
-            return String.format("vanillaplus:textures/models/averagetateman/armor/obsidian/layer_1_frame%d.png", frame);
+            return String.format("vanillaplus:textures/models/averagetateman/armors/obsidian/layer_1_frame%d.png", frame);
         }
     }
 } 
