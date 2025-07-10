@@ -194,13 +194,13 @@ public class ModItems {
 
     // Magma Armor Set
     public static final RegistryObject<Item> MAGMA_HELMET = ITEMS.register("magma_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.MAGMA, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new MagmaArmorItem(ModArmorMaterials.MAGMA, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> MAGMA_CHESTPLATE = ITEMS.register("magma_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.MAGMA, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new MagmaArmorItem(ModArmorMaterials.MAGMA, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> MAGMA_LEGGINGS = ITEMS.register("magma_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.MAGMA, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new MagmaArmorItem(ModArmorMaterials.MAGMA, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> MAGMA_BOOTS = ITEMS.register("magma_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.MAGMA, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new MagmaArmorItem(ModArmorMaterials.MAGMA, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Music Armor Set
     public static final RegistryObject<Item> MUSIC_HELMET = ITEMS.register("music_helmet",
@@ -212,25 +212,25 @@ public class ModItems {
     public static final RegistryObject<Item> MUSIC_BOOTS = ITEMS.register("music_boots",
             () -> new MusicArmorItem(ModArmorMaterials.MUSIC, ArmorItem.Type.BOOTS, new Item.Properties()));
 
-    // Obsidian Armor Set
+    // Obsidian Armor Set (Animated)
     public static final RegistryObject<Item> OBSIDIAN_HELMET = ITEMS.register("obsidian_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new ObsidianArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> OBSIDIAN_CHESTPLATE = ITEMS.register("obsidian_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new ObsidianArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> OBSIDIAN_LEGGINGS = ITEMS.register("obsidian_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new ObsidianArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> OBSIDIAN_BOOTS = ITEMS.register("obsidian_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new ObsidianArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Pot Armor Set
     public static final RegistryObject<Item> POT_HELMET = ITEMS.register("pot_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.POT, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new PotArmorItem(ModArmorMaterials.POT, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> POT_CHESTPLATE = ITEMS.register("pot_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.POT, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new PotArmorItem(ModArmorMaterials.POT, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> POT_LEGGINGS = ITEMS.register("pot_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.POT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new PotArmorItem(ModArmorMaterials.POT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> POT_BOOTS = ITEMS.register("pot_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.POT, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new PotArmorItem(ModArmorMaterials.POT, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Power Suit Armor Set
     public static final RegistryObject<Item> POWER_SUIT_HELMET = ITEMS.register("power_suit_helmet",
@@ -254,13 +254,13 @@ public class ModItems {
 
     // Red Dragon Armor Set
     public static final RegistryObject<Item> RED_DRAGON_HELMET = ITEMS.register("red_dragon_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.RED_DRAGON, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new RedDragonArmorItem(ModArmorMaterials.RED_DRAGON, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> RED_DRAGON_CHESTPLATE = ITEMS.register("red_dragon_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.RED_DRAGON, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new RedDragonArmorItem(ModArmorMaterials.RED_DRAGON, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> RED_DRAGON_LEGGINGS = ITEMS.register("red_dragon_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.RED_DRAGON, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new RedDragonArmorItem(ModArmorMaterials.RED_DRAGON, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> RED_DRAGON_BOOTS = ITEMS.register("red_dragon_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.RED_DRAGON, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new RedDragonArmorItem(ModArmorMaterials.RED_DRAGON, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Redstone Armor Set
     public static final RegistryObject<Item> REDSTONE_HELMET = ITEMS.register("redstone_helmet",
@@ -284,13 +284,13 @@ public class ModItems {
 
     // RGB Armor Set
     public static final RegistryObject<Item> RGB_HELMET = ITEMS.register("rgb_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.RGB, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new RgbArmorItem(ModArmorMaterials.RGB, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> RGB_CHESTPLATE = ITEMS.register("rgb_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.RGB, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new RgbArmorItem(ModArmorMaterials.RGB, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> RGB_LEGGINGS = ITEMS.register("rgb_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.RGB, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new RgbArmorItem(ModArmorMaterials.RGB, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> RGB_BOOTS = ITEMS.register("rgb_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.RGB, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new RgbArmorItem(ModArmorMaterials.RGB, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Ruby Armor Set
     public static final RegistryObject<Item> RUBY_HELMET = ITEMS.register("ruby_helmet",
@@ -304,13 +304,13 @@ public class ModItems {
 
     // Sculk Armor Set
     public static final RegistryObject<Item> SCULK_HELMET = ITEMS.register("sculk_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new SculkArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> SCULK_CHESTPLATE = ITEMS.register("sculk_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new SculkArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> SCULK_LEGGINGS = ITEMS.register("sculk_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new SculkArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> SCULK_BOOTS = ITEMS.register("sculk_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new SculkArmorItem(ModArmorMaterials.SCULK, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Shulker Armor Set
     public static final RegistryObject<Item> SHULKER_HELMET = ITEMS.register("shulker_helmet",
@@ -334,23 +334,23 @@ public class ModItems {
 
     // Sniffer Armor Set
     public static final RegistryObject<Item> SNIFFER_HELMET = ITEMS.register("sniffer_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.SNIFFER, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new SnifferArmorItem(ModArmorMaterials.SNIFFER, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> SNIFFER_CHESTPLATE = ITEMS.register("sniffer_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.SNIFFER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new SnifferArmorItem(ModArmorMaterials.SNIFFER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> SNIFFER_LEGGINGS = ITEMS.register("sniffer_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.SNIFFER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new SnifferArmorItem(ModArmorMaterials.SNIFFER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> SNIFFER_BOOTS = ITEMS.register("sniffer_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.SNIFFER, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new SnifferArmorItem(ModArmorMaterials.SNIFFER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // TNT Armor Set
     public static final RegistryObject<Item> TNT_HELMET = ITEMS.register("tnt_helmet",
-            () -> new CustomArmorItem(ModArmorMaterials.TNT, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new TntArmorItem(ModArmorMaterials.TNT, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> TNT_CHESTPLATE = ITEMS.register("tnt_chestplate",
-            () -> new CustomArmorItem(ModArmorMaterials.TNT, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new TntArmorItem(ModArmorMaterials.TNT, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> TNT_LEGGINGS = ITEMS.register("tnt_leggings",
-            () -> new CustomArmorItem(ModArmorMaterials.TNT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new TntArmorItem(ModArmorMaterials.TNT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> TNT_BOOTS = ITEMS.register("tnt_boots",
-            () -> new CustomArmorItem(ModArmorMaterials.TNT, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new TntArmorItem(ModArmorMaterials.TNT, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // Totem Armor Set
     public static final RegistryObject<Item> TOTEM_HELMET = ITEMS.register("totem_helmet",
@@ -377,6 +377,10 @@ public class ModItems {
             () -> new CustomElytraItem(new Item.Properties()));
     public static final RegistryObject<Item> BROKEN_BOOK_ELYTRA = ITEMS.register("broken_book_elytra",
             () -> new Item(new Item.Properties()));
+    
+    // Test Elytra (simple vanilla elytra for comparison)
+    public static final RegistryObject<Item> TEST_ELYTRA = ITEMS.register("test_elytra",
+            () -> new ElytraItem(new Item.Properties()));
 
     // Dummy item for creative tab icon (not assigned to any creative tab)
     public static final RegistryObject<Item> ICON = ITEMS.register("icon",
@@ -407,7 +411,17 @@ public class ModItems {
         @Override
         public String getArmorTexture(net.minecraft.world.item.ItemStack stack, net.minecraft.world.entity.Entity entity, 
                                     net.minecraft.world.entity.EquipmentSlot slot, String type) {
-            return "vanillaplus:textures/models/elytra/averagetateman/book/book_layer_1";
+            return "vanillaplus:textures/models/averagetateman/elytra/book/book_layer_1";
+        }
+        
+        @Override
+        public boolean canElytraFly(net.minecraft.world.item.ItemStack stack, net.minecraft.world.entity.LivingEntity entity) {
+            return true;
+        }
+        
+        @Override
+        public boolean isValidRepairItem(net.minecraft.world.item.ItemStack toRepair, net.minecraft.world.item.ItemStack repair) {
+            return repair.is(net.minecraft.world.item.Items.PHANTOM_MEMBRANE);
         }
     }
 } 

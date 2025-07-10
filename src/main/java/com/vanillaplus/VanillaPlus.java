@@ -242,6 +242,7 @@ public class VanillaPlus {
                 
                 // Book Elytra Items
                 output.accept(ModItems.BOOK_ELYTRA.get());
+                output.accept(ModItems.TEST_ELYTRA.get());
             })
             .build());
 
