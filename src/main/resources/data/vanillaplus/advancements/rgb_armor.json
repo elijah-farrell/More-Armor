@@ -1,0 +1,71 @@
+{
+  "display": {
+    "icon": {
+      "item": "vanillaplus:rgb_chestplate"
+    },
+    "title": {
+      "translate": "advancement.vanillaplus.rgb_armor.title"
+    },
+    "description": {
+      "translate": "advancement.vanillaplus.rgb_armor.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "vanillaplus:vanillaplus_advancements",
+  "criteria": {
+    "craft_rgb_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["vanillaplus:rgb_helmet"]
+          }
+        ]
+      }
+    },
+    "craft_rgb_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["vanillaplus:rgb_chestplate"]
+          }
+        ]
+      }
+    },
+    "craft_rgb_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["vanillaplus:rgb_leggings"]
+          }
+        ]
+      }
+    },
+    "craft_rgb_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["vanillaplus:rgb_boots"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "craft_rgb_helmet",
+      "craft_rgb_chestplate",
+      "craft_rgb_leggings",
+      "craft_rgb_boots"
+    ]
+  ],
+  "rewards": {
+    "experience": 75
+  }
+} 

@@ -28,7 +28,7 @@ public class CustomElytraLayer<T extends LivingEntity, M extends net.minecraft.c
                 String path = id.getPath();
                 boolean broken = path.startsWith("broken_");
                 String base = broken ? path.substring("broken_".length(), path.length() - "_elytra".length()) : path.substring(0, path.length() - "_elytra".length());
-                String tex = "models/averagetateman/elytras/" + base + "/" + (broken ? "broken_" : "") + base + "_elytra.png";
+                String tex = "textures/models/averagetateman/elytras/" + base + "/" + (broken ? "broken_" : "") + base + "_elytra.png";
                 ELYTRA_TEXTURES.put(item, new ResourceLocation(VanillaPlus.MOD_ID, tex));
             }
         }

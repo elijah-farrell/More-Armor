@@ -244,16 +244,45 @@ public class VanillaPlus {
                 output.accept(ModItems.WITHER_SKELETON_LEGGINGS.get());
                 output.accept(ModItems.WITHER_SKELETON_BOOTS.get());
                 
-                // Book Elytra Items
+                // Elytra Items
                 output.accept(ModItems.BOOK_ELYTRA.get());
+                output.accept(ModItems.BROKEN_BOOK_ELYTRA.get());
                 output.accept(ModItems.CHICKEN_ELYTRA.get());
+                output.accept(ModItems.BROKEN_CHICKEN_ELYTRA.get());
                 output.accept(ModItems.END_PORTAL_ELYTRA.get());
+                output.accept(ModItems.BROKEN_END_PORTAL_ELYTRA.get());
                 output.accept(ModItems.FAIRY_ELYTRA.get());
+                output.accept(ModItems.BROKEN_FAIRY_ELYTRA.get());
                 output.accept(ModItems.FIRE_ELYTRA.get());
+                output.accept(ModItems.BROKEN_FIRE_ELYTRA.get());
                 output.accept(ModItems.FIRST_FLIGHT_ELYTRA.get());
+                output.accept(ModItems.BROKEN_FIRST_FLIGHT_ELYTRA.get());
                 output.accept(ModItems.ICE_ELYTRA.get());
+                output.accept(ModItems.BROKEN_ICE_ELYTRA.get());
                 output.accept(ModItems.LEAF_ELYTRA.get());
+                output.accept(ModItems.BROKEN_LEAF_ELYTRA.get());
                 output.accept(ModItems.MELON_ELYTRA.get());
+                output.accept(ModItems.BROKEN_MELON_ELYTRA.get());
+                output.accept(ModItems.NETHER_PORTAL_ELYTRA.get());
+                output.accept(ModItems.BROKEN_NETHER_PORTAL_ELYTRA.get());
+                output.accept(ModItems.OCTOPUS_ELYTRA.get());
+                output.accept(ModItems.BROKEN_OCTOPUS_ELYTRA.get());
+                output.accept(ModItems.PARROT_ELYTRA.get());
+                output.accept(ModItems.BROKEN_PARROT_ELYTRA.get());
+                output.accept(ModItems.PUMPKIN_ELYTRA.get());
+                output.accept(ModItems.BROKEN_PUMPKIN_ELYTRA.get());
+                output.accept(ModItems.RGB_ELYTRA.get());
+                output.accept(ModItems.BROKEN_RGB_ELYTRA.get());
+                output.accept(ModItems.SHIELD_ELYTRA.get());
+                output.accept(ModItems.BROKEN_SHIELD_ELYTRA.get());
+                output.accept(ModItems.SOUL_FIRE_ELYTRA.get());
+                output.accept(ModItems.BROKEN_SOUL_FIRE_ELYTRA.get());
+                output.accept(ModItems.SPIDER_ELYTRA.get());
+                output.accept(ModItems.BROKEN_SPIDER_ELYTRA.get());
+                output.accept(ModItems.TARGET_ELYTRA.get());
+                output.accept(ModItems.BROKEN_TARGET_ELYTRA.get());
+                output.accept(ModItems.WIFI_ELYTRA.get());
+                output.accept(ModItems.BROKEN_WIFI_ELYTRA.get());
             })
             .build());
 

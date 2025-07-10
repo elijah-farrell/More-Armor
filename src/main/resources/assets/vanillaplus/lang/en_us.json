@@ -1,20 +1,15 @@
 {
   "itemGroup.vanillaplus": "Vanilla+",
   
-  "item.vanillaplus.galaxy_helmet": "Galaxy Helmet",
-  "item.vanillaplus.galaxy_chestplate": "Galaxy Chestplate",
-  "item.vanillaplus.galaxy_leggings": "Galaxy Leggings",
-  "item.vanillaplus.galaxy_boots": "Galaxy Boots",
+  "item.vanillaplus.ancient_debris_helmet": "Ancient Debris Helmet",
+  "item.vanillaplus.ancient_debris_chestplate": "Ancient Debris Chestplate",
+  "item.vanillaplus.ancient_debris_leggings": "Ancient Debris Leggings",
+  "item.vanillaplus.ancient_debris_boots": "Ancient Debris Boots",
   
   "item.vanillaplus.amethyst_helmet": "Amethyst Helmet",
   "item.vanillaplus.amethyst_chestplate": "Amethyst Chestplate",
   "item.vanillaplus.amethyst_leggings": "Amethyst Leggings",
   "item.vanillaplus.amethyst_boots": "Amethyst Boots",
-  
-  "item.vanillaplus.ancient_debris_helmet": "Ancient Debris Helmet",
-  "item.vanillaplus.ancient_debris_chestplate": "Ancient Debris Chestplate",
-  "item.vanillaplus.ancient_debris_leggings": "Ancient Debris Leggings",
-  "item.vanillaplus.ancient_debris_boots": "Ancient Debris Boots",
   
   "item.vanillaplus.bedrock_helmet": "Bedrock Helmet",
   "item.vanillaplus.bedrock_chestplate": "Bedrock Chestplate",
@@ -198,5 +193,83 @@
   "item.vanillaplus.leaf_elytra": "Leaf Elytra",
   "item.vanillaplus.broken_leaf_elytra": "Broken Leaf Elytra",
   "item.vanillaplus.melon_elytra": "Melon Elytra",
-  "item.vanillaplus.broken_melon_elytra": "Broken Melon Elytra"
+  "item.vanillaplus.broken_melon_elytra": "Broken Melon Elytra",
+  "item.vanillaplus.nether_portal_elytra": "Nether Portal Elytra",
+  "item.vanillaplus.broken_nether_portal_elytra": "Broken Nether Portal Elytra",
+  "item.vanillaplus.octopus_elytra": "Octopus Elytra",
+  "item.vanillaplus.broken_octopus_elytra": "Broken Octopus Elytra",
+  "item.vanillaplus.parrot_elytra": "Parrot Elytra",
+  "item.vanillaplus.broken_parrot_elytra": "Broken Parrot Elytra",
+  "item.vanillaplus.pumpkin_elytra": "Pumpkin Elytra",
+  "item.vanillaplus.broken_pumpkin_elytra": "Broken Pumpkin Elytra",
+  "item.vanillaplus.rgb_elytra": "RGB Elytra",
+  "item.vanillaplus.broken_rgb_elytra": "Broken RGB Elytra",
+  "item.vanillaplus.shield_elytra": "Shield Elytra",
+  "item.vanillaplus.broken_shield_elytra": "Broken Shield Elytra",
+  "item.vanillaplus.soul_fire_elytra": "Soul Fire Elytra",
+  "item.vanillaplus.broken_soul_fire_elytra": "Broken Soul Fire Elytra",
+  "item.vanillaplus.spider_elytra": "Spider Elytra",
+  "item.vanillaplus.broken_spider_elytra": "Broken Spider Elytra",
+  "item.vanillaplus.target_elytra": "Target Elytra",
+  "item.vanillaplus.broken_target_elytra": "Broken Target Elytra",
+  "item.vanillaplus.wifi_elytra": "WiFi Elytra",
+  "item.vanillaplus.broken_wifi_elytra": "Broken WiFi Elytra",
+  "item.vanillaplus.icon": "VanillaPlus Icon",
+  
+  "advancement.vanillaplus.root.title": "VanillaPlus",
+  "advancement.vanillaplus.root.description": "Welcome to VanillaPlus! Craft your first piece of custom armor.",
+  
+  "advancement.vanillaplus.armor_collector.title": "Armor Collector",
+  "advancement.vanillaplus.armor_collector.description": "Collect all 36 armor sets from VanillaPlus",
+  
+  "advancement.vanillaplus.elytra_collector.title": "Elytra Collector",
+  "advancement.vanillaplus.elytra_collector.description": "Collect all 19 elytra types from VanillaPlus",
+  
+  "advancement.vanillaplus.ancient_debris_armor.title": "Nether's Finest",
+  "advancement.vanillaplus.ancient_debris_armor.description": "Craft a complete Ancient Debris armor set",
+  
+  "advancement.vanillaplus.ender_dragon_armor.title": "Dragon Slayer's Pride",
+  "advancement.vanillaplus.ender_dragon_armor.description": "Craft a complete Ender Dragon armor set",
+  
+  "advancement.vanillaplus.galaxy_armor.title": "Stellar Protection",
+  "advancement.vanillaplus.galaxy_armor.description": "Craft a complete Galaxy armor set",
+  
+  "advancement.vanillaplus.bee_armor.title": "Buzzing with Style",
+  "advancement.vanillaplus.bee_armor.description": "Craft a complete Bee armor set",
+  
+  "advancement.vanillaplus.tnt_armor.title": "Explosive Fashion",
+  "advancement.vanillaplus.tnt_armor.description": "Craft a complete TNT armor set",
+  
+  "advancement.vanillaplus.book_elytra.title": "Knowledge Takes Flight",
+  "advancement.vanillaplus.book_elytra.description": "Obtain a Book Elytra",
+  
+  "advancement.vanillaplus.fire_elytra.title": "Burning Through the Sky",
+  "advancement.vanillaplus.fire_elytra.description": "Obtain a Fire Elytra",
+  
+  "advancement.vanillaplus.glass_armor.title": "Transparent Protection",
+  "advancement.vanillaplus.glass_armor.description": "Craft a complete Glass armor set",
+  
+  "advancement.vanillaplus.rgb_armor.title": "Rainbow Warrior",
+  "advancement.vanillaplus.rgb_armor.description": "Craft a complete RGB armor set",
+  
+  "advancement.vanillaplus.end_portal_elytra.title": "Portal to the Stars",
+  "advancement.vanillaplus.end_portal_elytra.description": "Obtain an End Portal Elytra",
+  
+  "advancement.vanillaplus.fairy_elytra.title": "Fairy Wings",
+  "advancement.vanillaplus.fairy_elytra.description": "Obtain a Fairy Elytra",
+  
+  "advancement.vanillaplus.red_dragon_armor.title": "Crimson Dragon",
+  "advancement.vanillaplus.red_dragon_armor.description": "Craft a complete Red Dragon armor set",
+  
+  "advancement.vanillaplus.power_suit_armor.title": "Powered Up",
+  "advancement.vanillaplus.power_suit_armor.description": "Craft a complete Power Suit armor set",
+  
+  "advancement.vanillaplus.sculk_armor.title": "Deep Dark Guardian",
+  "advancement.vanillaplus.sculk_armor.description": "Craft a complete Sculk armor set",
+  
+  "advancement.vanillaplus.rgb_elytra.title": "Rainbow Wings",
+  "advancement.vanillaplus.rgb_elytra.description": "Obtain an RGB Elytra",
+  
+  "advancement.vanillaplus.nether_portal_elytra.title": "Nether Gateway",
+  "advancement.vanillaplus.nether_portal_elytra.description": "Obtain a Nether Portal Elytra"
 } 

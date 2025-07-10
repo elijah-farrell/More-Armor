@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "vanillaplus:nether_portal_elytra"
+    },
+    "title": {
+      "translate": "advancement.vanillaplus.nether_portal_elytra.title"
+    },
+    "description": {
+      "translate": "advancement.vanillaplus.nether_portal_elytra.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "vanillaplus:vanillaplus_advancements",
+  "criteria": {
+    "obtain_nether_portal_elytra": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["vanillaplus:nether_portal_elytra"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_nether_portal_elytra"
+    ]
+  ],
+  "rewards": {
+    "experience": 75
+  }
+} 

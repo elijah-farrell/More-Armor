@@ -418,6 +418,56 @@ public class ModItems {
     public static final RegistryObject<Item> BROKEN_MELON_ELYTRA = ITEMS.register("broken_melon_elytra",
             () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
 
+    public static final RegistryObject<Item> NETHER_PORTAL_ELYTRA = ITEMS.register("nether_portal_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_NETHER_PORTAL_ELYTRA = ITEMS.register("broken_nether_portal_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> OCTOPUS_ELYTRA = ITEMS.register("octopus_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_OCTOPUS_ELYTRA = ITEMS.register("broken_octopus_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> PARROT_ELYTRA = ITEMS.register("parrot_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_PARROT_ELYTRA = ITEMS.register("broken_parrot_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> PUMPKIN_ELYTRA = ITEMS.register("pumpkin_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_PUMPKIN_ELYTRA = ITEMS.register("broken_pumpkin_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> RGB_ELYTRA = ITEMS.register("rgb_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_RGB_ELYTRA = ITEMS.register("broken_rgb_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> SHIELD_ELYTRA = ITEMS.register("shield_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_SHIELD_ELYTRA = ITEMS.register("broken_shield_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> SOUL_FIRE_ELYTRA = ITEMS.register("soul_fire_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_SOUL_FIRE_ELYTRA = ITEMS.register("broken_soul_fire_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> SPIDER_ELYTRA = ITEMS.register("spider_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_SPIDER_ELYTRA = ITEMS.register("broken_spider_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> TARGET_ELYTRA = ITEMS.register("target_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_TARGET_ELYTRA = ITEMS.register("broken_target_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> WIFI_ELYTRA = ITEMS.register("wifi_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BROKEN_WIFI_ELYTRA = ITEMS.register("broken_wifi_elytra",
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+
     // List of all elytras for rendering and registration
     public static final List<RegistryObject<Item>> ALL_ELYTRAS = List.of(
         BOOK_ELYTRA, BROKEN_BOOK_ELYTRA,
@@ -428,7 +478,17 @@ public class ModItems {
         FIRST_FLIGHT_ELYTRA, BROKEN_FIRST_FLIGHT_ELYTRA,
         ICE_ELYTRA, BROKEN_ICE_ELYTRA,
         LEAF_ELYTRA, BROKEN_LEAF_ELYTRA,
-        MELON_ELYTRA, BROKEN_MELON_ELYTRA
+        MELON_ELYTRA, BROKEN_MELON_ELYTRA,
+        NETHER_PORTAL_ELYTRA, BROKEN_NETHER_PORTAL_ELYTRA,
+        OCTOPUS_ELYTRA, BROKEN_OCTOPUS_ELYTRA,
+        PARROT_ELYTRA, BROKEN_PARROT_ELYTRA,
+        PUMPKIN_ELYTRA, BROKEN_PUMPKIN_ELYTRA,
+        RGB_ELYTRA, BROKEN_RGB_ELYTRA,
+        SHIELD_ELYTRA, BROKEN_SHIELD_ELYTRA,
+        SOUL_FIRE_ELYTRA, BROKEN_SOUL_FIRE_ELYTRA,
+        SPIDER_ELYTRA, BROKEN_SPIDER_ELYTRA,
+        TARGET_ELYTRA, BROKEN_TARGET_ELYTRA,
+        WIFI_ELYTRA, BROKEN_WIFI_ELYTRA
     );
 
     // Dummy item for creative tab icon (not assigned to any creative tab)

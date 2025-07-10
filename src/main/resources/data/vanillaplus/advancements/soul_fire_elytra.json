@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "vanillaplus:soul_fire_elytra"
+    },
+    "title": {
+      "translate": "advancement.vanillaplus.soul_fire_elytra.title"
+    },
+    "description": {
+      "translate": "advancement.vanillaplus.soul_fire_elytra.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "vanillaplus:vanillaplus_advancements",
+  "criteria": {
+    "obtain_soul_fire_elytra": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["vanillaplus:soul_fire_elytra"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_soul_fire_elytra"
+    ]
+  ],
+  "rewards": {
+    "experience": 75
+  }
+} 
