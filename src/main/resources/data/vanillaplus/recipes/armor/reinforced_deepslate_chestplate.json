@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:reinforced_deepslate"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:reinforced_deepslate_chestplate",
+    "count": 1
+  }
+}

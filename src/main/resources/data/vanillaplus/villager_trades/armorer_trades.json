@@ -1,0 +1,47 @@
+{
+  "profession": "armorer",
+  "tiers": {
+    "1": [
+      {
+        "type": "sell",
+        "item": "vanillaplus:emerald_helmet",
+        "price": {
+          "item": "minecraft:emerald",
+          "count": 8
+        },
+        "max_uses": 12
+      },
+      {
+        "type": "sell",
+        "item": "vanillaplus:emerald_boots",
+        "price": {
+          "item": "minecraft:emerald",
+          "count": 6
+        },
+        "max_uses": 12
+      }
+    ],
+    "2": [
+      {
+        "type": "sell",
+        "item": "vanillaplus:emerald_leggings",
+        "price": {
+          "item": "minecraft:emerald",
+          "count": 10
+        },
+        "max_uses": 12
+      }
+    ],
+    "3": [
+      {
+        "type": "sell",
+        "item": "vanillaplus:emerald_chestplate",
+        "price": {
+          "item": "minecraft:emerald",
+          "count": 12
+        },
+        "max_uses": 12
+      }
+    ]
+  }
+} 

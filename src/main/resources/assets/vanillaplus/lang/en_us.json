@@ -71,6 +71,11 @@
   "item.vanillaplus.glass_leggings": "Glass Leggings",
   "item.vanillaplus.glass_boots": "Glass Boots",
   
+  "item.vanillaplus.galaxy_helmet": "Galaxy Helmet",
+  "item.vanillaplus.galaxy_chestplate": "Galaxy Chestplate",
+  "item.vanillaplus.galaxy_leggings": "Galaxy Leggings",
+  "item.vanillaplus.galaxy_boots": "Galaxy Boots",
+  
   "item.vanillaplus.guardian_helmet": "Guardian Helmet",
   "item.vanillaplus.guardian_chestplate": "Guardian Chestplate",
   "item.vanillaplus.guardian_leggings": "Guardian Leggings",
@@ -233,6 +238,9 @@
   
   "advancement.vanillaplus.galaxy_armor.title": "Stellar Protection",
   "advancement.vanillaplus.galaxy_armor.description": "Craft a complete Galaxy armor set",
+  
+  "key.vanillaplus.open_config_gui": "Open Armor Config GUI",
+  "key.categories.vanillaplus": "VanillaPlus",
   
   "advancement.vanillaplus.bee_armor.title": "Buzzing with Style",
   "advancement.vanillaplus.bee_armor.description": "Craft a complete Bee armor set",

@@ -1,0 +1,47 @@
+{
+  "profession": "wandering_trader",
+  "tiers": {
+    "1": [
+      {
+        "type": "sell",
+        "item": "vanillaplus:ruby_helmet",
+        "price": {
+          "item": "minecraft:emerald",
+          "count": 12
+        },
+        "max_uses": 8
+      },
+      {
+        "type": "sell",
+        "item": "vanillaplus:ruby_boots",
+        "price": {
+          "item": "minecraft:emerald",
+          "count": 10
+        },
+        "max_uses": 8
+      }
+    ],
+    "2": [
+      {
+        "type": "sell",
+        "item": "vanillaplus:ruby_leggings",
+        "price": {
+          "item": "minecraft:emerald",
+          "count": 14
+        },
+        "max_uses": 8
+      }
+    ],
+    "3": [
+      {
+        "type": "sell",
+        "item": "vanillaplus:ruby_chestplate",
+        "price": {
+          "item": "minecraft:emerald",
+          "count": 16
+        },
+        "max_uses": 8
+      }
+    ]
+  }
+} 

@@ -101,13 +101,15 @@ repositories {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
     }
+    
+
 }
 
 dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.20.1-47.1.0'
+    minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
 
     // Real mod deobf dependency examples - these will get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}") // Adds JEI API as a compile dependency

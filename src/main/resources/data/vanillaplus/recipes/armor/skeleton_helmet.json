@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IXI",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:skeleton_skull"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:bone"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:skeleton_helmet",
+    "count": 1
+  }
+} 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:glass_chestplate",
+    "count": 1
+  }
+}

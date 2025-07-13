@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "GXG",
+    "XGX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:blackstone"
+    },
+    "G": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:gilded_chestplate",
+    "count": 1
+  }
+} 

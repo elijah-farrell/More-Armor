@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BXB",
+    "BBB"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:netherite_leggings"
+    },
+    "B": {
+      "item": "minecraft:blue_dye"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:power_suit_leggings",
+    "count": 1
+  }
+} 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:coal"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:coal_boots",
+    "count": 1
+  }
+}

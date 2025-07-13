@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:sculk"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:sculk_leggings",
+    "count": 1
+  }
+} 

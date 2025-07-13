@@ -374,99 +374,99 @@ public class ModItems {
 
     // === Elytra Items ===
     public static final RegistryObject<Item> BOOK_ELYTRA = ITEMS.register("book_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_BOOK_ELYTRA = ITEMS.register("broken_book_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> CHICKEN_ELYTRA = ITEMS.register("chicken_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_CHICKEN_ELYTRA = ITEMS.register("broken_chicken_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> END_PORTAL_ELYTRA = ITEMS.register("end_portal_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_END_PORTAL_ELYTRA = ITEMS.register("broken_end_portal_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> FAIRY_ELYTRA = ITEMS.register("fairy_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_FAIRY_ELYTRA = ITEMS.register("broken_fairy_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> FIRE_ELYTRA = ITEMS.register("fire_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_FIRE_ELYTRA = ITEMS.register("broken_fire_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> FIRST_FLIGHT_ELYTRA = ITEMS.register("first_flight_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_FIRST_FLIGHT_ELYTRA = ITEMS.register("broken_first_flight_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> ICE_ELYTRA = ITEMS.register("ice_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_ICE_ELYTRA = ITEMS.register("broken_ice_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> LEAF_ELYTRA = ITEMS.register("leaf_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_LEAF_ELYTRA = ITEMS.register("broken_leaf_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> MELON_ELYTRA = ITEMS.register("melon_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_MELON_ELYTRA = ITEMS.register("broken_melon_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> NETHER_PORTAL_ELYTRA = ITEMS.register("nether_portal_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_NETHER_PORTAL_ELYTRA = ITEMS.register("broken_nether_portal_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> OCTOPUS_ELYTRA = ITEMS.register("octopus_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_OCTOPUS_ELYTRA = ITEMS.register("broken_octopus_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> PARROT_ELYTRA = ITEMS.register("parrot_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_PARROT_ELYTRA = ITEMS.register("broken_parrot_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> PUMPKIN_ELYTRA = ITEMS.register("pumpkin_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_PUMPKIN_ELYTRA = ITEMS.register("broken_pumpkin_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> RGB_ELYTRA = ITEMS.register("rgb_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_RGB_ELYTRA = ITEMS.register("broken_rgb_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> SHIELD_ELYTRA = ITEMS.register("shield_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_SHIELD_ELYTRA = ITEMS.register("broken_shield_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> SOUL_FIRE_ELYTRA = ITEMS.register("soul_fire_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_SOUL_FIRE_ELYTRA = ITEMS.register("broken_soul_fire_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> SPIDER_ELYTRA = ITEMS.register("spider_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_SPIDER_ELYTRA = ITEMS.register("broken_spider_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> TARGET_ELYTRA = ITEMS.register("target_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_TARGET_ELYTRA = ITEMS.register("broken_target_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     public static final RegistryObject<Item> WIFI_ELYTRA = ITEMS.register("wifi_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
     public static final RegistryObject<Item> BROKEN_WIFI_ELYTRA = ITEMS.register("broken_wifi_elytra",
-            () -> new CustomElytraItem(new Item.Properties().stacksTo(1)));
+            () -> new CustomElytraItem(new Item.Properties().stacksTo(1).durability(432)));
 
     // List of all elytras for rendering and registration
     public static final List<RegistryObject<Item>> ALL_ELYTRAS = List.of(
@@ -519,7 +519,8 @@ public class ModItems {
         
         @Override
         public boolean canElytraFly(net.minecraft.world.item.ItemStack stack, net.minecraft.world.entity.LivingEntity entity) {
-            return true;
+            // Check if this is a broken elytra (max damage) or if the stack is too damaged
+            return stack.getDamageValue() < stack.getMaxDamage() - 1;
         }
         
         @Override
@@ -528,11 +529,27 @@ public class ModItems {
         }
 
         @Override
+        public int getMaxDamage(net.minecraft.world.item.ItemStack stack) {
+            return 432; // Same as vanilla elytra
+        }
+
+        @Override
         public net.minecraft.network.chat.Component getName(net.minecraft.world.item.ItemStack stack) {
-            // Use the translated name (no namespace prefix) and apply yellow formatting
-            return net.minecraft.world.item.ItemStack.EMPTY.getDescriptionId().equals(stack.getDescriptionId())
+            // Get the base name without "broken_" prefix for consistent naming
+            String descriptionId = this.getDescriptionId();
+            String baseName;
+            
+            if (descriptionId.contains("broken_")) {
+                // For broken elytras, get the name of the normal variant
+                baseName = descriptionId.replace("broken_", "");
+            } else {
+                baseName = descriptionId;
+            }
+            
+            // Use the translated name and apply yellow formatting
+            return net.minecraft.world.item.ItemStack.EMPTY.getDescriptionId().equals(descriptionId)
                 ? super.getName(stack)
-                : net.minecraft.network.chat.Component.translatable(this.getDescriptionId()).withStyle(net.minecraft.ChatFormatting.YELLOW);
+                : net.minecraft.network.chat.Component.translatable(baseName).withStyle(net.minecraft.ChatFormatting.YELLOW);
         }
     }
 } 

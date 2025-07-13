@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:sculk"
+    },
+    "E": {
+      "item": "minecraft:sculk_sensor"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:sculk_helmet",
+    "count": 1
+  }
+} 

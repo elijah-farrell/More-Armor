@@ -315,7 +315,7 @@ public class ModArmorMaterials {
             new int[]{3, 6, 8, 3}, // protection values
             12, // enchantment value
             SoundEvents.ARMOR_EQUIP_IRON,
-            2.0f, // toughness
+            2.0f, // toughness 
             0.0f, // knockback resistance
             () -> Ingredient.of(Items.WHITE_DYE)
     );

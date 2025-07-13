@@ -18,8 +18,8 @@ public class TntArmorItem extends ArmorItem {
         // Layer 1: helmet, chestplate, boots
         // Layer 2: leggings
         
-        // Animation sequence: 0(100),1(5),0(5),1(5),0(5),1(5),2(2),3(2),4(2),5(2),6(2),7(2),8(2),9(2),10(2),11(50)
-        int totalTicks = entity.tickCount % 200; // 100+5+5+5+5+5+2+2+2+2+2+2+2+2+2+50 = 200 total
+        // Animation sequence: 0(100),1(5),0(5),1(5),0(5),1(5),2(2),3(2),4(2),5(2),6(2),7(2),8(2),9(2),10(2),11(20)
+        int totalTicks = entity.tickCount % 163; // 100+5+5+5+5+5+2+2+2+2+2+2+2+2+2+20 = 163 total
         
         int frame;
         if (totalTicks < 100) frame = 0;
@@ -37,7 +37,7 @@ public class TntArmorItem extends ArmorItem {
         else if (totalTicks < 139) frame = 8;
         else if (totalTicks < 141) frame = 9;
         else if (totalTicks < 143) frame = 10;
-        else frame = 11; // totalTicks < 200
+        else frame = 11; // totalTicks < 163 (143-163 = 20 ticks for frame 11)
         
         String layer = (slot == EquipmentSlot.LEGS) ? "layer_2" : "layer_1";
         return String.format("vanillaplus:textures/models/averagetateman/armors/tnt/%s_frame%d.png", layer, frame);

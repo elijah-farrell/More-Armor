@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:ancient_debris"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:ancient_debris_leggings",
+    "count": 1
+  }
+} 

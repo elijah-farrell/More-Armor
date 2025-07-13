@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:cactus"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:cactus_helmet",
+    "count": 1
+  }
+}

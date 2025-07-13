@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XJX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:note_block"
+    },
+    "J": {
+      "item": "minecraft:jukebox"
+    }
+  },
+  "result": {
+    "item": "vanillaplus:music_helmet",
+    "count": 1
+  }
+}
