@@ -6,11 +6,9 @@ license="Custom - Attribution Required"
 modId="morearmor"
 version="1.0.0"
 displayName="More Armor"
-authors="YourName"
+authors="Elijah Farrell"
 description='''
 A Minecraft Forge mod that adds various vanilla-style armor sets.
-Starting with custom armor sets inspired by TaTe's Custom Armors and Elytras CIT resource pack.
-
 Textures by AverageTaTeMan from TaTe's Custom Armors resource pack.
 Mod created by Elijah Farrell.
 
