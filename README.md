@@ -4,11 +4,11 @@
 
 ![MoreArmor Logo](docs/images/morearmor_logo.png)
 
-**A comprehensive Minecraft mod that expands the vanilla experience with 36 unique armor sets featuring beautiful animations and unique designs.**
+**A comprehensive Minecraft mod that adds some fun to your world with 36 unique armor sets featuring beautiful animations and unique designs.**
 
 [![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.1-blue.svg)](https://www.minecraft.net/)
 [![Forge Version](https://img.shields.io/badge/Forge-47.1.0+-orange.svg)](https://files.minecraftforge.net/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](LICENSE)
 [![Downloads](https://img.shields.io/badge/Downloads-Coming%20Soon-lightgrey.svg)](https://www.curseforge.com/)
 
 [**Download**](#download) • [**Features**](#features) • [**Gallery**](#gallery) • [**Installation**](#installation) • [**Support**](#support)
@@ -86,3 +86,17 @@ Experience Minecraft with a variety of beautifully designed armor sets:
 - **AverageTaTeMan** - Original armor designs
 - **License**: [MIT License](src/main/resources/assets/morearmor/textures/averagetateman/LICENSE)
 - **Original Resource Pack**: [TaTe's Custom Armors](https://modrinth.com/resourcepack/tates-custom-armors-and-elytras)
+
+---
+
+## 📄 License
+
+This mod is licensed under the [Creative Commons Attribution 4.0 International License](LICENSE).
+
+**What this means:**
+- ✅ **You can use, modify, and distribute** this mod
+- ✅ **You can use it commercially** 
+- ❌ **You MUST give credit** to Elijah Farrell
+- ❌ **You cannot claim** you created it
+
+**Full license text:** [LICENSE](LICENSE)

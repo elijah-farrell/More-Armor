@@ -14,7 +14,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "morearmor:vanillaplus_advancements",
+  "parent": "morearmor:morearmor_advancements",
   "criteria": {
     "craft_ender_dragon_helmet": {
       "trigger": "minecraft:inventory_changed",

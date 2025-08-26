@@ -1,34 +1,14 @@
-Copyright (c) 2025 Elijah Farrell  
-All rights reserved.
+Creative Commons Attribution 4.0 International License (CC BY 4.0)
 
-Permission is granted to any person obtaining a copy of this software and associated documentation files (the "Software") to use, study, modify, and redistribute the Software, including in derivative works, under the following conditions:
+This work is licensed under the Creative Commons Attribution 4.0 International License.
 
-1. **Attribution Requirement**  
-   Any public project, mod, fork, or derivative work using this Software (in part or in full) **must provide clear and visible credit to the original author, Elijah Farrell**.  
-   Attribution must appear in **at least two** of the following:
-   - The mod's CurseForge or Modrinth description
-   - The source repository's README or equivalent
-   - In-game credits, metadata, or mod description
-   - Project website or documentation (if applicable)
+You are free to:
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material for any purpose, even commercially
 
-2. **Commercial Use**  
-   Commercial use, resale, or inclusion in paid modpacks or monetized servers **requires explicit written permission** from the author. This includes:
-   - Selling access to the mod or its content
-   - Hosting on donation-locked servers
-   - Paid modpack subscriptions
+Under the following terms:
+- Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
-3. **Content Creation**  
-   Creating content such as YouTube videos, livestreams, tutorials, or reviews using this Software is permitted, including monetized content. No additional permission is required for such promotional use, but credit is appreciated.
+Full license text: https://creativecommons.org/licenses/by/4.0/
 
-4. **Contributions**  
-   Contributions may be submitted via pull requests to the official repository. All accepted contributions become part of the project and are subject to this license.
-
----
-
-**Third-Party Assets Notice**  
-This Software includes textures originally created by AverageTaTeMan, used under the MIT License as part of the [TaTe’s Custom Armors and Elytras](https://modrinth.com/resourcepack/tates-custom-armors-and-elytras) resource pack. These assets retain their original license and attribution requirements.  
-See: `assets/vanillaplus/textures/averagetateman/LICENSE`
-
----
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+Copyright (c) 2025 Elijah Farrell

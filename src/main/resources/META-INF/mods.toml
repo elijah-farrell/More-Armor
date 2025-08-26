@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[47,)"
-license="Custom - Attribution Required"
+license="Creative Commons Attribution 4.0"
 
 [[mods]]
 modId="morearmor"
@@ -12,7 +12,7 @@ A Minecraft Forge mod that adds various vanilla-style armor sets.
 Textures by AverageTaTeMan from TaTe's Custom Armors resource pack.
 Mod created by Elijah Farrell.
 
-License: Custom - Attribution Required
+License: Creative Commons Attribution 4.0
 See LICENSE file for full terms.
 '''
 
