@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "E E"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:sniffer_egg"
+    }
+  },
+  "result": {
+    "item": "morearmor:sniffer_helmet",
+    "count": 1
+  }
+} 

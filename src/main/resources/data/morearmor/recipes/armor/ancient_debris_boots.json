@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:ancient_debris"
+    }
+  },
+  "result": {
+    "item": "morearmor:ancient_debris_boots",
+    "count": 1
+  }
+} 

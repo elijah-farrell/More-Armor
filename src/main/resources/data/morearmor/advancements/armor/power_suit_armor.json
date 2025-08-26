@@ -1,0 +1,71 @@
+{
+  "display": {
+    "icon": {
+      "item": "morearmor:power_suit_chestplate"
+    },
+    "title": {
+      "translate": "advancement.vanillaplus.power_suit_armor.title"
+    },
+    "description": {
+      "translate": "advancement.vanillaplus.power_suit_armor.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "morearmor:vanillaplus_advancements",
+  "criteria": {
+    "craft_power_suit_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["morearmor:power_suit_helmet"]
+          }
+        ]
+      }
+    },
+    "craft_power_suit_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["morearmor:power_suit_chestplate"]
+          }
+        ]
+      }
+    },
+    "craft_power_suit_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["morearmor:power_suit_leggings"]
+          }
+        ]
+      }
+    },
+    "craft_power_suit_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["morearmor:power_suit_boots"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "craft_power_suit_helmet",
+      "craft_power_suit_chestplate",
+      "craft_power_suit_leggings",
+      "craft_power_suit_boots"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+} 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:magma_cream"
+    }
+  },
+  "result": {
+    "item": "morearmor:magma_boots",
+    "count": 1
+  }
+}

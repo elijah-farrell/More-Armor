@@ -1,0 +1,71 @@
+{
+  "display": {
+    "icon": {
+      "item": "morearmor:tnt_chestplate"
+    },
+    "title": {
+      "translate": "advancement.vanillaplus.tnt_armor.title"
+    },
+    "description": {
+      "translate": "advancement.vanillaplus.tnt_armor.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "morearmor:vanillaplus_advancements",
+  "criteria": {
+    "craft_tnt_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["morearmor:tnt_helmet"]
+          }
+        ]
+      }
+    },
+    "craft_tnt_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["morearmor:tnt_chestplate"]
+          }
+        ]
+      }
+    },
+    "craft_tnt_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["morearmor:tnt_leggings"]
+          }
+        ]
+      }
+    },
+    "craft_tnt_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["morearmor:tnt_boots"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "craft_tnt_helmet",
+      "craft_tnt_chestplate",
+      "craft_tnt_leggings",
+      "craft_tnt_boots"
+    ]
+  ],
+  "rewards": {
+    "experience": 75
+  }
+} 

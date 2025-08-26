@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:bedrock"
+    }
+  },
+  "result": {
+    "item": "morearmor:bedrock_helmet",
+    "count": 1
+  }
+}

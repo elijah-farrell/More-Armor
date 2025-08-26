@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:reinforced_deepslate"
+    }
+  },
+  "result": {
+    "item": "morearmor:reinforced_deepslate_boots",
+    "count": 1
+  }
+}

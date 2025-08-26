@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "EXE"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "E": {
+      "item": "minecraft:black_stained_glass"
+    }
+  },
+  "result": {
+    "item": "morearmor:power_suit_helmet",
+    "count": 1
+  }
+} 

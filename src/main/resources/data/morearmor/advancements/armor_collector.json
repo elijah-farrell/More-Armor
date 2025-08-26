@@ -1,0 +1,81 @@
+{
+  "display": {
+    "icon": {
+      "item": "morearmor:galaxy_chestplate"
+    },
+    "title": {
+      "translate": "advancement.vanillaplus.armor_collector.title"
+    },
+    "description": {
+      "translate": "advancement.vanillaplus.armor_collector.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "morearmor:vanillaplus_advancements",
+  "criteria": {
+    "collect_all_armor_sets": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "player": {
+                "advancements": {
+                  "morearmor:ancient_debris_armor": true,
+                  "morearmor:amethyst_armor": true,
+                  "morearmor:bedrock_armor": true,
+                  "morearmor:bee_armor": true,
+                  "morearmor:bone_armor": true,
+                  "morearmor:cactus_armor": true,
+                  "morearmor:coal_armor": true,
+                  "morearmor:copper_armor": true,
+                  "morearmor:crafting_armor": true,
+                  "morearmor:dripstone_armor": true,
+                  "morearmor:emerald_armor": true,
+                  "morearmor:ender_dragon_armor": true,
+                  "morearmor:galaxy_armor": true,
+                  "morearmor:gilded_armor": true,
+                  "morearmor:glass_armor": true,
+                  "morearmor:guardian_armor": true,
+                  "morearmor:lapis_armor": true,
+                  "morearmor:machine_armor": true,
+                  "morearmor:magma_armor": true,
+                  "morearmor:music_armor": true,
+                  "morearmor:obsidian_armor": true,
+                  "morearmor:pot_armor": true,
+                  "morearmor:power_suit_armor": true,
+                  "morearmor:quartz_armor": true,
+                  "morearmor:red_dragon_armor": true,
+                  "morearmor:redstone_armor": true,
+                  "morearmor:reinforced_deepslate_armor": true,
+                  "morearmor:rgb_armor": true,
+                  "morearmor:ruby_armor": true,
+                  "morearmor:sculk_armor": true,
+                  "morearmor:shulker_armor": true,
+                  "morearmor:skeleton_armor": true,
+                  "morearmor:sniffer_armor": true,
+                  "morearmor:tnt_armor": true,
+                  "morearmor:totem_armor": true,
+                  "morearmor:wither_skeleton_armor": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "collect_all_armor_sets"
+    ]
+  ],
+  "rewards": {
+    "experience": 1000
+  }
+} 

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LLL",
+    "LXL",
+    "LLL"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:netherite_boots"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "morearmor:power_suit_boots",
+    "count": 1
+  }
+} 

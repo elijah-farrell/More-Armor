@@ -1,0 +1,223 @@
+{
+  "itemGroup.morearmor": "More Armor",
+  
+  "item.morearmor.ancient_debris_helmet": "Ancient Debris Helmet",
+  "item.morearmor.ancient_debris_chestplate": "Ancient Debris Chestplate",
+  "item.morearmor.ancient_debris_leggings": "Ancient Debris Leggings",
+  "item.morearmor.ancient_debris_boots": "Ancient Debris Boots",
+  
+  "item.morearmor.amethyst_helmet": "Amethyst Helmet",
+  "item.morearmor.amethyst_chestplate": "Amethyst Chestplate",
+  "item.morearmor.amethyst_leggings": "Amethyst Leggings",
+  "item.morearmor.amethyst_boots": "Amethyst Boots",
+  
+  "item.morearmor.bedrock_helmet": "Bedrock Helmet",
+  "item.morearmor.bedrock_chestplate": "Bedrock Chestplate",
+  "item.morearmor.bedrock_leggings": "Bedrock Leggings",
+  "item.morearmor.bedrock_boots": "Bedrock Boots",
+  
+  "item.morearmor.bee_helmet": "Bee Helmet",
+  "item.morearmor.bee_chestplate": "Bee Chestplate",
+  "item.morearmor.bee_leggings": "Bee Leggings",
+  "item.morearmor.bee_boots": "Bee Boots",
+  
+  "item.morearmor.bone_helmet": "Bone Helmet",
+  "item.morearmor.bone_chestplate": "Bone Chestplate",
+  "item.morearmor.bone_leggings": "Bone Leggings",
+  "item.morearmor.bone_boots": "Bone Boots",
+  
+  "item.morearmor.cactus_helmet": "Cactus Helmet",
+  "item.morearmor.cactus_chestplate": "Cactus Chestplate",
+  "item.morearmor.cactus_leggings": "Cactus Leggings",
+  "item.morearmor.cactus_boots": "Cactus Boots",
+  
+  "item.morearmor.coal_helmet": "Coal Helmet",
+  "item.morearmor.coal_chestplate": "Coal Chestplate",
+  "item.morearmor.coal_leggings": "Coal Leggings",
+  "item.morearmor.coal_boots": "Coal Boots",
+  
+  "item.morearmor.copper_helmet": "Copper Helmet",
+  "item.morearmor.copper_chestplate": "Copper Chestplate",
+  "item.morearmor.copper_leggings": "Copper Leggings",
+  "item.morearmor.copper_boots": "Copper Boots",
+  
+  "item.morearmor.crafting_helmet": "Crafting Helmet",
+  "item.morearmor.crafting_chestplate": "Crafting Chestplate",
+  "item.morearmor.crafting_leggings": "Crafting Leggings",
+  "item.morearmor.crafting_boots": "Crafting Boots",
+  
+  "item.morearmor.dripstone_helmet": "Dripstone Helmet",
+  "item.morearmor.dripstone_chestplate": "Dripstone Chestplate",
+  "item.morearmor.dripstone_leggings": "Dripstone Leggings",
+  "item.morearmor.dripstone_boots": "Dripstone Boots",
+  
+  "item.morearmor.emerald_helmet": "Emerald Helmet",
+  "item.morearmor.emerald_chestplate": "Emerald Chestplate",
+  "item.morearmor.emerald_leggings": "Emerald Leggings",
+  "item.morearmor.emerald_boots": "Emerald Boots",
+  
+  "item.morearmor.ender_dragon_helmet": "Ender Dragon Helmet",
+  "item.morearmor.ender_dragon_chestplate": "Ender Dragon Chestplate",
+  "item.morearmor.ender_dragon_leggings": "Ender Dragon Leggings",
+  "item.morearmor.ender_dragon_boots": "Ender Dragon Boots",
+  
+  "item.morearmor.gilded_helmet": "Gilded Helmet",
+  "item.morearmor.gilded_chestplate": "Gilded Chestplate",
+  "item.morearmor.gilded_leggings": "Gilded Leggings",
+  "item.morearmor.gilded_boots": "Gilded Boots",
+  
+  "item.morearmor.glass_helmet": "Glass Helmet",
+  "item.morearmor.glass_chestplate": "Glass Chestplate",
+  "item.morearmor.glass_leggings": "Glass Leggings",
+  "item.morearmor.glass_boots": "Glass Boots",
+  
+  "item.morearmor.galaxy_helmet": "Galaxy Helmet",
+  "item.morearmor.galaxy_chestplate": "Galaxy Chestplate",
+  "item.morearmor.galaxy_leggings": "Galaxy Leggings",
+  "item.morearmor.galaxy_boots": "Galaxy Boots",
+  
+  "item.morearmor.guardian_helmet": "Guardian Helmet",
+  "item.morearmor.guardian_chestplate": "Guardian Chestplate",
+  "item.morearmor.guardian_leggings": "Guardian Leggings",
+  "item.morearmor.guardian_boots": "Guardian Boots",
+  
+  "item.morearmor.lapis_helmet": "Lapis Helmet",
+  "item.morearmor.lapis_chestplate": "Lapis Chestplate",
+  "item.morearmor.lapis_leggings": "Lapis Leggings",
+  "item.morearmor.lapis_boots": "Lapis Boots",
+  
+  "item.morearmor.machine_helmet": "Machine Helmet",
+  "item.morearmor.machine_chestplate": "Machine Chestplate",
+  "item.morearmor.machine_leggings": "Machine Leggings",
+  "item.morearmor.machine_boots": "Machine Boots",
+  
+  "item.morearmor.magma_helmet": "Magma Helmet",
+  "item.morearmor.magma_chestplate": "Magma Chestplate",
+  "item.morearmor.magma_leggings": "Magma Leggings",
+  "item.morearmor.magma_boots": "Magma Boots",
+  
+  "item.morearmor.music_helmet": "Music Helmet",
+  "item.morearmor.music_chestplate": "Music Chestplate",
+  "item.morearmor.music_leggings": "Music Leggings",
+  "item.morearmor.music_boots": "Music Boots",
+  
+  "item.morearmor.obsidian_helmet": "Obsidian Helmet",
+  "item.morearmor.obsidian_chestplate": "Obsidian Chestplate",
+  "item.morearmor.obsidian_leggings": "Obsidian Leggings",
+  "item.morearmor.obsidian_boots": "Obsidian Boots",
+  
+  "item.morearmor.pot_helmet": "Pot Helmet",
+  "item.morearmor.pot_chestplate": "Pot Chestplate",
+  "item.morearmor.pot_leggings": "Pot Leggings",
+  "item.morearmor.pot_boots": "Pot Boots",
+  
+  "item.morearmor.power_suit_helmet": "Power Suit Helmet",
+  "item.morearmor.power_suit_chestplate": "Power Suit Chestplate",
+  "item.morearmor.power_suit_leggings": "Power Suit Leggings",
+  "item.morearmor.power_suit_boots": "Power Suit Boots",
+  
+  "item.morearmor.quartz_helmet": "Quartz Helmet",
+  "item.morearmor.quartz_chestplate": "Quartz Chestplate",
+  "item.morearmor.quartz_leggings": "Quartz Leggings",
+  "item.morearmor.quartz_boots": "Quartz Boots",
+  
+  "item.morearmor.red_dragon_helmet": "Red Dragon Helmet",
+  "item.morearmor.red_dragon_chestplate": "Red Dragon Chestplate",
+  "item.morearmor.red_dragon_leggings": "Red Dragon Leggings",
+  "item.morearmor.red_dragon_boots": "Red Dragon Boots",
+  
+  "item.morearmor.redstone_helmet": "Redstone Helmet",
+  "item.morearmor.redstone_chestplate": "Redstone Chestplate",
+  "item.morearmor.redstone_leggings": "Redstone Leggings",
+  "item.morearmor.redstone_boots": "Redstone Boots",
+  
+  "item.morearmor.reinforced_deepslate_helmet": "Reinforced Deepslate Helmet",
+  "item.morearmor.reinforced_deepslate_chestplate": "Reinforced Deepslate Chestplate",
+  "item.morearmor.reinforced_deepslate_leggings": "Reinforced Deepslate Leggings",
+  "item.morearmor.reinforced_deepslate_boots": "Reinforced Deepslate Boots",
+  
+  "item.morearmor.rgb_helmet": "RGB Helmet",
+  "item.morearmor.rgb_chestplate": "RGB Chestplate",
+  "item.morearmor.rgb_leggings": "RGB Leggings",
+  "item.morearmor.rgb_boots": "RGB Boots",
+  
+  "item.morearmor.ruby_helmet": "Ruby Helmet",
+  "item.morearmor.ruby_chestplate": "Ruby Chestplate",
+  "item.morearmor.ruby_leggings": "Ruby Leggings",
+  "item.morearmor.ruby_boots": "Ruby Boots",
+  
+  "item.morearmor.sculk_helmet": "Sculk Helmet",
+  "item.morearmor.sculk_chestplate": "Sculk Chestplate",
+  "item.morearmor.sculk_leggings": "Sculk Leggings",
+  "item.morearmor.sculk_boots": "Sculk Boots",
+  
+  "item.morearmor.shulker_helmet": "Shulker Helmet",
+  "item.morearmor.shulker_chestplate": "Shulker Chestplate",
+  "item.morearmor.shulker_leggings": "Shulker Leggings",
+  "item.morearmor.shulker_boots": "Shulker Boots",
+  
+  "item.morearmor.skeleton_helmet": "Skeleton Helmet",
+  "item.morearmor.skeleton_chestplate": "Skeleton Chestplate",
+  "item.morearmor.skeleton_leggings": "Skeleton Leggings",
+  "item.morearmor.skeleton_boots": "Skeleton Boots",
+  
+  "item.morearmor.sniffer_helmet": "Sniffer Helmet",
+  "item.morearmor.sniffer_chestplate": "Sniffer Chestplate",
+  "item.morearmor.sniffer_leggings": "Sniffer Leggings",
+  "item.morearmor.sniffer_boots": "Sniffer Boots",
+  
+  "item.morearmor.tnt_helmet": "TNT Helmet",
+  "item.morearmor.tnt_chestplate": "TNT Chestplate",
+  "item.morearmor.tnt_leggings": "TNT Leggings",
+  "item.morearmor.tnt_boots": "TNT Boots",
+  
+  "item.morearmor.totem_helmet": "Totem Helmet",
+  "item.morearmor.totem_chestplate": "Totem Chestplate",
+  "item.morearmor.totem_leggings": "Totem Leggings",
+  "item.morearmor.totem_boots": "Totem Boots",
+  
+  "item.morearmor.wither_skeleton_helmet": "Wither Skeleton Helmet",
+  "item.morearmor.wither_skeleton_chestplate": "Wither Skeleton Chestplate",
+  "item.morearmor.wither_skeleton_leggings": "Wither Skeleton Leggings",
+  "item.morearmor.wither_skeleton_boots": "Wither Skeleton Boots",
+  
+  "item.morearmor.icon": "MoreArmor Icon",
+  
+  "advancement.morearmor.root.title": "MoreArmor",
+  "advancement.morearmor.root.description": "Welcome to MoreArmor! Craft your first piece of custom armor.",
+  "advancement.morearmor.armor_collector.title": "Armor Collector",
+  "advancement.morearmor.armor_collector.description": "Collect all 36 armor sets from MoreArmor",
+  
+  "advancement.morearmor.ancient_debris_armor.title": "Nether's Finest",
+  "advancement.morearmor.ancient_debris_armor.description": "Craft a complete Ancient Debris armor set",
+  
+  "advancement.morearmor.ender_dragon_armor.title": "Dragon Slayer's Pride",
+  "advancement.morearmor.ender_dragon_armor.description": "Craft a complete Ender Dragon armor set",
+  
+  "advancement.morearmor.galaxy_armor.title": "Stellar Protection",
+  "advancement.morearmor.galaxy_armor.description": "Craft a complete Galaxy armor set",
+  
+  "advancement.morearmor.bee_armor.title": "Buzzing with Style",
+  "advancement.morearmor.bee_armor.description": "Craft a complete Bee armor set",
+  
+  "advancement.morearmor.tnt_armor.title": "Explosive Fashion",
+  "advancement.morearmor.tnt_armor.description": "Craft a complete TNT armor set",
+  
+  "advancement.morearmor.glass_armor.title": "Transparent Protection",
+  "advancement.morearmor.glass_armor.description": "Craft a complete Glass armor set",
+  
+  "advancement.morearmor.rgb_armor.title": "Rainbow Warrior",
+  "advancement.morearmor.rgb_armor.description": "Craft a complete RGB armor set",
+  
+  "advancement.morearmor.red_dragon_armor.title": "Crimson Dragon",
+  "advancement.morearmor.red_dragon_armor.description": "Craft a complete Red Dragon armor set",
+  
+  "advancement.morearmor.power_suit_armor.title": "Powered Up",
+  "advancement.morearmor.power_suit_armor.description": "Craft a complete Power Suit armor set",
+  
+  "advancement.morearmor.sculk_armor.title": "Deep Dark Guardian",
+  "advancement.morearmor.sculk_armor.description": "Craft a complete Sculk armor set",
+  
+  "key.morearmor.open_config_gui": "Open Armor Config GUI",
+  "key.categories.morearmor": "MoreArmor"
+} 

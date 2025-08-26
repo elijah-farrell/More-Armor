@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "morearmor:amethyst_helmet"
+    },
+    "title": {
+      "translate": "advancement.vanillaplus.root.title"
+    },
+    "description": {
+      "translate": "advancement.vanillaplus.root.description"
+    },
+    "background": "minecraft:textures/block/amethyst_block.png",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "craft_first_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "morearmor:armor_items"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "craft_first_armor"
+    ]
+  ]
+} 

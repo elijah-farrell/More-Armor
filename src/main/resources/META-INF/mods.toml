@@ -1,25 +1,31 @@
 modLoader="javafml"
 loaderVersion="[47,)"
-license="MIT"
+license="Custom - Attribution Required"
 
 [[mods]]
-modId="vanillaplus"
+modId="morearmor"
 version="1.0.0"
-displayName="Vanilla Plus"
-authors="Vanilla Plus Mod"
+displayName="More Armor"
+authors="YourName"
 description='''
-A Minecraft Forge mod that adds various vanilla-style items and features.
+A Minecraft Forge mod that adds various vanilla-style armor sets.
 Starting with custom armor sets inspired by TaTe's Custom Armors and Elytras CIT resource pack.
+
+Textures by AverageTaTeMan from TaTe's Custom Armors resource pack.
+Mod created by Elijah Farrell.
+
+License: Custom - Attribution Required
+See LICENSE file for full terms.
 '''
 
-[[dependencies.vanillaplus]]
+[[dependencies.morearmor]]
     modId="forge"
     mandatory=true
     versionRange="[47.1.0,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.vanillaplus]]
+[[dependencies.morearmor]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.20.1,1.21)"
