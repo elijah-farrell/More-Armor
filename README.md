@@ -92,11 +92,3 @@ Experience Minecraft with a variety of beautifully designed armor sets:
 ## 📄 License
 
 This mod is licensed under the [Creative Commons Attribution 4.0 International License](LICENSE).
-
-**What this means:**
-- ✅ **You can use, modify, and distribute** this mod
-- ✅ **You can use it commercially** 
-- ❌ **You MUST give credit** to Elijah Farrell
-- ❌ **You cannot claim** you created it
-
-**Full license text:** [LICENSE](LICENSE)
