@@ -1,28 +1,26 @@
-# MoreArmor Mod
+# More Armor Mod
 
 <div align="center">
 
-![MoreArmor Logo](docs/images/morearmor_logo.png)
+<img src="docs/images/MoreArmorLogo.png" alt="MoreArmor Logo" width="200" height="200" />
 
 **A comprehensive Minecraft mod that adds some fun to your world with 36 unique armor sets featuring beautiful animations and unique designs.**
 
 [![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.1-blue.svg)](https://www.minecraft.net/)
 [![Forge Version](https://img.shields.io/badge/Forge-47.1.0+-orange.svg)](https://files.minecraftforge.net/)
-[![License](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Downloads](https://img.shields.io/badge/Downloads-Coming%20Soon-lightgrey.svg)](https://www.curseforge.com/)
 
-[**Download**](#download) • [**Features**](#features) • [**Gallery**](#gallery) • [**Installation**](#installation) • [**Support**](#support)
+[**Features**](#features) • [**Gallery**](#gallery) • [**License**](#license)
 
 </div>
 
 ---
 
-## 🎯 Features
+## Features
 
-### **36 Unique Armor Sets**
-Experience Minecraft with a variety of beautifully designed armor sets:
-
-#### **Animated Armor Sets** ✨
+### **36 Armor Sets**
+#### **14 Animated Armor Sets**
 - **Bee Armor** - Buzzing with style and animations
 - **Ender Dragon Armor** - Dragon-themed with special effects
 - **Galaxy Armor** - Space-themed with cosmic animations
@@ -38,7 +36,7 @@ Experience Minecraft with a variety of beautifully designed armor sets:
 - **Sniffer Armor** - Ancient sniffer inspired
 - **TNT Armor** - Explosive fashion with animations
 
-#### **Static Armor Sets** 🛡️
+#### **22 Static Armor Sets**
 - **Ancient Debris Armor** - Nether's finest protection
 - **Amethyst Armor** - Crystal-clear beauty
 - **Bedrock Armor** - Unbreakable defense
@@ -64,23 +62,16 @@ Experience Minecraft with a variety of beautifully designed armor sets:
 
 ---
 
-## 📸 Gallery
+## Gallery
 
 <div align="center">
 
 ### **In-Game Showcase**
-![Armor Collection](docs/images/armor_collection.png)
-*Complete armor collection displayed in-game*
+![Armor Showcase](docs/images/armor_showcase.png)
 
 </div>
 
-### **Download Links**
-- **CurseForge**: Coming Soon
-- **GitHub Releases**: [Latest Release](https://github.com/elijah-farrell/morearmor/releases)
-- **Direct Download**: [Source Code](https://github.com/elijah-farrell/morearmor)
-
-
-## 🎨 Asset Credits
+## Asset Credits
 
 ### **Textures & Models**
 - **AverageTaTeMan** - Original armor designs
@@ -89,14 +80,6 @@ Experience Minecraft with a variety of beautifully designed armor sets:
 
 ---
 
-## 📄 License
+## License
 
-This mod is licensed under the [Creative Commons Attribution 4.0 International License](LICENSE).
-
-**What this means:**
-- ✅ **You can use, modify, and distribute** this mod
-- ✅ **You can use it commercially** 
-- ❌ **You MUST give credit** to Elijah Farrell
-- ❌ **You cannot claim** you created it
-
-**Full license text:** [LICENSE](LICENSE)
+This mod is licensed under the [MIT License](LICENSE).

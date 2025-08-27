@@ -183,41 +183,6 @@
   
   "item.morearmor.icon": "MoreArmor Icon",
   
-  "advancement.morearmor.root.title": "MoreArmor",
-  "advancement.morearmor.root.description": "Welcome to MoreArmor! Craft your first piece of custom armor.",
-  "advancement.morearmor.armor_collector.title": "Armor Collector",
-  "advancement.morearmor.armor_collector.description": "Collect all 36 armor sets from MoreArmor",
-  
-  "advancement.morearmor.ancient_debris_armor.title": "Nether's Finest",
-  "advancement.morearmor.ancient_debris_armor.description": "Craft a complete Ancient Debris armor set",
-  
-  "advancement.morearmor.ender_dragon_armor.title": "Dragon Slayer's Pride",
-  "advancement.morearmor.ender_dragon_armor.description": "Craft a complete Ender Dragon armor set",
-  
-  "advancement.morearmor.galaxy_armor.title": "Stellar Protection",
-  "advancement.morearmor.galaxy_armor.description": "Craft a complete Galaxy armor set",
-  
-  "advancement.morearmor.bee_armor.title": "Buzzing with Style",
-  "advancement.morearmor.bee_armor.description": "Craft a complete Bee armor set",
-  
-  "advancement.morearmor.tnt_armor.title": "Explosive Fashion",
-  "advancement.morearmor.tnt_armor.description": "Craft a complete TNT armor set",
-  
-  "advancement.morearmor.glass_armor.title": "Transparent Protection",
-  "advancement.morearmor.glass_armor.description": "Craft a complete Glass armor set",
-  
-  "advancement.morearmor.rgb_armor.title": "Rainbow Warrior",
-  "advancement.morearmor.rgb_armor.description": "Craft a complete RGB armor set",
-  
-  "advancement.morearmor.red_dragon_armor.title": "Crimson Dragon",
-  "advancement.morearmor.red_dragon_armor.description": "Craft a complete Red Dragon armor set",
-  
-  "advancement.morearmor.power_suit_armor.title": "Powered Up",
-  "advancement.morearmor.power_suit_armor.description": "Craft a complete Power Suit armor set",
-  
-  "advancement.morearmor.sculk_armor.title": "Deep Dark Guardian",
-  "advancement.morearmor.sculk_armor.description": "Craft a complete Sculk armor set",
-  
   "key.morearmor.open_config_gui": "Open Armor Config GUI",
   "key.categories.morearmor": "MoreArmor"
 } 
