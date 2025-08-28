@@ -20,45 +20,45 @@
 ## Features
 
 ### **36 Armor Sets**
-#### **14 Animated Armor Sets**
-- **Bee Armor** - Buzzing with style and animations
-- **Ender Dragon Armor** - Dragon-themed with special effects
-- **Galaxy Armor** - Space-themed with cosmic animations
-- **Guardian Armor** - Ocean guardian inspired
-- **Machine Armor** - Industrial steampunk design
-- **Magma Armor** - Fiery animated protection
-- **Music Armor** - Musical note animations
-- **Obsidian Armor** - Dark and mysterious
-- **Pot Armor** - Unique pot-inspired design
-- **Red Dragon Armor** - Crimson dragon theme
-- **RGB Armor** - Color-changing rainbow effects
-- **Sculk Armor** - Deep dark guardian style
-- **Sniffer Armor** - Ancient sniffer inspired
-- **TNT Armor** - Explosive fashion with animations
+#### 14 Animated Armor Sets
+• Bee Armor
+• Ender Dragon Armor
+• Galaxy Armor
+• Guardian Armor
+• Machine Armor
+• Magma Armor
+• Music Armor
+• Obsidian Armor
+• Pot Armor
+• Red Dragon Armor
+• RGB Armor
+• Sculk Armor
+• Sniffer Armor
+• TNT Armor
 
-#### **22 Static Armor Sets**
-- **Ancient Debris Armor** - Nether's finest protection
-- **Amethyst Armor** - Crystal-clear beauty
-- **Bedrock Armor** - Unbreakable defense
-- **Bone Armor** - Skeletal warrior style
-- **Cactus Armor** - Desert survival gear
-- **Coal Armor** - Dark and durable
-- **Copper Armor** - Oxidizing beauty
-- **Crafting Armor** - Workbench inspired
-- **Dripstone Armor** - Cave explorer's choice
-- **Emerald Armor** - Village trader's pride
-- **Gilded Armor** - Golden luxury
-- **Glass Armor** - Transparent protection
-- **Lapis Armor** - Enchanting blue
-- **Power Suit Armor** - High-tech defense
-- **Quartz Armor** - Nether quartz beauty
-- **Redstone Armor** - Redstone engineer's gear
-- **Reinforced Deepslate Armor** - Deep underground strength
-- **Ruby Armor** - Precious gem protection
-- **Shulker Armor** - End city inspired
-- **Skeleton Armor** - Undead warrior style
-- **Totem Armor** - Totem of undying theme
-- **Wither Skeleton Armor** - Wither's power
+#### 22 Static Armor Sets
+• Ancient Debris Armor
+• Amethyst Armor
+• Bedrock Armor
+• Bone Armor
+• Cactus Armor
+• Coal Armor
+• Copper Armor
+• Crafting Armor
+• Dripstone Armor
+• Emerald Armor
+• Gilded Armor
+• Glass Armor
+• Lapis Armor
+• Power Suit Armor
+• Quartz Armor
+• Redstone Armor
+• Reinforced Deepslate Armor
+• Ruby Armor
+• Shulker Armor
+• Skeleton Armor
+• Totem Armor
+• Wither Skeleton Armor
 
 ---
 
