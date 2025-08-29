@@ -120,6 +120,9 @@ dependencies {
     // Real mod deobf dependency examples - these will get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}") // Adds JEI API as a compile dependency
     runtimeOnly fg.deobf("mezz.jei:jei-1.20.1-forge:15.20.0.110") // Adds the full JEI mod as a runtime dependency for testing
+    
+    // Gson for JSON parsing
+    implementation 'com.google.code.gson:gson:2.10.1'
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
 
     // Examples using mod jars from ./libs
@@ -144,8 +147,8 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "morearmor",
-                "Specification-Vendor"    : "morearmor",
+                        "Specification-Title"     : "morearmor",
+        "Specification-Vendor"    : "morearmor",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,

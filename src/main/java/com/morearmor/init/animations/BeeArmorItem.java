@@ -1,4 +1,4 @@
-package com.morearmor.init;
+package com.morearmor.init.animations;
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -16,12 +16,12 @@ public class BeeArmorItem extends ArmorItem {
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
         if (slot == EquipmentSlot.LEGS) {
             // Layer 2 (leggings) - static, no animation
-            return "morearmor:textures/models/averagetateman/armors/bee/layer_2.png";
+            return "extra_armors:textures/models/averagetateman/armors/bee/layer_2.png";
         } else {
             // Layer 1 (helmet, chestplate, boots) - animated
             int frameCount = 3; // 3 frames for bee animation
             int frame = (entity.tickCount / 2) % frameCount; // Change every 2 ticks for fast buzzing
-            return String.format("morearmor:textures/models/averagetateman/armors/bee/layer_1_frame%d.png", frame);
+            return String.format("extra_armors:textures/models/averagetateman/armors/bee/layer_1_frame%d.png", frame);
         }
     }
 } 

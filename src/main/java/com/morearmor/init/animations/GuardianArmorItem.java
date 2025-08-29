@@ -1,4 +1,4 @@
-package com.morearmor.init;
+package com.morearmor.init.animations;
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;

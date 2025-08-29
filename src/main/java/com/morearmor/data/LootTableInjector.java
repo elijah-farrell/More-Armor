@@ -1,7 +1,7 @@
 package com.morearmor.data;
 
 import com.morearmor.MoreArmor;
-import com.morearmor.init.ModItems;
+import com.morearmor.init.Items;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -21,10 +21,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.ENDER_DRAGON_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.ENDER_DRAGON_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.ENDER_DRAGON_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.ENDER_DRAGON_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.ENDER_DRAGON_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.ENDER_DRAGON_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.ENDER_DRAGON_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.ENDER_DRAGON_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -38,10 +38,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/stronghold_library"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.BEDROCK_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.BEDROCK_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.BEDROCK_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.BEDROCK_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.BEDROCK_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.BEDROCK_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.BEDROCK_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.BEDROCK_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -50,10 +50,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/nether_bridge"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.RED_DRAGON_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.RED_DRAGON_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.RED_DRAGON_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.RED_DRAGON_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.RED_DRAGON_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.RED_DRAGON_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.RED_DRAGON_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.RED_DRAGON_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -62,10 +62,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/village/village_armorer"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.EMERALD_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.EMERALD_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.EMERALD_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.EMERALD_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.EMERALD_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.EMERALD_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.EMERALD_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.EMERALD_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -74,10 +74,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/village/village_weaponsmith"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.EMERALD_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.EMERALD_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.EMERALD_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.EMERALD_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.EMERALD_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.EMERALD_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.EMERALD_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.EMERALD_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -86,10 +86,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "entities/wandering_trader"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.RUBY_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.RUBY_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.RUBY_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.RUBY_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.RUBY_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.RUBY_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.RUBY_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.RUBY_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -98,10 +98,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/ruined_portal"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.OBSIDIAN_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.OBSIDIAN_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.OBSIDIAN_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.OBSIDIAN_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.OBSIDIAN_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.OBSIDIAN_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.OBSIDIAN_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.OBSIDIAN_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -110,10 +110,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/woodland_mansion"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.TOTEM_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.TOTEM_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.TOTEM_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.TOTEM_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.TOTEM_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.TOTEM_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.TOTEM_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.TOTEM_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -122,10 +122,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/ancient_city"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.SCULK_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.SCULK_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.SCULK_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.SCULK_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.SCULK_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.SCULK_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.SCULK_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.SCULK_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -134,10 +134,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/bastion_treasure"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.ANCIENT_DEBRIS_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.ANCIENT_DEBRIS_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.ANCIENT_DEBRIS_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.ANCIENT_DEBRIS_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.ANCIENT_DEBRIS_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.ANCIENT_DEBRIS_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.ANCIENT_DEBRIS_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.ANCIENT_DEBRIS_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -146,10 +146,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/bastion_bridge"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.GILDED_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GILDED_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GILDED_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GILDED_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -158,10 +158,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/bastion_hoglin_stable"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.GILDED_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GILDED_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GILDED_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GILDED_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -170,10 +170,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/bastion_other"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GILDED_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.GILDED_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GILDED_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GILDED_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GILDED_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -182,10 +182,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/simple_dungeon"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.SKELETON_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.SKELETON_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.SKELETON_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.SKELETON_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.SKELETON_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.SKELETON_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.SKELETON_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.SKELETON_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -194,10 +194,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/shipwreck_treasure"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.GUARDIAN_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GUARDIAN_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GUARDIAN_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(ModItems.GUARDIAN_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.GUARDIAN_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GUARDIAN_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GUARDIAN_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.GUARDIAN_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -206,10 +206,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/underwater_ruin_big"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.SNIFFER_HELMET.get()).setWeight(3))
-                .add(LootItem.lootTableItem(ModItems.SNIFFER_CHESTPLATE.get()).setWeight(3))
-                .add(LootItem.lootTableItem(ModItems.SNIFFER_LEGGINGS.get()).setWeight(3))
-                .add(LootItem.lootTableItem(ModItems.SNIFFER_BOOTS.get()).setWeight(3));
+                .add(LootItem.lootTableItem(Items.SNIFFER_HELMET.get()).setWeight(3))
+                .add(LootItem.lootTableItem(Items.SNIFFER_CHESTPLATE.get()).setWeight(3))
+                .add(LootItem.lootTableItem(Items.SNIFFER_LEGGINGS.get()).setWeight(3))
+                .add(LootItem.lootTableItem(Items.SNIFFER_BOOTS.get()).setWeight(3));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -218,10 +218,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/underwater_ruin_small"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.SNIFFER_HELMET.get()).setWeight(2))
-                .add(LootItem.lootTableItem(ModItems.SNIFFER_CHESTPLATE.get()).setWeight(2))
-                .add(LootItem.lootTableItem(ModItems.SNIFFER_LEGGINGS.get()).setWeight(2))
-                .add(LootItem.lootTableItem(ModItems.SNIFFER_BOOTS.get()).setWeight(2));
+                .add(LootItem.lootTableItem(Items.SNIFFER_HELMET.get()).setWeight(2))
+                .add(LootItem.lootTableItem(Items.SNIFFER_CHESTPLATE.get()).setWeight(2))
+                .add(LootItem.lootTableItem(Items.SNIFFER_LEGGINGS.get()).setWeight(2))
+                .add(LootItem.lootTableItem(Items.SNIFFER_BOOTS.get()).setWeight(2));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -230,10 +230,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/desert_pyramid"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.CACTUS_HELMET.get()).setWeight(3))
-                .add(LootItem.lootTableItem(ModItems.CACTUS_CHESTPLATE.get()).setWeight(3))
-                .add(LootItem.lootTableItem(ModItems.CACTUS_LEGGINGS.get()).setWeight(3))
-                .add(LootItem.lootTableItem(ModItems.CACTUS_BOOTS.get()).setWeight(3));
+                .add(LootItem.lootTableItem(Items.CACTUS_HELMET.get()).setWeight(3))
+                .add(LootItem.lootTableItem(Items.CACTUS_CHESTPLATE.get()).setWeight(3))
+                .add(LootItem.lootTableItem(Items.CACTUS_LEGGINGS.get()).setWeight(3))
+                .add(LootItem.lootTableItem(Items.CACTUS_BOOTS.get()).setWeight(3));
             
             event.getTable().addPool(poolBuilder.build());
         }
@@ -242,10 +242,10 @@ public class LootTableInjector {
         if (tableName.equals(new ResourceLocation("minecraft", "chests/jungle_pyramid"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ModItems.RGB_HELMET.get()).setWeight(2))
-                .add(LootItem.lootTableItem(ModItems.RGB_CHESTPLATE.get()).setWeight(2))
-                .add(LootItem.lootTableItem(ModItems.RGB_LEGGINGS.get()).setWeight(2))
-                .add(LootItem.lootTableItem(ModItems.RGB_BOOTS.get()).setWeight(2));
+                .add(LootItem.lootTableItem(Items.RGB_HELMET.get()).setWeight(2))
+                .add(LootItem.lootTableItem(Items.RGB_CHESTPLATE.get()).setWeight(2))
+                .add(LootItem.lootTableItem(Items.RGB_LEGGINGS.get()).setWeight(2))
+                .add(LootItem.lootTableItem(Items.RGB_BOOTS.get()).setWeight(2));
             
             event.getTable().addPool(poolBuilder.build());
         }
