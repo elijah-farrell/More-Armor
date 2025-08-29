@@ -90,10 +90,10 @@
 - **Repair Material**: Flower Pot
 
 #### GLASS ARMOR
-- **Helmet**: 0.5 protection, 55 durability
-- **Chestplate**: 0.5 protection, 80 durability
-- **Leggings**: 0.5 protection, 75 durability
-- **Boots**: 0.5 protection, 65 durability
+- **Helmet**: 0.5 protection, 27 durability
+- **Chestplate**: 0.5 protection, 40 durability
+- **Leggings**: 0.5 protection, 37 durability
+- **Boots**: 0.5 protection, 32 durability
 - **Total Protection**: 2
 - **Toughness**: 0.0
 - **Knockback Resistance**: 0.0
@@ -102,10 +102,10 @@
 
 ### Tier 2 - Low Tier Materials
 #### CACTUS ARMOR
-- **Helmet**: 1 protection, 77 durability
-- **Chestplate**: 2 protection, 112 durability
-- **Leggings**: 2 protection, 105 durability
-- **Boots**: 1 protection, 91 durability
+- **Helmet**: 1 protection, 55 durability
+- **Chestplate**: 2 protection, 80 durability
+- **Leggings**: 2 protection, 75 durability
+- **Boots**: 1 protection, 65 durability
 - **Total Protection**: 6
 - **Toughness**: 0.0
 - **Knockback Resistance**: 0.0
@@ -135,11 +135,11 @@
 - **Repair Material**: Note Block
 
 #### TNT ARMOR
-- **Helmet**: 2 protection, 132 durability
-- **Chestplate**: 5 protection, 176 durability
-- **Leggings**: 4 protection, 165 durability
-- **Boots**: 2 protection, 143 durability
-- **Total Protection**: 13
+- **Helmet**: 1 protection, 55 durability
+- **Chestplate**: 2 protection, 80 durability
+- **Leggings**: 1 protection, 75 durability
+- **Boots**: 1 protection, 65 durability
+- **Total Protection**: 5
 - **Toughness**: 0.0
 - **Knockback Resistance**: 0.0
 - **Enchantment Value**: 10
@@ -169,25 +169,25 @@
 - **Repair Material**: Bone
 
 #### SKELETON ARMOR
-- **Helmet**: 2 protection, 132 durability
-- **Chestplate**: 4 protection, 192 durability
-- **Leggings**: 3 protection, 180 durability
-- **Boots**: 2 protection, 156 durability
-- **Total Protection**: 11
+- **Helmet**: 2 protection, 193 durability
+- **Chestplate**: 6 protection, 280 durability
+- **Leggings**: 5 protection, 263 durability
+- **Boots**: 2 protection, 228 durability
+- **Total Protection**: 14
 - **Toughness**: 0.6
 - **Knockback Resistance**: 0.0
 - **Enchantment Value**: 11
 - **Repair Material**: Bone
 
 #### COPPER ARMOR
-- **Helmet**: 2 protection, 143 durability
-- **Chestplate**: 5 protection, 208 durability
-- **Leggings**: 4 protection, 195 durability
-- **Boots**: 2 protection, 169 durability
-- **Total Protection**: 13
-- **Toughness**: 0.7
+- **Helmet**: 2 protection, 121 durability
+- **Chestplate**: 4 protection, 176 durability
+- **Leggings**: 3 protection, 165 durability
+- **Boots**: 1 protection, 143 durability
+- **Total Protection**: 10
+- **Toughness**: 0.0
 - **Knockback Resistance**: 0.0
-- **Enchantment Value**: 12
+- **Enchantment Value**: 8
 - **Repair Material**: Copper Ingot
 
 #### LAPIS ARMOR
