@@ -4,7 +4,6 @@ import com.morearmor.init.Items;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,33 +49,7 @@ public class VillagerTradeEvents {
             ));
         }
         
-        if (event.getType() == VillagerProfession.WANDERING_TRADER) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            
-            // Tier 1 - All Ruby Armor Pieces
-            trades.get(1).add((trader, rand) -> new MerchantOffer(
-                new ItemStack(net.minecraft.world.item.Items.EMERALD, 12),
-                new ItemStack(com.morearmor.init.Items.RUBY_HELMET.get()),
-                8, 2, 0.05F
-            ));
-            
-            trades.get(1).add((trader, rand) -> new MerchantOffer(
-                new ItemStack(net.minecraft.world.item.Items.EMERALD, 16),
-                new ItemStack(com.morearmor.init.Items.RUBY_CHESTPLATE.get()),
-                8, 2, 0.05F
-            ));
-            
-            trades.get(1).add((trader, rand) -> new MerchantOffer(
-                new ItemStack(net.minecraft.world.item.Items.EMERALD, 14),
-                new ItemStack(com.morearmor.init.Items.RUBY_LEGGINGS.get()),
-                8, 2, 0.05F
-            ));
-            
-            trades.get(1).add((trader, rand) -> new MerchantOffer(
-                new ItemStack(net.minecraft.world.item.Items.EMERALD, 10),
-                new ItemStack(com.morearmor.init.Items.RUBY_BOOTS.get()),
-                8, 2, 0.05F
-            ));
-        }
+        // Note: Wandering Trader trades are handled by a different system
+        // We'll need to implement that separately if needed
     }
 }
