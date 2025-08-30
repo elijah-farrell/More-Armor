@@ -29,11 +29,6 @@ public class LootTableInjector {
             event.getTable().addPool(poolBuilder.build());
         }
         
-        // End City Ship Item Frame - Elytra removed from mod
-        // if (tableName.equals(new ResourceLocation("minecraft", "entities/end_city_treasure"))) {
-        //     // Elytra loot removed - mod no longer includes elytra items
-        // }
-        
         // Stronghold Library - Bedrock Armor
         if (tableName.equals(new ResourceLocation("minecraft", "chests/stronghold_library"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
@@ -78,18 +73,6 @@ public class LootTableInjector {
                 .add(LootItem.lootTableItem(Items.EMERALD_CHESTPLATE.get()).setWeight(1))
                 .add(LootItem.lootTableItem(Items.EMERALD_LEGGINGS.get()).setWeight(1))
                 .add(LootItem.lootTableItem(Items.EMERALD_BOOTS.get()).setWeight(1));
-            
-            event.getTable().addPool(poolBuilder.build());
-        }
-        
-        // Wandering Trader - Ruby Armor
-        if (tableName.equals(new ResourceLocation("minecraft", "entities/wandering_trader"))) {
-            LootPool.Builder poolBuilder = LootPool.lootPool()
-                .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(Items.RUBY_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(Items.RUBY_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(Items.RUBY_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(Items.RUBY_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }

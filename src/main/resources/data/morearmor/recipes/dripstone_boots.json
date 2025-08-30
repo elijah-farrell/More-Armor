@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:pointed_dripstone"
+    }
+  },
+  "result": {
+    "item": "morearmor:dripstone_boots",
+    "count": 1
+  }
+}
