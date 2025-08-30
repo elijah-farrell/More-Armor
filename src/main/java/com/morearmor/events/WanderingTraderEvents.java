@@ -25,91 +25,73 @@ public class WanderingTraderEvents {
     private static void addRubyArmorTrades(WanderingTrader trader) {
         Random rand = new Random();
         
-        // Ruby Helmet - 80% chance for enchantments, 20% chance for no enchantments
-        ItemStack helmet = new ItemStack(Items.RUBY_HELMET.get());
+        // Only 30% chance that this wandering trader will have ruby armor at all
+        if (rand.nextFloat() > 0.3f) {
+            return;
+        }
+        
+        // Randomly choose only ONE ruby armor piece to offer
+        int pieceChoice = rand.nextInt(4);
+        ItemStack rubyArmor;
+        
+        switch (pieceChoice) {
+            case 0: // Helmet
+                rubyArmor = new ItemStack(Items.RUBY_HELMET.get());
+                break;
+            case 1: // Chestplate
+                rubyArmor = new ItemStack(Items.RUBY_CHESTPLATE.get());
+                break;
+            case 2: // Leggings
+                rubyArmor = new ItemStack(Items.RUBY_LEGGINGS.get());
+                break;
+            case 3: // Boots
+                rubyArmor = new ItemStack(Items.RUBY_BOOTS.get());
+                break;
+            default:
+                rubyArmor = new ItemStack(Items.RUBY_HELMET.get());
+                break;
+        }
+        
+        // 80% chance to get enchantments, 20% chance for no enchantments
         if (rand.nextFloat() < 0.8f) {
             if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
-                helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
+                rubyArmor.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
             }
             if (rand.nextFloat() < 0.6f) { // 60% chance for Unbreaking
-                helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, rand.nextInt(2) + 1);
+                rubyArmor.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, rand.nextInt(2) + 1);
             }
-            if (rand.nextFloat() < 0.4f) { // 40% chance for Respiration
-                helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.RESPIRATION, rand.nextInt(2) + 1);
-            }
-            if (rand.nextFloat() < 0.3f) { // 30% chance for Aqua Affinity
-                helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.AQUA_AFFINITY, 1);
+            
+            // Add piece-specific enchantments
+            if (pieceChoice == 0) { // Helmet
+                if (rand.nextFloat() < 0.4f) { // 40% chance for Respiration
+                    rubyArmor.enchant(net.minecraft.world.item.enchantment.Enchantments.RESPIRATION, rand.nextInt(2) + 1);
+                }
+                if (rand.nextFloat() < 0.3f) { // 30% chance for Aqua Affinity
+                    rubyArmor.enchant(net.minecraft.world.item.enchantment.Enchantments.AQUA_AFFINITY, 1);
+                }
+            } else if (pieceChoice == 1) { // Chestplate
+                if (rand.nextFloat() < 0.5f) { // 50% chance for Thorns
+                    rubyArmor.enchant(net.minecraft.world.item.enchantment.Enchantments.THORNS, rand.nextInt(2) + 1);
+                }
+            } else if (pieceChoice == 2) { // Leggings
+                if (rand.nextFloat() < 0.4f) { // 40% chance for Fire Protection
+                    rubyArmor.enchant(net.minecraft.world.item.enchantment.Enchantments.FIRE_PROTECTION, rand.nextInt(3) + 1);
+                }
+            } else if (pieceChoice == 3) { // Boots
+                if (rand.nextFloat() < 0.5f) { // 50% chance for Feather Falling
+                    rubyArmor.enchant(net.minecraft.world.item.enchantment.Enchantments.FALL_PROTECTION, rand.nextInt(3) + 1);
+                }
+                if (rand.nextFloat() < 0.4f) { // 40% chance for Depth Strider
+                    rubyArmor.enchant(net.minecraft.world.item.enchantment.Enchantments.DEPTH_STRIDER, rand.nextInt(2) + 1);
+                }
             }
         }
         
-        // Ruby Chestplate - 80% chance for enchantments, 20% chance for no enchantments
-        ItemStack chestplate = new ItemStack(Items.RUBY_CHESTPLATE.get());
-        if (rand.nextFloat() < 0.8f) {
-            if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
-                chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
-            }
-            if (rand.nextFloat() < 0.6f) { // 60% chance for Unbreaking
-                chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, rand.nextInt(2) + 1);
-            }
-            if (rand.nextFloat() < 0.5f) { // 50% chance for Thorns
-                chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.THORNS, rand.nextInt(2) + 1);
-            }
-        }
-        
-        // Ruby Leggings - 80% chance for enchantments, 20% chance for no enchantments
-        ItemStack leggings = new ItemStack(Items.RUBY_LEGGINGS.get());
-        if (rand.nextFloat() < 0.8f) {
-            if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
-                leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
-            }
-            if (rand.nextFloat() < 0.6f) { // 60% chance for Unbreaking
-                leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, rand.nextInt(2) + 1);
-            }
-            if (rand.nextFloat() < 0.4f) { // 40% chance for Fire Protection
-                leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.FIRE_PROTECTION, rand.nextInt(3) + 1);
-            }
-        }
-        
-        // Ruby Boots - 80% chance for enchantments, 20% chance for no enchantments
-        ItemStack boots = new ItemStack(Items.RUBY_BOOTS.get());
-        if (rand.nextFloat() < 0.8f) {
-            if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
-                boots.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
-            }
-            if (rand.nextFloat() < 0.6f) { // 60% chance for Unbreaking
-                boots.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, rand.nextInt(2) + 1);
-            }
-            if (rand.nextFloat() < 0.5f) { // 50% chance for Feather Falling
-                boots.enchant(net.minecraft.world.item.enchantment.Enchantments.FALL_PROTECTION, rand.nextInt(3) + 1);
-            }
-            if (rand.nextFloat() < 0.4f) { // 40% chance for Depth Strider
-                boots.enchant(net.minecraft.world.item.enchantment.Enchantments.DEPTH_STRIDER, rand.nextInt(2) + 1);
-            }
-        }
-        
-        // Add all trades to the wandering trader
+        // Add the single ruby armor piece to the wandering trader
         trader.getOffers().add(new MerchantOffer(
-            new ItemStack(net.minecraft.world.item.Items.EMERALD, 12),
-            helmet,
-            8, 2, 0.05F
-        ));
-        
-        trader.getOffers().add(new MerchantOffer(
-            new ItemStack(net.minecraft.world.item.Items.EMERALD, 16),
-            chestplate,
-            8, 2, 0.05F
-        ));
-        
-        trader.getOffers().add(new MerchantOffer(
-            new ItemStack(net.minecraft.world.item.Items.EMERALD, 14),
-            leggings,
-            8, 2, 0.05F
-        ));
-        
-        trader.getOffers().add(new MerchantOffer(
-            new ItemStack(net.minecraft.world.item.Items.EMERALD, 10),
-            boots,
-            8, 2, 0.05F
+            new ItemStack(net.minecraft.world.item.Items.EMERALD, 10 + rand.nextInt(7)), // Random price 10-16 emeralds
+            rubyArmor,
+            3, 1, 0.05F // Only 3 uses, 1 max uses, low price multiplier
         ));
     }
 }

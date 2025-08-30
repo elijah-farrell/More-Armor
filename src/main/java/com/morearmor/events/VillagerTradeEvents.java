@@ -1,6 +1,5 @@
 package com.morearmor.events;
 
-import com.morearmor.init.Items;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
@@ -9,7 +8,6 @@ import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import com.morearmor.MoreArmor;
-
 import java.util.List;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 
