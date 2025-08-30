@@ -1,13 +1,13 @@
 {
   "profession": "armorer",
   "tiers": {
-    "1": [
+    "4": [
       {
         "type": "sell",
         "item": "morearmor:emerald_helmet",
         "price": {
           "item": "minecraft:emerald",
-          "count": 8
+          "count": 7
         },
         "max_uses": 12
       },
@@ -21,7 +21,7 @@
         "max_uses": 12
       }
     ],
-    "2": [
+    "7": [
       {
         "type": "sell",
         "item": "morearmor:emerald_leggings",
@@ -32,7 +32,7 @@
         "max_uses": 12
       }
     ],
-    "3": [
+    "9": [
       {
         "type": "sell",
         "item": "morearmor:emerald_chestplate",

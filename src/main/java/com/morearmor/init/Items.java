@@ -17,11 +17,8 @@ import com.morearmor.init.armors.SculkArmorItem;
 import com.morearmor.init.armors.SnifferArmorItem;
 import com.morearmor.init.armors.TntArmorItem;
 import com.morearmor.util.ArmorConfigLoader;
-
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
-
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;

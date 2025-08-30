@@ -13,15 +13,13 @@
       },
       {
         "type": "sell",
-        "item": "morearmor:ruby_boots",
+        "item": "morearmor:ruby_chestplate",
         "price": {
           "item": "minecraft:emerald",
-          "count": 10
+          "count": 16
         },
         "max_uses": 8
-      }
-    ],
-    "2": [
+      },
       {
         "type": "sell",
         "item": "morearmor:ruby_leggings",
@@ -30,15 +28,13 @@
           "count": 14
         },
         "max_uses": 8
-      }
-    ],
-    "3": [
+      },
       {
         "type": "sell",
-        "item": "morearmor:ruby_chestplate",
+        "item": "morearmor:ruby_boots",
         "price": {
           "item": "minecraft:emerald",
-          "count": 16
+          "count": 10
         },
         "max_uses": 8
       }

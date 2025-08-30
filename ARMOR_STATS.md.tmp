@@ -66,7 +66,7 @@
 
 ## MORE ARMOR MOD STATS
 
-### Tier 1 - Basic Materials
+
 #### CRAFTING ARMOR
 - **Helmet**: 1 protection, 55 durability
 - **Chestplate**: 2 protection, 80 durability
@@ -100,7 +100,7 @@
 - **Enchantment Value**: 6
 - **Repair Material**: Glass
 
-### Tier 2 - Low Tier Materials
+
 #### CACTUS ARMOR
 - **Helmet**: 1 protection, 55 durability
 - **Chestplate**: 2 protection, 80 durability
@@ -145,7 +145,7 @@
 - **Enchantment Value**: 10
 - **Repair Material**: TNT
 
-### Tier 3 - Mid Tier Materials
+
 #### BEE ARMOR
 - **Helmet**: 1 protection, 77 durability
 - **Chestplate**: 3 protection, 112 durability
@@ -256,7 +256,7 @@
 - **Enchantment Value**: 14
 - **Repair Material**: Magma Cream
 
-### Tier 4 - High Tier Materials
+
 #### AMETHYST ARMOR
 - **Helmet**: 2 protection, 193 durability
 - **Chestplate**: 5 protection, 280 durability
@@ -345,13 +345,13 @@
 - **Enchantment Value**: 17
 - **Repair Material**: Emerald
 
-#### REINFORCED_DEEPSLATE ARMOR - todo
-- **Helmet**: 3 protection, 338 durability
-- **Chestplate**: 6 protection, 432 durability
-- **Leggings**: 5 protection, 405 durability
-- **Boots**: 3 protection, 351 durability
-- **Total Protection**: 17
-- **Toughness**: 2.3
+#### REINFORCED_DEEPSLATE ARMOR
+- **Helmet**: 1 protection, 338 durability
+- **Chestplate**: 4 protection, 432 durability
+- **Leggings**: 3 protection, 405 durability
+- **Boots**: 1 protection, 351 durability
+- **Total Protection**: 9
+- **Toughness**: 0.5
 - **Knockback Resistance**: 0.1
 - **Enchantment Value**: 18
 - **Repair Material**: Deepslate
@@ -411,7 +411,7 @@
 - **Enchantment Value**: 19
 - **Repair Material**: Ancient Debris
 
-### Tier 5 - End Game Materials
+
 #### OBSIDIAN ARMOR
 - **Helmet**: 3 protection, 363 durability
 - **Chestplate**: 7 protection, 528 durability
@@ -445,13 +445,13 @@
 - **Enchantment Value**: 19
 - **Repair Material**: Blaze Powder
 
-#### BEDROCK ARMOR - todo
-- **Helmet**: 4 protection, 440 durability
-- **Chestplate**: 9 protection, 640 durability
-- **Leggings**: 7 protection, 600 durability
-- **Boots**: 4 protection, 520 durability
-- **Total Protection**: 24
-- **Toughness**: 4.0
+#### BEDROCK ARMOR
+- **Helmet**: 2 protection, 1100 durability
+- **Chestplate**: 6 protection, 1600 durability
+- **Leggings**: 5 protection, 1500 durability
+- **Boots**: 2 protection, 1300 durability
+- **Total Protection**: 15
+- **Toughness**: 0.0
 - **Knockback Resistance**: 0.2
 - **Enchantment Value**: 20
 - **Repair Material**: Bedrock
@@ -468,33 +468,3 @@
 - **Repair Material**: Dragon Egg
 
 ---
-
-## ARMOR TIER SUMMARY
-
-### Tier 1 (Basic): 2-8 Total Protection
-- Crafting, Pot, Glass
-
-### Tier 2 (Low): 6-13 Total Protection  
-- Cactus, Coal, Music, TNT
-
-### Tier 3 (Mid): 11-13 Total Protection
-- Bee, Bone, Skeleton, Copper, Lapis, Redstone, Dripstone, Quartz, Sniffer, Magma
-
-### Tier 4 (High): 17 Total Protection
-- Amethyst, Guardian, Gilded, RGB, Sculk, Wither Skeleton, Shulker, Emerald, Reinforced Deepslate, Totem, Ruby, Machine, Galaxy, Ancient Debris
-
-### Tier 5 (End Game): 24 Total Protection
-- Obsidian, Power Suit, Red Dragon, Bedrock, Ender Dragon
-
----
-
-## NOTES
-
-- **Protection Values**: Listed as [Boots, Leggings, Chestplate, Helmet]
-- **Durability**: Base durability × material multiplier
-- **Toughness**: Reduces damage from high-damage attacks
-- **Knockback Resistance**: Reduces knockback from attacks
-- **Enchantment Value**: Higher values allow better enchantments
-- **Repair Material**: Item used to repair the armor
-
-The More Armor mod provides a wide range of armor options, from basic materials like glass and crafting tables to powerful end-game materials like bedrock and dragon armor, giving players many progression paths and customization options.

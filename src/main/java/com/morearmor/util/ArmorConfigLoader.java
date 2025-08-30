@@ -1,7 +1,5 @@
 package com.morearmor.util;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.resources.ResourceLocation;
@@ -41,16 +39,22 @@ public class ArmorConfigLoader {
             
             // Parse JSON
             JsonObject config = JsonParser.parseReader(new InputStreamReader(inputStream)).getAsJsonObject();
-            Gson gson = new GsonBuilder().create();
             
             // Create materials for each armor type
             for (String materialName : config.keySet()) {
                 JsonObject materialData = config.getAsJsonObject(materialName);
                 
+                // Create protection array from individual protection fields
+                int[] protectionAmounts = new int[4];
+                protectionAmounts[0] = materialData.get("helmet_protection").getAsInt();
+                protectionAmounts[1] = materialData.get("chestplate_protection").getAsInt();
+                protectionAmounts[2] = materialData.get("leggings_protection").getAsInt();
+                protectionAmounts[3] = materialData.get("boots_protection").getAsInt();
+                
                 ArmorMaterial material = new ModArmorMaterial(
                     materialName,
                     materialData.get("durability").getAsInt(),
-                    gson.fromJson(materialData.get("protection"), int[].class),
+                    protectionAmounts,
                     materialData.get("enchantment").getAsInt(),
                     getSoundEvent(materialData.get("sound").getAsString()),
                     materialData.get("toughness").getAsFloat(),

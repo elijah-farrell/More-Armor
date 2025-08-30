@@ -101,14 +101,14 @@ public class LootTableInjector {
             event.getTable().addPool(poolBuilder.build());
         }
         
-        // Ancient City - Sculk Armor
+        // Ancient City - Reinforced Deepslate Armor
         if (tableName.equals(new ResourceLocation("minecraft", "chests/ancient_city"))) {
             LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(Items.SCULK_HELMET.get()).setWeight(1))
-                .add(LootItem.lootTableItem(Items.SCULK_CHESTPLATE.get()).setWeight(1))
-                .add(LootItem.lootTableItem(Items.SCULK_LEGGINGS.get()).setWeight(1))
-                .add(LootItem.lootTableItem(Items.SCULK_BOOTS.get()).setWeight(1));
+                .add(LootItem.lootTableItem(Items.REINFORCED_DEEPSLATE_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.REINFORCED_DEEPSLATE_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.REINFORCED_DEEPSLATE_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(Items.REINFORCED_DEEPSLATE_BOOTS.get()).setWeight(1));
             
             event.getTable().addPool(poolBuilder.build());
         }
