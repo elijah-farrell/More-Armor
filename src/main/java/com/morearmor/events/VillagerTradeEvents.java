@@ -21,12 +21,23 @@ public class VillagerTradeEvents {
         if (event.getType() == VillagerProfession.ARMORER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             
-            // Tier 4 (Apprentice) - Enchanted Emerald Helmet and Boots
+            // Tier 4 (Apprentice) - Randomly Enchanted Emerald Helmet and Boots
             if (trades.containsKey(4)) {
                 trades.get(4).add((trader, rand) -> {
                     ItemStack helmet = new ItemStack(com.morearmor.init.Items.EMERALD_HELMET.get());
-                    helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, 3);
-                    helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, 2);
+                    // Random enchantments for helmet
+                    if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
+                        helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
+                    }
+                    if (rand.nextFloat() < 0.5f) { // 50% chance for Unbreaking
+                        helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, rand.nextInt(2) + 1);
+                    }
+                    if (rand.nextFloat() < 0.3f) { // 30% chance for Respiration
+                        helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.RESPIRATION, rand.nextInt(2) + 1);
+                    }
+                    if (rand.nextFloat() < 0.2f) { // 20% chance for Aqua Affinity
+                        helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.AQUA_AFFINITY, 1);
+                    }
                     return new MerchantOffer(
                         new ItemStack(net.minecraft.world.item.Items.EMERALD, 7),
                         helmet,
@@ -36,9 +47,19 @@ public class VillagerTradeEvents {
                 
                 trades.get(4).add((trader, rand) -> {
                     ItemStack boots = new ItemStack(com.morearmor.init.Items.EMERALD_BOOTS.get());
-                    boots.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, 3);
-                    boots.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, 2);
-                    boots.enchant(net.minecraft.world.item.enchantment.Enchantments.FALL_PROTECTION, 3);
+                    // Random enchantments for boots
+                    if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
+                        boots.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
+                    }
+                    if (rand.nextFloat() < 0.5f) { // 50% chance for Unbreaking
+                        boots.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, rand.nextInt(2) + 1);
+                    }
+                    if (rand.nextFloat() < 0.4f) { // 40% chance for Feather Falling
+                        boots.enchant(net.minecraft.world.item.enchantment.Enchantments.FALL_PROTECTION, rand.nextInt(3) + 1);
+                    }
+                    if (rand.nextFloat() < 0.3f) { // 30% chance for Depth Strider
+                        boots.enchant(net.minecraft.world.item.enchantment.Enchantments.DEPTH_STRIDER, rand.nextInt(2) + 1);
+                    }
                     return new MerchantOffer(
                         new ItemStack(net.minecraft.world.item.Items.EMERALD, 6),
                         boots,
@@ -47,12 +68,20 @@ public class VillagerTradeEvents {
                 });
             }
             
-            // Tier 7 (Journeyman) - Enchanted Emerald Leggings
+            // Tier 7 (Journeyman) - Randomly Enchanted Emerald Leggings
             if (trades.containsKey(7)) {
                 trades.get(7).add((trader, rand) -> {
                     ItemStack leggings = new ItemStack(com.morearmor.init.Items.EMERALD_LEGGINGS.get());
-                    leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, 3);
-                    leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, 2);
+                    // Random enchantments for leggings
+                    if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
+                        leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
+                    }
+                    if (rand.nextFloat() < 0.5f) { // 50% chance for Unbreaking
+                        leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, rand.nextInt(2) + 1);
+                    }
+                    if (rand.nextFloat() < 0.3f) { // 30% chance for Fire Protection
+                        leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.FIRE_PROTECTION, rand.nextInt(3) + 1);
+                    }
                     return new MerchantOffer(
                         new ItemStack(net.minecraft.world.item.Items.EMERALD, 10),
                         leggings,
@@ -61,12 +90,20 @@ public class VillagerTradeEvents {
                 });
             }
             
-            // Tier 9 (Master) - Enchanted Emerald Chestplate
+            // Tier 9 (Master) - Randomly Enchanted Emerald Chestplate
             if (trades.containsKey(9)) {
                 trades.get(9).add((trader, rand) -> {
                     ItemStack chestplate = new ItemStack(com.morearmor.init.Items.EMERALD_CHESTPLATE.get());
-                    chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, 3);
-                    chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, 2);
+                    // Random enchantments for chestplate
+                    if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
+                        chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
+                    }
+                    if (rand.nextFloat() < 0.5f) { // 50% chance for Unbreaking
+                        chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, rand.nextInt(2) + 1);
+                    }
+                    if (rand.nextFloat() < 0.4f) { // 40% chance for Thorns
+                        chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.THORNS, rand.nextInt(2) + 1);
+                    }
                     return new MerchantOffer(
                         new ItemStack(net.minecraft.world.item.Items.EMERALD, 12),
                         chestplate,
