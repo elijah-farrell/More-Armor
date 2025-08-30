@@ -21,37 +21,58 @@ public class VillagerTradeEvents {
         if (event.getType() == VillagerProfession.ARMORER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             
-            // Tier 4 (Apprentice) - Emerald Helmet and Boots
+            // Tier 4 (Apprentice) - Enchanted Emerald Helmet and Boots
             if (trades.containsKey(4)) {
-                trades.get(4).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(net.minecraft.world.item.Items.EMERALD, 7),
-                    new ItemStack(com.morearmor.init.Items.EMERALD_HELMET.get()),
-                    12, 2, 0.05F
-                ));
+                trades.get(4).add((trader, rand) -> {
+                    ItemStack helmet = new ItemStack(com.morearmor.init.Items.EMERALD_HELMET.get());
+                    helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, 3);
+                    helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, 2);
+                    return new MerchantOffer(
+                        new ItemStack(net.minecraft.world.item.Items.EMERALD, 7),
+                        helmet,
+                        12, 2, 0.05F
+                    );
+                });
                 
-                trades.get(4).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(net.minecraft.world.item.Items.EMERALD, 6),
-                    new ItemStack(com.morearmor.init.Items.EMERALD_BOOTS.get()),
-                    12, 2, 0.05F
-                ));
+                trades.get(4).add((trader, rand) -> {
+                    ItemStack boots = new ItemStack(com.morearmor.init.Items.EMERALD_BOOTS.get());
+                    boots.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, 3);
+                    boots.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, 2);
+                    boots.enchant(net.minecraft.world.item.enchantment.Enchantments.FALL_PROTECTION, 3);
+                    return new MerchantOffer(
+                        new ItemStack(net.minecraft.world.item.Items.EMERALD, 6),
+                        boots,
+                        12, 2, 0.05F
+                    );
+                });
             }
             
-            // Tier 7 (Journeyman) - Emerald Leggings
+            // Tier 7 (Journeyman) - Enchanted Emerald Leggings
             if (trades.containsKey(7)) {
-                trades.get(7).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(net.minecraft.world.item.Items.EMERALD, 10),
-                    new ItemStack(com.morearmor.init.Items.EMERALD_LEGGINGS.get()),
-                    12, 2, 0.05F
-                ));
+                trades.get(7).add((trader, rand) -> {
+                    ItemStack leggings = new ItemStack(com.morearmor.init.Items.EMERALD_LEGGINGS.get());
+                    leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, 3);
+                    leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, 2);
+                    return new MerchantOffer(
+                        new ItemStack(net.minecraft.world.item.Items.EMERALD, 10),
+                        leggings,
+                        12, 2, 0.05F
+                    );
+                });
             }
             
-            // Tier 9 (Master) - Emerald Chestplate
+            // Tier 9 (Master) - Enchanted Emerald Chestplate
             if (trades.containsKey(9)) {
-                trades.get(9).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(net.minecraft.world.item.Items.EMERALD, 12),
-                    new ItemStack(com.morearmor.init.Items.EMERALD_CHESTPLATE.get()),
-                    12, 2, 0.05F
-                ));
+                trades.get(9).add((trader, rand) -> {
+                    ItemStack chestplate = new ItemStack(com.morearmor.init.Items.EMERALD_CHESTPLATE.get());
+                    chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, 3);
+                    chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING, 2);
+                    return new MerchantOffer(
+                        new ItemStack(net.minecraft.world.item.Items.EMERALD, 12),
+                        chestplate,
+                        12, 2, 0.05F
+                    );
+                });
             }
         }
         
