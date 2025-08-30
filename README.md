@@ -8,7 +8,7 @@
 
 [![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.1-blue.svg)](https://www.minecraft.net/)
 [![Forge Version](https://img.shields.io/badge/Forge-47.1.0+-orange.svg)](https://files.minecraftforge.net/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
 [![Downloads](https://img.shields.io/badge/Downloads-Coming%20Soon-lightgrey.svg)](https://www.curseforge.com/)
 
 [**Features**](#features) • [**Gallery**](#gallery) • [**License**](#license)
@@ -82,4 +82,15 @@
 
 ## License
 
-This mod is licensed under the [MIT License](LICENSE).
+This mod is licensed under **All Rights Reserved** - Copyright (c) 2025 Elijah Farrell.
+
+### **License Structure:**
+- **Mod Code**: All Rights Reserved
+- **Textures**: MIT License (AverageTaTeMan)
+- **Exceptions**: Personal use, collaboration, and contributions welcome
+
+### **What This Means:**
+✅ **Permitted**: Personal Use, Pull Requests, Contributions, Issue Fixes  
+❌ **Restricted**: Commercial Use, Redistribution, Claiming Ownership
+
+See [LICENSE](LICENSE) file for full details and texture attribution.
