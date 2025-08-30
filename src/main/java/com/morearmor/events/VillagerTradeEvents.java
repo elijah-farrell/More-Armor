@@ -22,31 +22,37 @@ public class VillagerTradeEvents {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             
             // Tier 4 (Apprentice) - Emerald Helmet and Boots
-            trades.get(4).add((trader, rand) -> new MerchantOffer(
-                new ItemStack(net.minecraft.world.item.Items.EMERALD, 7),
-                new ItemStack(com.morearmor.init.Items.EMERALD_HELMET.get()),
-                12, 2, 0.05F
-            ));
-            
-            trades.get(4).add((trader, rand) -> new MerchantOffer(
-                new ItemStack(net.minecraft.world.item.Items.EMERALD, 6),
-                new ItemStack(com.morearmor.init.Items.EMERALD_BOOTS.get()),
-                12, 2, 0.05F
-            ));
+            if (trades.containsKey(4)) {
+                trades.get(4).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(net.minecraft.world.item.Items.EMERALD, 7),
+                    new ItemStack(com.morearmor.init.Items.EMERALD_HELMET.get()),
+                    12, 2, 0.05F
+                ));
+                
+                trades.get(4).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(net.minecraft.world.item.Items.EMERALD, 6),
+                    new ItemStack(com.morearmor.init.Items.EMERALD_BOOTS.get()),
+                    12, 2, 0.05F
+                ));
+            }
             
             // Tier 7 (Journeyman) - Emerald Leggings
-            trades.get(7).add((trader, rand) -> new MerchantOffer(
-                new ItemStack(net.minecraft.world.item.Items.EMERALD, 10),
-                new ItemStack(com.morearmor.init.Items.EMERALD_LEGGINGS.get()),
-                12, 2, 0.05F
-            ));
+            if (trades.containsKey(7)) {
+                trades.get(7).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(net.minecraft.world.item.Items.EMERALD, 10),
+                    new ItemStack(com.morearmor.init.Items.EMERALD_LEGGINGS.get()),
+                    12, 2, 0.05F
+                ));
+            }
             
             // Tier 9 (Master) - Emerald Chestplate
-            trades.get(9).add((trader, rand) -> new MerchantOffer(
-                new ItemStack(net.minecraft.world.item.Items.EMERALD, 12),
-                new ItemStack(com.morearmor.init.Items.EMERALD_CHESTPLATE.get()),
-                12, 2, 0.05F
-            ));
+            if (trades.containsKey(9)) {
+                trades.get(9).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(net.minecraft.world.item.Items.EMERALD, 12),
+                    new ItemStack(com.morearmor.init.Items.EMERALD_CHESTPLATE.get()),
+                    12, 2, 0.05F
+                ));
+            }
         }
         
         // Note: Wandering Trader trades are handled by a different system
