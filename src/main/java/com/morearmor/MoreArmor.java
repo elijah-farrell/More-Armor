@@ -1,16 +1,10 @@
 package com.morearmor;
 
-
-
 import com.morearmor.init.Items;
-import com.morearmor.util.ArmorConfigLoader;
-
-
+import com.morearmor.config.ModConfigs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.resources.ResourceLocation;
@@ -19,8 +13,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.Registries;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-
-
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
 @Mod(MoreArmor.MOD_ID)
@@ -257,8 +249,8 @@ public class MoreArmor {
             .build());
 
     public MoreArmor() {        
-        // Load armor config first
-        ArmorConfigLoader.loadMaterials();
+        // Register ForgeConfigSpec first
+        ModConfigs.register();
         
         // Register items
         Items.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -273,13 +265,7 @@ public class MoreArmor {
         MinecraftForge.EVENT_BUS.register(this);
     }
     
-    @SubscribeEvent
-    public static void onCommonSetup(FMLCommonSetupEvent event) {
-        // This ensures language files are loaded
-        event.enqueueWork(() -> {
-            // Language files should be automatically loaded from assets/morearmor/lang/
-        });
-    }
+
     
 
 

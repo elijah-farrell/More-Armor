@@ -1,28 +1,14 @@
 modLoader="javafml"
 loaderVersion="[47,)"
-license="MIT"
+license="All Rights Reserved"
 
 [[mods]]
 modId="morearmor"
 version="1.0.0"
 displayName="More Armor"
 authors="Elijah Farrell"
+credits="Armor textures: averagertateman"
 logoFile="assets/morearmor/MoreArmorLogo.png"
 description='''
 A Minecraft Forge mod that adds various vanilla-style and custom armor sets.
-
 '''
-
-[[dependencies.morearmor]]
-    modId="forge"
-    mandatory=true
-    versionRange="[47.1.0,)"
-    ordering="NONE"
-    side="BOTH"
-
-[[dependencies.morearmor]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.20.1,1.21)"
-    ordering="NONE"
-    side="BOTH" 

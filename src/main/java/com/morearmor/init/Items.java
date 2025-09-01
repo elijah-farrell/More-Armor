@@ -16,7 +16,7 @@ import com.morearmor.init.armors.RgbArmorItem;
 import com.morearmor.init.armors.SculkArmorItem;
 import com.morearmor.init.armors.SnifferArmorItem;
 import com.morearmor.init.armors.TntArmorItem;
-import com.morearmor.util.ArmorConfigLoader;
+import com.morearmor.config.ArmorConfigLoader;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
