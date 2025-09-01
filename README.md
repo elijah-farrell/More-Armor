@@ -62,6 +62,12 @@
 
 ---
 
+## Configuration
+
+Fully configurable armor stats (durability, protection, enchantability, toughness, knockback resistance) via in-game config menu (Main Menu → Mods → More Armor → Config) or `config/morearmor-common.toml`. 
+
+**Note:** Changes require a game or server restart to take effect.
+
 ## Gallery
 
 <div align="center">
