@@ -23,12 +23,6 @@ public class ModConfigs {
     }
 
     public static class Server {
-        // Galaxy Armor
-        public final ForgeConfigSpec.IntValue galaxyHelmetDurability, galaxyChestplateDurability, galaxyLeggingsDurability, galaxyBootsDurability;
-        public final ForgeConfigSpec.IntValue galaxyHelmetProtection, galaxyChestplateProtection, galaxyLeggingsProtection, galaxyBootsProtection;
-        public final ForgeConfigSpec.IntValue galaxyEnchantment;
-        public final ForgeConfigSpec.DoubleValue galaxyToughness, galaxyKnockbackResistance;
-
         // Amethyst Armor
         public final ForgeConfigSpec.IntValue amethystHelmetDurability, amethystChestplateDurability, amethystLeggingsDurability, amethystBootsDurability;
         public final ForgeConfigSpec.IntValue amethystHelmetProtection, amethystChestplateProtection, amethystLeggingsProtection, amethystBootsProtection;
@@ -95,6 +89,18 @@ public class ModConfigs {
         public final ForgeConfigSpec.IntValue emeraldEnchantment;
         public final ForgeConfigSpec.DoubleValue emeraldToughness, emeraldKnockbackResistance;
 
+        // Ender Dragon Armor
+        public final ForgeConfigSpec.IntValue enderDragonHelmetDurability, enderDragonChestplateDurability, enderDragonLeggingsDurability, enderDragonBootsDurability;
+        public final ForgeConfigSpec.IntValue enderDragonHelmetProtection, enderDragonChestplateProtection, enderDragonLeggingsProtection, enderDragonBootsProtection;
+        public final ForgeConfigSpec.IntValue enderDragonEnchantment;
+        public final ForgeConfigSpec.DoubleValue enderDragonToughness, enderDragonKnockbackResistance;
+
+        // Galaxy Armor
+        public final ForgeConfigSpec.IntValue galaxyHelmetDurability, galaxyChestplateDurability, galaxyLeggingsDurability, galaxyBootsDurability;
+        public final ForgeConfigSpec.IntValue galaxyHelmetProtection, galaxyChestplateProtection, galaxyLeggingsProtection, galaxyBootsProtection;
+        public final ForgeConfigSpec.IntValue galaxyEnchantment;
+        public final ForgeConfigSpec.DoubleValue galaxyToughness, galaxyKnockbackResistance;
+
         // Gilded Armor
         public final ForgeConfigSpec.IntValue gildedHelmetDurability, gildedChestplateDurability, gildedLeggingsDurability, gildedBootsDurability;
         public final ForgeConfigSpec.IntValue gildedHelmetProtection, gildedChestplateProtection, gildedLeggingsProtection, gildedBootsProtection;
@@ -107,11 +113,47 @@ public class ModConfigs {
         public final ForgeConfigSpec.IntValue glassEnchantment;
         public final ForgeConfigSpec.DoubleValue glassToughness, glassKnockbackResistance;
 
+        // Guardian Armor
+        public final ForgeConfigSpec.IntValue guardianHelmetDurability, guardianChestplateDurability, guardianLeggingsDurability, guardianBootsDurability;
+        public final ForgeConfigSpec.IntValue guardianHelmetProtection, guardianChestplateProtection, guardianLeggingsProtection, guardianBootsProtection;
+        public final ForgeConfigSpec.IntValue guardianEnchantment;
+        public final ForgeConfigSpec.DoubleValue guardianToughness, guardianKnockbackResistance;
+
         // Lapis Armor
         public final ForgeConfigSpec.IntValue lapisHelmetDurability, lapisChestplateDurability, lapisLeggingsDurability, lapisBootsDurability;
         public final ForgeConfigSpec.IntValue lapisHelmetProtection, lapisChestplateProtection, lapisLeggingsProtection, lapisBootsProtection;
         public final ForgeConfigSpec.IntValue lapisEnchantment;
         public final ForgeConfigSpec.DoubleValue lapisToughness, lapisKnockbackResistance;
+
+        // Machine Armor
+        public final ForgeConfigSpec.IntValue machineHelmetDurability, machineChestplateDurability, machineLeggingsDurability, machineBootsDurability;
+        public final ForgeConfigSpec.IntValue machineHelmetProtection, machineChestplateProtection, machineLeggingsProtection, machineBootsProtection;
+        public final ForgeConfigSpec.IntValue machineEnchantment;
+        public final ForgeConfigSpec.DoubleValue machineToughness, machineKnockbackResistance;
+
+        // Magma Armor
+        public final ForgeConfigSpec.IntValue magmaHelmetDurability, magmaChestplateDurability, magmaLeggingsDurability, magmaBootsDurability;
+        public final ForgeConfigSpec.IntValue magmaHelmetProtection, magmaChestplateProtection, magmaLeggingsProtection, magmaBootsProtection;
+        public final ForgeConfigSpec.IntValue magmaEnchantment;
+        public final ForgeConfigSpec.DoubleValue magmaToughness, magmaKnockbackResistance;
+
+        // Music Armor
+        public final ForgeConfigSpec.IntValue musicHelmetDurability, musicChestplateDurability, musicLeggingsDurability, musicBootsDurability;
+        public final ForgeConfigSpec.IntValue musicHelmetProtection, musicChestplateProtection, musicLeggingsProtection, musicBootsProtection;
+        public final ForgeConfigSpec.IntValue musicEnchantment;
+        public final ForgeConfigSpec.DoubleValue musicToughness, musicKnockbackResistance;
+
+        // Obsidian Armor
+        public final ForgeConfigSpec.IntValue obsidianHelmetDurability, obsidianChestplateDurability, obsidianLeggingsDurability, obsidianBootsDurability;
+        public final ForgeConfigSpec.IntValue obsidianHelmetProtection, obsidianChestplateProtection, obsidianLeggingsProtection, obsidianBootsProtection;
+        public final ForgeConfigSpec.IntValue obsidianEnchantment;
+        public final ForgeConfigSpec.DoubleValue obsidianToughness, obsidianKnockbackResistance;
+
+        // Pot Armor
+        public final ForgeConfigSpec.IntValue potHelmetDurability, potChestplateDurability, potLeggingsDurability, potBootsDurability;
+        public final ForgeConfigSpec.IntValue potHelmetProtection, potChestplateProtection, potLeggingsProtection, potBootsProtection;
+        public final ForgeConfigSpec.IntValue potEnchantment;
+        public final ForgeConfigSpec.DoubleValue potToughness, potKnockbackResistance;
 
         // Power Suit Armor
         public final ForgeConfigSpec.IntValue powerSuitHelmetDurability, powerSuitChestplateDurability, powerSuitLeggingsDurability, powerSuitBootsDurability;
@@ -125,6 +167,12 @@ public class ModConfigs {
         public final ForgeConfigSpec.IntValue quartzEnchantment;
         public final ForgeConfigSpec.DoubleValue quartzToughness, quartzKnockbackResistance;
 
+        // Red Dragon Armor
+        public final ForgeConfigSpec.IntValue redDragonHelmetDurability, redDragonChestplateDurability, redDragonLeggingsDurability, redDragonBootsDurability;
+        public final ForgeConfigSpec.IntValue redDragonHelmetProtection, redDragonChestplateProtection, redDragonLeggingsProtection, redDragonBootsProtection;
+        public final ForgeConfigSpec.IntValue redDragonEnchantment;
+        public final ForgeConfigSpec.DoubleValue redDragonToughness, redDragonKnockbackResistance;
+
         // Redstone Armor
         public final ForgeConfigSpec.IntValue redstoneHelmetDurability, redstoneChestplateDurability, redstoneLeggingsDurability, redstoneBootsDurability;
         public final ForgeConfigSpec.IntValue redstoneHelmetProtection, redstoneChestplateProtection, redstoneLeggingsProtection, redstoneBootsProtection;
@@ -137,11 +185,23 @@ public class ModConfigs {
         public final ForgeConfigSpec.IntValue reinforcedDeepslateEnchantment;
         public final ForgeConfigSpec.DoubleValue reinforcedDeepslateToughness, reinforcedDeepslateKnockbackResistance;
 
+        // RGB Armor
+        public final ForgeConfigSpec.IntValue rgbHelmetDurability, rgbChestplateDurability, rgbLeggingsDurability, rgbBootsDurability;
+        public final ForgeConfigSpec.IntValue rgbHelmetProtection, rgbChestplateProtection, rgbLeggingsProtection, rgbBootsProtection;
+        public final ForgeConfigSpec.IntValue rgbEnchantment;
+        public final ForgeConfigSpec.DoubleValue rgbToughness, rgbKnockbackResistance;
+
         // Ruby Armor
         public final ForgeConfigSpec.IntValue rubyHelmetDurability, rubyChestplateDurability, rubyLeggingsDurability, rubyBootsDurability;
         public final ForgeConfigSpec.IntValue rubyHelmetProtection, rubyChestplateProtection, rubyLeggingsProtection, rubyBootsProtection;
         public final ForgeConfigSpec.IntValue rubyEnchantment;
         public final ForgeConfigSpec.DoubleValue rubyToughness, rubyKnockbackResistance;
+
+        // Sculk Armor
+        public final ForgeConfigSpec.IntValue sculkHelmetDurability, sculkChestplateDurability, sculkLeggingsDurability, sculkBootsDurability;
+        public final ForgeConfigSpec.IntValue sculkHelmetProtection, sculkChestplateProtection, sculkLeggingsProtection, sculkBootsProtection;
+        public final ForgeConfigSpec.IntValue sculkEnchantment;
+        public final ForgeConfigSpec.DoubleValue sculkToughness, sculkKnockbackResistance;
 
         // Shulker Armor
         public final ForgeConfigSpec.IntValue shulkerHelmetDurability, shulkerChestplateDurability, shulkerLeggingsDurability, shulkerBootsDurability;
@@ -154,6 +214,18 @@ public class ModConfigs {
         public final ForgeConfigSpec.IntValue skeletonHelmetProtection, skeletonChestplateProtection, skeletonLeggingsProtection, skeletonBootsProtection;
         public final ForgeConfigSpec.IntValue skeletonEnchantment;
         public final ForgeConfigSpec.DoubleValue skeletonToughness, skeletonKnockbackResistance;
+
+        // Sniffer Armor
+        public final ForgeConfigSpec.IntValue snifferHelmetDurability, snifferChestplateDurability, snifferLeggingsDurability, snifferBootsDurability;
+        public final ForgeConfigSpec.IntValue snifferHelmetProtection, snifferChestplateProtection, snifferLeggingsProtection, snifferBootsProtection;
+        public final ForgeConfigSpec.IntValue snifferEnchantment;
+        public final ForgeConfigSpec.DoubleValue snifferToughness, snifferKnockbackResistance;
+
+        // TNT Armor
+        public final ForgeConfigSpec.IntValue tntHelmetDurability, tntChestplateDurability, tntLeggingsDurability, tntBootsDurability;
+        public final ForgeConfigSpec.IntValue tntHelmetProtection, tntChestplateProtection, tntLeggingsProtection, tntBootsProtection;
+        public final ForgeConfigSpec.IntValue tntEnchantment;
+        public final ForgeConfigSpec.DoubleValue tntToughness, tntKnockbackResistance;
 
         // Totem Armor
         public final ForgeConfigSpec.IntValue totemHelmetDurability, totemChestplateDurability, totemLeggingsDurability, totemBootsDurability;
@@ -333,6 +405,21 @@ public class ModConfigs {
             emeraldKnockbackResistance = builder.comment("Knockback resistance for Emerald Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
             builder.pop();
 
+            // Ender Dragon Armor
+            builder.push("ender_dragon_armor");
+            enderDragonHelmetDurability = builder.comment("Durability for Ender Dragon Helmet").defineInRange("helmet_durability", 580, 1, 10000);
+            enderDragonChestplateDurability = builder.comment("Durability for Ender Dragon Chestplate").defineInRange("chestplate_durability", 850, 1, 10000);
+            enderDragonLeggingsDurability = builder.comment("Durability for Ender Dragon Leggings").defineInRange("leggings_durability", 800, 1, 10000);
+            enderDragonBootsDurability = builder.comment("Durability for Ender Dragon Boots").defineInRange("boots_durability", 690, 1, 10000);
+            enderDragonHelmetProtection = builder.comment("Protection for Ender Dragon Helmet").defineInRange("helmet_protection", 4, 0, 20);
+            enderDragonChestplateProtection = builder.comment("Protection for Ender Dragon Chestplate").defineInRange("chestplate_protection", 8, 0, 20);
+            enderDragonLeggingsProtection = builder.comment("Protection for Ender Dragon Leggings").defineInRange("leggings_protection", 6, 0, 20);
+            enderDragonBootsProtection = builder.comment("Protection for Ender Dragon Boots").defineInRange("boots_protection", 3, 0, 20);
+            enderDragonEnchantment = builder.comment("Enchantment value for Ender Dragon Armor").defineInRange("enchantment", 20, 0, 30);
+            enderDragonToughness = builder.comment("Toughness for Ender Dragon Armor").defineInRange("toughness", 3.0, 0.0, 10.0);
+            enderDragonKnockbackResistance = builder.comment("Knockback resistance for Ender Dragon Armor").defineInRange("knockback_resistance", 0.1, 0.0, 1.0);
+            builder.pop();
+
             // Galaxy Armor
             builder.push("galaxy_armor");
             galaxyHelmetDurability = builder.comment("Durability for Galaxy Helmet").defineInRange("helmet_durability", 610, 1, 10000);
@@ -378,6 +465,21 @@ public class ModConfigs {
             glassKnockbackResistance = builder.comment("Knockback resistance for Glass Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
             builder.pop();
 
+            // Guardian Armor
+            builder.push("guardian_armor");
+            guardianHelmetDurability = builder.comment("Durability for Guardian Helmet").defineInRange("helmet_durability", 247, 1, 10000);
+            guardianChestplateDurability = builder.comment("Durability for Guardian Chestplate").defineInRange("chestplate_durability", 320, 1, 10000);
+            guardianLeggingsDurability = builder.comment("Durability for Guardian Leggings").defineInRange("leggings_durability", 300, 1, 10000);
+            guardianBootsDurability = builder.comment("Durability for Guardian Boots").defineInRange("boots_durability", 260, 1, 10000);
+            guardianHelmetProtection = builder.comment("Protection for Guardian Helmet").defineInRange("helmet_protection", 3, 0, 20);
+            guardianChestplateProtection = builder.comment("Protection for Guardian Chestplate").defineInRange("chestplate_protection", 6, 0, 20);
+            guardianLeggingsProtection = builder.comment("Protection for Guardian Leggings").defineInRange("leggings_protection", 5, 0, 20);
+            guardianBootsProtection = builder.comment("Protection for Guardian Boots").defineInRange("boots_protection", 3, 0, 20);
+            guardianEnchantment = builder.comment("Enchantment value for Guardian Armor").defineInRange("enchantment", 15, 0, 30);
+            guardianToughness = builder.comment("Toughness for Guardian Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            guardianKnockbackResistance = builder.comment("Knockback resistance for Guardian Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
             // Lapis Armor
             builder.push("lapis_armor");
             lapisHelmetDurability = builder.comment("Durability for Lapis Helmet").defineInRange("helmet_durability", 165, 1, 10000);
@@ -391,6 +493,81 @@ public class ModConfigs {
             lapisEnchantment = builder.comment("Enchantment value for Lapis Armor").defineInRange("enchantment", 18, 0, 30);
             lapisToughness = builder.comment("Toughness for Lapis Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
             lapisKnockbackResistance = builder.comment("Knockback resistance for Lapis Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
+            // Machine Armor
+            builder.push("machine_armor");
+            machineHelmetDurability = builder.comment("Durability for Machine Helmet").defineInRange("helmet_durability", 176, 1, 10000);
+            machineChestplateDurability = builder.comment("Durability for Machine Chestplate").defineInRange("chestplate_durability", 256, 1, 10000);
+            machineLeggingsDurability = builder.comment("Durability for Machine Leggings").defineInRange("leggings_durability", 240, 1, 10000);
+            machineBootsDurability = builder.comment("Durability for Machine Boots").defineInRange("boots_durability", 208, 1, 10000);
+            machineHelmetProtection = builder.comment("Protection for Machine Helmet").defineInRange("helmet_protection", 2, 0, 20);
+            machineChestplateProtection = builder.comment("Protection for Machine Chestplate").defineInRange("chestplate_protection", 6, 0, 20);
+            machineLeggingsProtection = builder.comment("Protection for Machine Leggings").defineInRange("leggings_protection", 5, 0, 20);
+            machineBootsProtection = builder.comment("Protection for Machine Boots").defineInRange("boots_protection", 2, 0, 20);
+            machineEnchantment = builder.comment("Enchantment value for Machine Armor").defineInRange("enchantment", 19, 0, 30);
+            machineToughness = builder.comment("Toughness for Machine Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            machineKnockbackResistance = builder.comment("Knockback resistance for Machine Armor").defineInRange("knockback_resistance", 0.1, 0.0, 1.0);
+            builder.pop();
+
+            // Magma Armor
+            builder.push("magma_armor");
+            magmaHelmetDurability = builder.comment("Durability for Magma Helmet").defineInRange("helmet_durability", 165, 1, 10000);
+            magmaChestplateDurability = builder.comment("Durability for Magma Chestplate").defineInRange("chestplate_durability", 240, 1, 10000);
+            magmaLeggingsDurability = builder.comment("Durability for Magma Leggings").defineInRange("leggings_durability", 225, 1, 10000);
+            magmaBootsDurability = builder.comment("Durability for Magma Boots").defineInRange("boots_durability", 195, 1, 10000);
+            magmaHelmetProtection = builder.comment("Protection for Magma Helmet").defineInRange("helmet_protection", 2, 0, 20);
+            magmaChestplateProtection = builder.comment("Protection for Magma Chestplate").defineInRange("chestplate_protection", 5, 0, 20);
+            magmaLeggingsProtection = builder.comment("Protection for Magma Leggings").defineInRange("leggings_protection", 4, 0, 20);
+            magmaBootsProtection = builder.comment("Protection for Magma Boots").defineInRange("boots_protection", 1, 0, 20);
+            magmaEnchantment = builder.comment("Enchantment value for Magma Armor").defineInRange("enchantment", 14, 0, 30);
+            magmaToughness = builder.comment("Toughness for Magma Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            magmaKnockbackResistance = builder.comment("Knockback resistance for Magma Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
+            // Music Armor
+            builder.push("music_armor");
+            musicHelmetDurability = builder.comment("Durability for Music Helmet").defineInRange("helmet_durability", 55, 1, 10000);
+            musicChestplateDurability = builder.comment("Durability for Music Chestplate").defineInRange("chestplate_durability", 80, 1, 10000);
+            musicLeggingsDurability = builder.comment("Durability for Music Leggings").defineInRange("leggings_durability", 75, 1, 10000);
+            musicBootsDurability = builder.comment("Durability for Music Boots").defineInRange("boots_durability", 65, 1, 10000);
+            musicHelmetProtection = builder.comment("Protection for Music Helmet").defineInRange("helmet_protection", 1, 0, 20);
+            musicChestplateProtection = builder.comment("Protection for Music Chestplate").defineInRange("chestplate_protection", 3, 0, 20);
+            musicLeggingsProtection = builder.comment("Protection for Music Leggings").defineInRange("leggings_protection", 3, 0, 20);
+            musicBootsProtection = builder.comment("Protection for Music Boots").defineInRange("boots_protection", 1, 0, 20);
+            musicEnchantment = builder.comment("Enchantment value for Music Armor").defineInRange("enchantment", 12, 0, 30);
+            musicToughness = builder.comment("Toughness for Music Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            musicKnockbackResistance = builder.comment("Knockback resistance for Music Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
+            // Obsidian Armor
+            builder.push("obsidian_armor");
+            obsidianHelmetDurability = builder.comment("Durability for Obsidian Helmet").defineInRange("helmet_durability", 363, 1, 10000);
+            obsidianChestplateDurability = builder.comment("Durability for Obsidian Chestplate").defineInRange("chestplate_durability", 528, 1, 10000);
+            obsidianLeggingsDurability = builder.comment("Durability for Obsidian Leggings").defineInRange("leggings_durability", 495, 1, 10000);
+            obsidianBootsDurability = builder.comment("Durability for Obsidian Boots").defineInRange("boots_durability", 429, 1, 10000);
+            obsidianHelmetProtection = builder.comment("Protection for Obsidian Helmet").defineInRange("helmet_protection", 3, 0, 20);
+            obsidianChestplateProtection = builder.comment("Protection for Obsidian Chestplate").defineInRange("chestplate_protection", 7, 0, 20);
+            obsidianLeggingsProtection = builder.comment("Protection for Obsidian Leggings").defineInRange("leggings_protection", 6, 0, 20);
+            obsidianBootsProtection = builder.comment("Protection for Obsidian Boots").defineInRange("boots_protection", 2, 0, 20);
+            obsidianEnchantment = builder.comment("Enchantment value for Obsidian Armor").defineInRange("enchantment", 18, 0, 30);
+            obsidianToughness = builder.comment("Toughness for Obsidian Armor").defineInRange("toughness", 1.0, 0.0, 10.0);
+            obsidianKnockbackResistance = builder.comment("Knockback resistance for Obsidian Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
+            // Pot Armor
+            builder.push("pot_armor");
+            potHelmetDurability = builder.comment("Durability for Pot Helmet").defineInRange("helmet_durability", 55, 1, 10000);
+            potChestplateDurability = builder.comment("Durability for Pot Chestplate").defineInRange("chestplate_durability", 80, 1, 10000);
+            potLeggingsDurability = builder.comment("Durability for Pot Leggings").defineInRange("leggings_durability", 75, 1, 10000);
+            potBootsDurability = builder.comment("Durability for Pot Boots").defineInRange("boots_durability", 65, 1, 10000);
+            potHelmetProtection = builder.comment("Protection for Pot Helmet").defineInRange("helmet_protection", 1, 0, 20);
+            potChestplateProtection = builder.comment("Protection for Pot Chestplate").defineInRange("chestplate_protection", 3, 0, 20);
+            potLeggingsProtection = builder.comment("Protection for Pot Leggings").defineInRange("leggings_protection", 3, 0, 20);
+            potBootsProtection = builder.comment("Protection for Pot Boots").defineInRange("boots_protection", 1, 0, 20);
+            potEnchantment = builder.comment("Enchantment value for Pot Armor").defineInRange("enchantment", 12, 0, 30);
+            potToughness = builder.comment("Toughness for Pot Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            potKnockbackResistance = builder.comment("Knockback resistance for Pot Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
             builder.pop();
 
             // Power Suit Armor
@@ -423,6 +600,21 @@ public class ModConfigs {
             quartzKnockbackResistance = builder.comment("Knockback resistance for Quartz Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
             builder.pop();
 
+            // Red Dragon Armor
+            builder.push("red_dragon_armor");
+            redDragonHelmetDurability = builder.comment("Durability for Red Dragon Helmet").defineInRange("helmet_durability", 291, 1, 10000);
+            redDragonChestplateDurability = builder.comment("Durability for Red Dragon Chestplate").defineInRange("chestplate_durability", 424, 1, 10000);
+            redDragonLeggingsDurability = builder.comment("Durability for Red Dragon Leggings").defineInRange("leggings_durability", 397, 1, 10000);
+            redDragonBootsDurability = builder.comment("Durability for Red Dragon Boots").defineInRange("boots_durability", 344, 1, 10000);
+            redDragonHelmetProtection = builder.comment("Protection for Red Dragon Helmet").defineInRange("helmet_protection", 2, 0, 20);
+            redDragonChestplateProtection = builder.comment("Protection for Red Dragon Chestplate").defineInRange("chestplate_protection", 7, 0, 20);
+            redDragonLeggingsProtection = builder.comment("Protection for Red Dragon Leggings").defineInRange("leggings_protection", 5, 0, 20);
+            redDragonBootsProtection = builder.comment("Protection for Red Dragon Boots").defineInRange("boots_protection", 2, 0, 20);
+            redDragonEnchantment = builder.comment("Enchantment value for Red Dragon Armor").defineInRange("enchantment", 19, 0, 30);
+            redDragonToughness = builder.comment("Toughness for Red Dragon Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            redDragonKnockbackResistance = builder.comment("Knockback resistance for Red Dragon Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
             // Redstone Armor
             builder.push("redstone_armor");
             redstoneHelmetDurability = builder.comment("Durability for Redstone Helmet").defineInRange("helmet_durability", 165, 1, 10000);
@@ -453,6 +645,21 @@ public class ModConfigs {
             reinforcedDeepslateKnockbackResistance = builder.comment("Knockback resistance for Reinforced Deepslate Armor").defineInRange("knockback_resistance", 0.1, 0.0, 1.0);
             builder.pop();
 
+            // RGB Armor
+            builder.push("rgb_armor");
+            rgbHelmetDurability = builder.comment("Durability for RGB Helmet").defineInRange("helmet_durability", 27, 1, 10000);
+            rgbChestplateDurability = builder.comment("Durability for RGB Chestplate").defineInRange("chestplate_durability", 40, 1, 10000);
+            rgbLeggingsDurability = builder.comment("Durability for RGB Leggings").defineInRange("leggings_durability", 37, 1, 10000);
+            rgbBootsDurability = builder.comment("Durability for RGB Boots").defineInRange("boots_durability", 32, 1, 10000);
+            rgbHelmetProtection = builder.comment("Protection for RGB Helmet").defineInRange("helmet_protection", 1, 0, 20);
+            rgbChestplateProtection = builder.comment("Protection for RGB Chestplate").defineInRange("chestplate_protection", 1, 0, 20);
+            rgbLeggingsProtection = builder.comment("Protection for RGB Leggings").defineInRange("leggings_protection", 1, 0, 20);
+            rgbBootsProtection = builder.comment("Protection for RGB Boots").defineInRange("boots_protection", 1, 0, 20);
+            rgbEnchantment = builder.comment("Enchantment value for RGB Armor").defineInRange("enchantment", 16, 0, 30);
+            rgbToughness = builder.comment("Toughness for RGB Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            rgbKnockbackResistance = builder.comment("Knockback resistance for RGB Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
             // Ruby Armor
             builder.push("ruby_armor");
             rubyHelmetDurability = builder.comment("Durability for Ruby Helmet").defineInRange("helmet_durability", 255, 1, 10000);
@@ -466,6 +673,21 @@ public class ModConfigs {
             rubyEnchantment = builder.comment("Enchantment value for Ruby Armor").defineInRange("enchantment", 19, 0, 30);
             rubyToughness = builder.comment("Toughness for Ruby Armor").defineInRange("toughness", 2.0, 0.0, 10.0);
             rubyKnockbackResistance = builder.comment("Knockback resistance for Ruby Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
+            // Sculk Armor
+            builder.push("sculk_armor");
+            sculkHelmetDurability = builder.comment("Durability for Sculk Helmet").defineInRange("helmet_durability", 110, 1, 10000);
+            sculkChestplateDurability = builder.comment("Durability for Sculk Chestplate").defineInRange("chestplate_durability", 160, 1, 10000);
+            sculkLeggingsDurability = builder.comment("Durability for Sculk Leggings").defineInRange("leggings_durability", 150, 1, 10000);
+            sculkBootsDurability = builder.comment("Durability for Sculk Boots").defineInRange("boots_durability", 130, 1, 10000);
+            sculkHelmetProtection = builder.comment("Protection for Sculk Helmet").defineInRange("helmet_protection", 2, 0, 20);
+            sculkChestplateProtection = builder.comment("Protection for Sculk Chestplate").defineInRange("chestplate_protection", 5, 0, 20);
+            sculkLeggingsProtection = builder.comment("Protection for Sculk Leggings").defineInRange("leggings_protection", 4, 0, 20);
+            sculkBootsProtection = builder.comment("Protection for Sculk Boots").defineInRange("boots_protection", 2, 0, 20);
+            sculkEnchantment = builder.comment("Enchantment value for Sculk Armor").defineInRange("enchantment", 16, 0, 30);
+            sculkToughness = builder.comment("Toughness for Sculk Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            sculkKnockbackResistance = builder.comment("Knockback resistance for Sculk Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
             builder.pop();
 
             // Shulker Armor
@@ -498,6 +720,37 @@ public class ModConfigs {
             skeletonKnockbackResistance = builder.comment("Knockback resistance for Skeleton Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
             builder.pop();
 
+            
+            // Sniffer Armor
+            builder.push("sniffer_armor");
+            snifferHelmetDurability = builder.comment("Durability for Sniffer Helmet").defineInRange("helmet_durability", 99, 1, 10000);
+            snifferChestplateDurability = builder.comment("Durability for Sniffer Chestplate").defineInRange("chestplate_durability", 144, 1, 10000);
+            snifferLeggingsDurability = builder.comment("Durability for Sniffer Leggings").defineInRange("leggings_durability", 135, 1, 10000);
+            snifferBootsDurability = builder.comment("Durability for Sniffer Boots").defineInRange("boots_durability", 117, 1, 10000);
+            snifferHelmetProtection = builder.comment("Protection for Sniffer Helmet").defineInRange("helmet_protection", 1, 0, 20);
+            snifferChestplateProtection = builder.comment("Protection for Sniffer Chestplate").defineInRange("chestplate_protection", 3, 0, 20);
+            snifferLeggingsProtection = builder.comment("Protection for Sniffer Leggings").defineInRange("leggings_protection", 2, 0, 20);
+            snifferBootsProtection = builder.comment("Protection for Sniffer Boots").defineInRange("boots_protection", 1, 0, 20);
+            snifferEnchantment = builder.comment("Enchantment value for Sniffer Armor").defineInRange("enchantment", 14, 0, 30);
+            snifferToughness = builder.comment("Toughness for Sniffer Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            snifferKnockbackResistance = builder.comment("Knockback resistance for Sniffer Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
+            // TNT Armor
+            builder.push("tnt_armor");
+            tntHelmetDurability = builder.comment("Durability for TNT Helmet").defineInRange("helmet_durability", 55, 1, 10000);
+            tntChestplateDurability = builder.comment("Durability for TNT Chestplate").defineInRange("chestplate_durability", 80, 1, 10000);
+            tntLeggingsDurability = builder.comment("Durability for TNT Leggings").defineInRange("leggings_durability", 75, 1, 10000);
+            tntBootsDurability = builder.comment("Durability for TNT Boots").defineInRange("boots_durability", 65, 1, 10000);
+            tntHelmetProtection = builder.comment("Protection for TNT Helmet").defineInRange("helmet_protection", 1, 0, 20);
+            tntChestplateProtection = builder.comment("Protection for TNT Chestplate").defineInRange("chestplate_protection", 2, 0, 20);
+            tntLeggingsProtection = builder.comment("Protection for TNT Leggings").defineInRange("leggings_protection", 1, 0, 20);
+            tntBootsProtection = builder.comment("Protection for TNT Boots").defineInRange("boots_protection", 1, 0, 20);
+            tntEnchantment = builder.comment("Enchantment value for TNT Armor").defineInRange("enchantment", 10, 0, 30);
+            tntToughness = builder.comment("Toughness for TNT Armor").defineInRange("toughness", 0.0, 0.0, 10.0);
+            tntKnockbackResistance = builder.comment("Knockback resistance for TNT Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
+            builder.pop();
+
             // Totem Armor
             builder.push("totem_armor");
             totemHelmetDurability = builder.comment("Durability for Totem Helmet").defineInRange("helmet_durability", 181, 1, 10000);
@@ -527,6 +780,7 @@ public class ModConfigs {
             witherSkeletonToughness = builder.comment("Toughness for Wither Skeleton Armor").defineInRange("toughness", 0.5, 0.0, 10.0);
             witherSkeletonKnockbackResistance = builder.comment("Knockback resistance for Wither Skeleton Armor").defineInRange("knockback_resistance", 0.0, 0.0, 1.0);
             builder.pop();
+
         }
     }
 }
