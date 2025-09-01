@@ -1,41 +1,11 @@
-# Gradle
 .gradle/
-build/
-gradle-app.setting
-!gradle-wrapper.jar
-!gradle-wrapper.properties
-
-# IDE
 .vscode/
-.idea/
-*.iml
-*.ipr
-*.iws
-
-# Minecraft/Forge specific
+bin
+build/
 run/
-*.log
-*.log.gz
-
-# OS specific
-.DS_Store
-Thumbs.db
-
-# Temporary files
-*.tmp
-*.temp
-*~
-
-# Backup files
-*.bak
-*.backup
-
-# Compiled class files
-*.class
 
 # Package files
 *.jar
-*.war
-*.ear
 
-bin
+# Temporary files
+*.tmp

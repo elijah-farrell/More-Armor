@@ -134,7 +134,6 @@ public class ArmorConfigLoader {
     // Defaults (kept as fallbacks)
     private static int getDefaultDurability(String name, ArmorItem.Type type) {
         switch (name) {
-            case "galaxy": return type == ArmorItem.Type.HELMET ? 610 : type == ArmorItem.Type.CHESTPLATE ? 888 : type == ArmorItem.Type.LEGGINGS ? 832 : 721;
             case "amethyst": return type == ArmorItem.Type.HELMET ? 193 : type == ArmorItem.Type.CHESTPLATE ? 280 : type == ArmorItem.Type.LEGGINGS ? 263 : 228;
             case "ancient_debris": return type == ArmorItem.Type.HELMET ? 407 : type == ArmorItem.Type.CHESTPLATE ? 592 : type == ArmorItem.Type.LEGGINGS ? 555 : 481;
             case "bedrock": return type == ArmorItem.Type.HELMET ? 1000 : type == ArmorItem.Type.CHESTPLATE ? 1000 : type == ArmorItem.Type.LEGGINGS ? 1000 : 1000;
@@ -147,6 +146,7 @@ public class ArmorConfigLoader {
             case "dripstone": return type == ArmorItem.Type.HELMET ? 165 : type == ArmorItem.Type.CHESTPLATE ? 240 : type == ArmorItem.Type.LEGGINGS ? 225 : 195;
             case "emerald": return type == ArmorItem.Type.HELMET ? 528 : type == ArmorItem.Type.CHESTPLATE ? 768 : type == ArmorItem.Type.LEGGINGS ? 720 : 624;
             case "ender_dragon": return type == ArmorItem.Type.HELMET ? 1000 : type == ArmorItem.Type.CHESTPLATE ? 1000 : type == ArmorItem.Type.LEGGINGS ? 1000 : 1000;
+            case "galaxy": return type == ArmorItem.Type.HELMET ? 610 : type == ArmorItem.Type.CHESTPLATE ? 888 : type == ArmorItem.Type.LEGGINGS ? 832 : 721;
             case "gilded": return type == ArmorItem.Type.HELMET ? 132 : type == ArmorItem.Type.CHESTPLATE ? 192 : type == ArmorItem.Type.LEGGINGS ? 180 : 156;
             case "glass": return type == ArmorItem.Type.HELMET ? 33 : type == ArmorItem.Type.CHESTPLATE ? 48 : type == ArmorItem.Type.LEGGINGS ? 45 : 39;
             case "guardian": return type == ArmorItem.Type.HELMET ? 1000 : type == ArmorItem.Type.CHESTPLATE ? 1000 : type == ArmorItem.Type.LEGGINGS ? 1000 : 1000;
@@ -172,7 +172,6 @@ public class ArmorConfigLoader {
 
     private static int getDefaultProtection(String name, ArmorItem.Type type) {
         switch (name) {
-            case "galaxy": return type == ArmorItem.Type.HELMET ? 4 : type == ArmorItem.Type.CHESTPLATE ? 8 : type == ArmorItem.Type.LEGGINGS ? 6 : 4;
             case "amethyst": return type == ArmorItem.Type.HELMET ? 2 : type == ArmorItem.Type.CHESTPLATE ? 5 : type == ArmorItem.Type.LEGGINGS ? 4 : 1;
             case "ancient_debris": return type == ArmorItem.Type.HELMET ? 3 : type == ArmorItem.Type.CHESTPLATE ? 7 : type == ArmorItem.Type.LEGGINGS ? 5 : 3;
             case "bedrock": return type == ArmorItem.Type.HELMET ? 5 : type == ArmorItem.Type.CHESTPLATE ? 10 : type == ArmorItem.Type.LEGGINGS ? 8 : 5;
@@ -185,6 +184,7 @@ public class ArmorConfigLoader {
             case "dripstone": return type == ArmorItem.Type.HELMET ? 1 : type == ArmorItem.Type.CHESTPLATE ? 3 : type == ArmorItem.Type.LEGGINGS ? 2 : 1;
             case "emerald": return type == ArmorItem.Type.HELMET ? 3 : type == ArmorItem.Type.CHESTPLATE ? 7 : type == ArmorItem.Type.LEGGINGS ? 5 : 3;
             case "ender_dragon": return type == ArmorItem.Type.HELMET ? 5 : type == ArmorItem.Type.CHESTPLATE ? 10 : type == ArmorItem.Type.LEGGINGS ? 8 : 5;
+            case "galaxy": return type == ArmorItem.Type.HELMET ? 4 : type == ArmorItem.Type.CHESTPLATE ? 8 : type == ArmorItem.Type.LEGGINGS ? 6 : 4;
             case "gilded": return type == ArmorItem.Type.HELMET ? 3 : type == ArmorItem.Type.CHESTPLATE ? 6 : type == ArmorItem.Type.LEGGINGS ? 5 : 3;
             case "glass": return type == ArmorItem.Type.HELMET ? 0 : type == ArmorItem.Type.CHESTPLATE ? 1 : type == ArmorItem.Type.LEGGINGS ? 1 : 0;
             case "guardian": return type == ArmorItem.Type.HELMET ? 5 : type == ArmorItem.Type.CHESTPLATE ? 10 : type == ArmorItem.Type.LEGGINGS ? 8 : 5;
@@ -210,7 +210,6 @@ public class ArmorConfigLoader {
 
     private static int getDefaultEnchantment(String name) {
         switch (name) {
-            case "galaxy": return 19;
             case "amethyst": return 15;
             case "ancient_debris": return 19;
             case "bedrock": return 20;
@@ -223,6 +222,7 @@ public class ArmorConfigLoader {
             case "dripstone": return 13;
             case "emerald": return 17;
             case "ender_dragon": return 25;
+            case "galaxy": return 19;
             case "gilded": return 15;
             case "glass": return 6;
             case "guardian": return 25;
@@ -286,7 +286,6 @@ public class ArmorConfigLoader {
 
     private static float getDefaultKnockbackResistance(String name) {
         switch (name) {
-            case "galaxy": return 0.1f;
             case "amethyst": return 0.0f;
             case "ancient_debris": return 0.1f;
             case "bedrock": return 0.2f;
@@ -299,6 +298,7 @@ public class ArmorConfigLoader {
             case "dripstone": return 0.0f;
             case "emerald": return 0.0f;
             case "ender_dragon": return 0.2f;
+            case "galaxy": return 0.1f;
             case "gilded": return 0.0f;
             case "glass": return 0.0f;
             case "guardian": return 0.2f;
@@ -324,7 +324,6 @@ public class ArmorConfigLoader {
 
     private static Item getRepairItem(String name) {
         switch (name) {
-            case "galaxy": return Items.NETHERITE_INGOT;
             case "amethyst": return Items.AMETHYST_SHARD;
             case "ancient_debris": return Items.ANCIENT_DEBRIS;
             case "bedrock": return Items.BEDROCK;
@@ -337,6 +336,7 @@ public class ArmorConfigLoader {
             case "dripstone": return Items.DRIPSTONE_BLOCK;
             case "emerald": return Items.EMERALD;
             case "ender_dragon": return Items.DRAGON_EGG;
+            case "galaxy": return Items.NETHERITE_INGOT;
             case "gilded": return Items.GOLD_INGOT;
             case "glass": return Items.GLASS;
             case "guardian": return Items.PRISMARINE_SHARD;
