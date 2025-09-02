@@ -2,6 +2,7 @@ package com.morearmor;
 
 import com.morearmor.init.Items;
 import com.morearmor.config.ModConfigs;
+import com.morearmor.config.ArmorConfigLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -251,6 +252,9 @@ public class MoreArmor {
     public MoreArmor() {        
         // Register ForgeConfigSpec first
         ModConfigs.register();
+        
+        // Validate armor configuration and log any issues
+        ArmorConfigLoader.validateConfig();
         
         // Register items
         Items.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
