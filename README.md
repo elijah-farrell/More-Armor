@@ -20,7 +20,6 @@
 ## Features
 
 ### **36 Armor Sets**
-**[📖 View Full Armor Showcase](docs/ARMOR_SHOWCASE.md)** - See closeups of each armor set
 #### 14 Animated Armor Sets
 • Bee Armor
 • Ender Dragon Armor
@@ -65,7 +64,7 @@
 
 ## Configuration
 
-Fully configurable armor stats (durability, protection, enchantability, toughness, knockback resistance) via in-game config menu (Main Menu → Mods → More Armor → Config) or `config/morearmor-common.toml`. 
+Fully configurable armor stats (durability, protection, enchantability, toughness, knockback resistance) via `config/morearmor-common.toml` config file. 
 
 **Note:** Changes require a game or server restart to take effect.
 
@@ -75,6 +74,8 @@ Fully configurable armor stats (durability, protection, enchantability, toughnes
 
 ### **In-Game Showcase**
 ![Armor Showcase](docs/images/armor_showcase.png)
+
+**[📖 View Full Armor Showcase](docs/ARMOR_SHOWCASE.md)** - See closeups of each armor set
 
 </div>
 
@@ -90,14 +91,3 @@ Fully configurable armor stats (durability, protection, enchantability, toughnes
 ## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-### **License Structure:**
-- **Mod Code**: MIT License
-- **Textures**: MIT License (AverageTaTeMan)
-- **Exceptions**: None - fully open source
-
-### **What This Means:**
-✅ **Permitted**: Commercial Use, Redistribution, Modification, Personal Use  
-✅ **Required**: Include original license and copyright notice
-
-See [LICENSE](LICENSE) file for full details and texture attribution.
