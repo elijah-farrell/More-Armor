@@ -8,10 +8,10 @@
 
 [![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.1-blue.svg)](https://www.minecraft.net/)
 [![Forge Version](https://img.shields.io/badge/Forge-47.1.0+-orange.svg)](https://files.minecraftforge.net/)
-[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Downloads](https://img.shields.io/badge/Downloads-Coming%20Soon-lightgrey.svg)](https://www.curseforge.com/)
 
-[**Features**](#features) • [**Gallery**](#gallery) • [**License**](#license)
+[**Features**](#features) • [**Armor Showcase**](docs/ARMOR_SHOWCASE.md) • [**Gallery**](#gallery) • [**License**](#license)
 
 </div>
 
@@ -20,6 +20,7 @@
 ## Features
 
 ### **36 Armor Sets**
+**[📖 View Full Armor Showcase](docs/ARMOR_SHOWCASE.md)** - See closeups of each armor set
 #### 14 Animated Armor Sets
 • Bee Armor
 • Ender Dragon Armor
@@ -88,15 +89,15 @@ Fully configurable armor stats (durability, protection, enchantability, toughnes
 
 ## License
 
-This mod is licensed under **All Rights Reserved** - Copyright (c) 2025 Elijah Farrell.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ### **License Structure:**
-- **Mod Code**: All Rights Reserved
+- **Mod Code**: MIT License
 - **Textures**: MIT License (AverageTaTeMan)
-- **Exceptions**: Personal use, collaboration, and contributions welcome
+- **Exceptions**: None - fully open source
 
 ### **What This Means:**
-✅ **Permitted**: Personal Use, Pull Requests, Contributions, Issue Fixes  
-❌ **Restricted**: Commercial Use, Redistribution, Claiming Ownership
+✅ **Permitted**: Commercial Use, Redistribution, Modification, Personal Use  
+✅ **Required**: Include original license and copyright notice
 
 See [LICENSE](LICENSE) file for full details and texture attribution.
