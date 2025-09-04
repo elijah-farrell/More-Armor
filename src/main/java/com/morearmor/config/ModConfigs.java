@@ -6,11 +6,23 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.common.Mod;
 import com.morearmor.MoreArmor;
 import org.apache.commons.lang3.tuple.Pair;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.sounds.SoundEvent;
+import javax.annotation.Nonnull;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import java.util.Map;
+import java.util.HashMap;
 
 @Mod.EventBusSubscriber(modid = MoreArmor.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModConfigs {
+    private static final Logger LOGGER = LogManager.getLogger();
     public static final ForgeConfigSpec SERVER_SPEC;
     public static final Server SERVER;
+    private static final Map<String, ArmorMaterial> MATERIAL_CACHE = new HashMap<>();
 
     static {
         final Pair<Server, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Server::new);
@@ -20,6 +32,740 @@ public class ModConfigs {
 
     public static void register() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SERVER_SPEC);
+    }
+
+    @net.minecraftforge.eventbus.api.SubscribeEvent
+    public static void onConfigLoad(net.minecraftforge.fml.event.config.ModConfigEvent.Loading event) {
+        if (event.getConfig().getModId().equals(MoreArmor.MOD_ID)) {
+            LOGGER.info("MoreArmor configuration loaded successfully");
+            validateConfig();
+        }
+    }
+
+    /**
+     * Validates the configuration and logs any issues found.
+     * This method can be called during mod initialization to provide helpful feedback.
+     */
+    public static void validateConfig() {
+        LOGGER.info("Validating MoreArmor configuration...");
+        
+        // List of expected armor types
+        String[] expectedArmorTypes = {
+            "amethyst", "ancient_debris", "bedrock", "bee", "bone", "cactus", "coal", "copper",
+            "crafting", "dripstone", "emerald", "ender_dragon", "galaxy", "gilded", "glass",
+            "guardian", "lapis", "machine", "magma", "music", "obsidian", "pot", "power_suit",
+            "quartz", "red_dragon", "redstone", "reinforced_deepslate", "rgb", "ruby", "sculk",
+            "shulker", "skeleton", "sniffer", "tnt", "totem", "wither_skeleton"
+        };
+
+        boolean hasIssues = false;
+        int totalConfigs = 0;
+        int validConfigs = 0;
+
+        for (String armorType : expectedArmorTypes) {
+            totalConfigs++;
+            
+            // Test creating an armor material to see if all configs are accessible
+            try {
+                ArmorMaterial material = createArmorMaterial(armorType);
+                if (material != null) {
+                    validConfigs++;
+                    LOGGER.debug("✓ {} armor configuration loaded successfully", armorType);
+                } else {
+                    LOGGER.warn("✗ {} armor configuration failed to load", armorType);
+                    hasIssues = true;
+                }
+            } catch (Exception e) {
+                LOGGER.warn("✗ {} armor configuration error: {}", armorType, e.getMessage());
+                hasIssues = true;
+            }
+        }
+
+        if (!hasIssues) {
+            LOGGER.info("✓ MoreArmor configuration validation completed successfully - {} of {} armor types configured", validConfigs, totalConfigs);
+        } else {
+            LOGGER.warn("⚠ MoreArmor configuration validation completed with issues. Check the log above for details.");
+            LOGGER.info("Armor types with issues will use default values from ArmorDefaults.");
+        }
+        
+    }
+
+    /**
+     * Creates an ArmorMaterial using the Forge config values for the specified armor type.
+     * This ensures proper synchronization between client and server.
+     * Uses caching to avoid recreating materials and handles config loading timing.
+     */
+    public static ArmorMaterial createArmorMaterial(String name) {
+        return MATERIAL_CACHE.computeIfAbsent(name, ModConfigs::createMaterialInternal);
+    }
+    
+    private static ArmorMaterial createMaterialInternal(String name) {
+        return new ArmorMaterial() {
+            @Override
+            public int getDurabilityForType(@Nonnull ArmorItem.Type type) {
+                return getDurability(name, type);
+            }
+
+            @Override
+            public int getDefenseForType(@Nonnull ArmorItem.Type type) {
+                return getProtection(name, type);
+            }
+
+            @Override
+            public int getEnchantmentValue() {
+                return getEnchantment(name);
+            }
+
+            @Override
+            public SoundEvent getEquipSound() {
+                return ArmorDefaults.getEquipSound(name);
+            }
+
+            @Override
+            public Ingredient getRepairIngredient() {
+                ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+                return Ingredient.of(stats != null ? stats.repairItem : Items.IRON_INGOT);
+            }
+
+            @Override
+            public String getName() {
+                return MoreArmor.MOD_ID + ":" + name;
+            }
+
+            @Override
+            public float getToughness() {
+                return getToughnessValue(name);
+            }
+
+            @Override
+            public float getKnockbackResistance() {
+                return getKnockbackResistanceValue(name);
+            }
+        };
+    }
+
+    private static int getDurability(String name, ArmorItem.Type type) {
+        try {
+            int durability = switch (name) {
+                case "amethyst" -> switch (type) {
+                    case HELMET -> SERVER.amethystHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.amethystChestplateDurability.get();
+                    case LEGGINGS -> SERVER.amethystLeggingsDurability.get();
+                    case BOOTS -> SERVER.amethystBootsDurability.get();
+                };
+                case "ancient_debris" -> switch (type) {
+                    case HELMET -> SERVER.ancientDebrisHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.ancientDebrisChestplateDurability.get();
+                    case LEGGINGS -> SERVER.ancientDebrisLeggingsDurability.get();
+                    case BOOTS -> SERVER.ancientDebrisBootsDurability.get();
+                };
+                case "bedrock" -> switch (type) {
+                    case HELMET -> SERVER.bedrockHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.bedrockChestplateDurability.get();
+                    case LEGGINGS -> SERVER.bedrockLeggingsDurability.get();
+                    case BOOTS -> SERVER.bedrockBootsDurability.get();
+                };
+                case "bee" -> switch (type) {
+                    case HELMET -> SERVER.beeHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.beeChestplateDurability.get();
+                    case LEGGINGS -> SERVER.beeLeggingsDurability.get();
+                    case BOOTS -> SERVER.beeBootsDurability.get();
+                };
+                case "bone" -> switch (type) {
+                    case HELMET -> SERVER.boneHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.boneChestplateDurability.get();
+                    case LEGGINGS -> SERVER.boneLeggingsDurability.get();
+                    case BOOTS -> SERVER.boneBootsDurability.get();
+                };
+                case "cactus" -> switch (type) {
+                    case HELMET -> SERVER.cactusHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.cactusChestplateDurability.get();
+                    case LEGGINGS -> SERVER.cactusLeggingsDurability.get();
+                    case BOOTS -> SERVER.cactusBootsDurability.get();
+                };
+                case "coal" -> switch (type) {
+                    case HELMET -> SERVER.coalHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.coalChestplateDurability.get();
+                    case LEGGINGS -> SERVER.coalLeggingsDurability.get();
+                    case BOOTS -> SERVER.coalBootsDurability.get();
+                };
+                case "copper" -> switch (type) {
+                    case HELMET -> SERVER.copperHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.copperChestplateDurability.get();
+                    case LEGGINGS -> SERVER.copperLeggingsDurability.get();
+                    case BOOTS -> SERVER.copperBootsDurability.get();
+                };
+                case "crafting" -> switch (type) {
+                    case HELMET -> SERVER.craftingHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.craftingChestplateDurability.get();
+                    case LEGGINGS -> SERVER.craftingLeggingsDurability.get();
+                    case BOOTS -> SERVER.craftingBootsDurability.get();
+                };
+                case "dripstone" -> switch (type) {
+                    case HELMET -> SERVER.dripstoneHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.dripstoneChestplateDurability.get();
+                    case LEGGINGS -> SERVER.dripstoneLeggingsDurability.get();
+                    case BOOTS -> SERVER.dripstoneBootsDurability.get();
+                };
+                case "emerald" -> switch (type) {
+                    case HELMET -> SERVER.emeraldHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.emeraldChestplateDurability.get();
+                    case LEGGINGS -> SERVER.emeraldLeggingsDurability.get();
+                    case BOOTS -> SERVER.emeraldBootsDurability.get();
+                };
+                case "ender_dragon" -> switch (type) {
+                    case HELMET -> SERVER.enderDragonHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.enderDragonChestplateDurability.get();
+                    case LEGGINGS -> SERVER.enderDragonLeggingsDurability.get();
+                    case BOOTS -> SERVER.enderDragonBootsDurability.get();
+                };
+                case "galaxy" -> switch (type) {
+                    case HELMET -> SERVER.galaxyHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.galaxyChestplateDurability.get();
+                    case LEGGINGS -> SERVER.galaxyLeggingsDurability.get();
+                    case BOOTS -> SERVER.galaxyBootsDurability.get();
+                };
+                case "gilded" -> switch (type) {
+                    case HELMET -> SERVER.gildedHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.gildedChestplateDurability.get();
+                    case LEGGINGS -> SERVER.gildedLeggingsDurability.get();
+                    case BOOTS -> SERVER.gildedBootsDurability.get();
+                };
+                case "glass" -> switch (type) {
+                    case HELMET -> SERVER.glassHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.glassChestplateDurability.get();
+                    case LEGGINGS -> SERVER.glassLeggingsDurability.get();
+                    case BOOTS -> SERVER.glassBootsDurability.get();
+                };
+                case "guardian" -> switch (type) {
+                    case HELMET -> SERVER.guardianHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.guardianChestplateDurability.get();
+                    case LEGGINGS -> SERVER.guardianLeggingsDurability.get();
+                    case BOOTS -> SERVER.guardianBootsDurability.get();
+                };
+                case "lapis" -> switch (type) {
+                    case HELMET -> SERVER.lapisHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.lapisChestplateDurability.get();
+                    case LEGGINGS -> SERVER.lapisLeggingsDurability.get();
+                    case BOOTS -> SERVER.lapisBootsDurability.get();
+                };
+                case "machine" -> switch (type) {
+                    case HELMET -> SERVER.machineHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.machineChestplateDurability.get();
+                    case LEGGINGS -> SERVER.machineLeggingsDurability.get();
+                    case BOOTS -> SERVER.machineBootsDurability.get();
+                };
+                case "magma" -> switch (type) {
+                    case HELMET -> SERVER.magmaHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.magmaChestplateDurability.get();
+                    case LEGGINGS -> SERVER.magmaLeggingsDurability.get();
+                    case BOOTS -> SERVER.magmaBootsDurability.get();
+                };
+                case "music" -> switch (type) {
+                    case HELMET -> SERVER.musicHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.musicChestplateDurability.get();
+                    case LEGGINGS -> SERVER.musicLeggingsDurability.get();
+                    case BOOTS -> SERVER.musicBootsDurability.get();
+                };
+                case "obsidian" -> switch (type) {
+                    case HELMET -> SERVER.obsidianHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.obsidianChestplateDurability.get();
+                    case LEGGINGS -> SERVER.obsidianLeggingsDurability.get();
+                    case BOOTS -> SERVER.obsidianBootsDurability.get();
+                };
+                case "pot" -> switch (type) {
+                    case HELMET -> SERVER.potHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.potChestplateDurability.get();
+                    case LEGGINGS -> SERVER.potLeggingsDurability.get();
+                    case BOOTS -> SERVER.potBootsDurability.get();
+                };
+                case "power_suit" -> switch (type) {
+                    case HELMET -> SERVER.powerSuitHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.powerSuitChestplateDurability.get();
+                    case LEGGINGS -> SERVER.powerSuitLeggingsDurability.get();
+                    case BOOTS -> SERVER.powerSuitBootsDurability.get();
+                };
+                case "quartz" -> switch (type) {
+                    case HELMET -> SERVER.quartzHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.quartzChestplateDurability.get();
+                    case LEGGINGS -> SERVER.quartzLeggingsDurability.get();
+                    case BOOTS -> SERVER.quartzBootsDurability.get();
+                };
+                case "red_dragon" -> switch (type) {
+                    case HELMET -> SERVER.redDragonHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.redDragonChestplateDurability.get();
+                    case LEGGINGS -> SERVER.redDragonLeggingsDurability.get();
+                    case BOOTS -> SERVER.redDragonBootsDurability.get();
+                };
+                case "redstone" -> switch (type) {
+                    case HELMET -> SERVER.redstoneHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.redstoneChestplateDurability.get();
+                    case LEGGINGS -> SERVER.redstoneLeggingsDurability.get();
+                    case BOOTS -> SERVER.redstoneBootsDurability.get();
+                };
+                case "reinforced_deepslate" -> switch (type) {
+                    case HELMET -> SERVER.reinforcedDeepslateHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.reinforcedDeepslateChestplateDurability.get();
+                    case LEGGINGS -> SERVER.reinforcedDeepslateLeggingsDurability.get();
+                    case BOOTS -> SERVER.reinforcedDeepslateBootsDurability.get();
+                };
+                case "rgb" -> switch (type) {
+                    case HELMET -> SERVER.rgbHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.rgbChestplateDurability.get();
+                    case LEGGINGS -> SERVER.rgbLeggingsDurability.get();
+                    case BOOTS -> SERVER.rgbBootsDurability.get();
+                };
+                case "ruby" -> switch (type) {
+                    case HELMET -> SERVER.rubyHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.rubyChestplateDurability.get();
+                    case LEGGINGS -> SERVER.rubyLeggingsDurability.get();
+                    case BOOTS -> SERVER.rubyBootsDurability.get();
+                };
+                case "sculk" -> switch (type) {
+                    case HELMET -> SERVER.sculkHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.sculkChestplateDurability.get();
+                    case LEGGINGS -> SERVER.sculkLeggingsDurability.get();
+                    case BOOTS -> SERVER.sculkBootsDurability.get();
+                };
+                case "shulker" -> switch (type) {
+                    case HELMET -> SERVER.shulkerHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.shulkerChestplateDurability.get();
+                    case LEGGINGS -> SERVER.shulkerLeggingsDurability.get();
+                    case BOOTS -> SERVER.shulkerBootsDurability.get();
+                };
+                case "skeleton" -> switch (type) {
+                    case HELMET -> SERVER.skeletonHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.skeletonChestplateDurability.get();
+                    case LEGGINGS -> SERVER.skeletonLeggingsDurability.get();
+                    case BOOTS -> SERVER.skeletonBootsDurability.get();
+                };
+                case "sniffer" -> switch (type) {
+                    case HELMET -> SERVER.snifferHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.snifferChestplateDurability.get();
+                    case LEGGINGS -> SERVER.snifferLeggingsDurability.get();
+                    case BOOTS -> SERVER.snifferBootsDurability.get();
+                };
+                case "tnt" -> switch (type) {
+                    case HELMET -> SERVER.tntHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.tntChestplateDurability.get();
+                    case LEGGINGS -> SERVER.tntLeggingsDurability.get();
+                    case BOOTS -> SERVER.tntBootsDurability.get();
+                };
+                case "totem" -> switch (type) {
+                    case HELMET -> SERVER.totemHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.totemChestplateDurability.get();
+                    case LEGGINGS -> SERVER.totemLeggingsDurability.get();
+                    case BOOTS -> SERVER.totemBootsDurability.get();
+                };
+                case "wither_skeleton" -> switch (type) {
+                    case HELMET -> SERVER.witherSkeletonHelmetDurability.get();
+                    case CHESTPLATE -> SERVER.witherSkeletonChestplateDurability.get();
+                    case LEGGINGS -> SERVER.witherSkeletonLeggingsDurability.get();
+                    case BOOTS -> SERVER.witherSkeletonBootsDurability.get();
+                };
+                default -> {
+                    ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+                    yield stats != null ? stats.getDurability(type) : 100;
+                }
+            };
+            
+            return durability;
+        } catch (Exception e) {
+            // Config not loaded yet, fall back to defaults
+            ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+            return stats != null ? stats.getDurability(type) : 100;
+        }
+    }
+
+    private static int getProtection(String name, ArmorItem.Type type) {
+        try {
+            return switch (name) {
+            case "amethyst" -> switch (type) {
+                case HELMET -> SERVER.amethystHelmetProtection.get();
+                case CHESTPLATE -> SERVER.amethystChestplateProtection.get();
+                case LEGGINGS -> SERVER.amethystLeggingsProtection.get();
+                case BOOTS -> SERVER.amethystBootsProtection.get();
+            };
+            case "ancient_debris" -> switch (type) {
+                case HELMET -> SERVER.ancientDebrisHelmetProtection.get();
+                case CHESTPLATE -> SERVER.ancientDebrisChestplateProtection.get();
+                case LEGGINGS -> SERVER.ancientDebrisLeggingsProtection.get();
+                case BOOTS -> SERVER.ancientDebrisBootsProtection.get();
+            };
+            case "bedrock" -> switch (type) {
+                case HELMET -> SERVER.bedrockHelmetProtection.get();
+                case CHESTPLATE -> SERVER.bedrockChestplateProtection.get();
+                case LEGGINGS -> SERVER.bedrockLeggingsProtection.get();
+                case BOOTS -> SERVER.bedrockBootsProtection.get();
+            };
+            case "bee" -> switch (type) {
+                case HELMET -> SERVER.beeHelmetProtection.get();
+                case CHESTPLATE -> SERVER.beeChestplateProtection.get();
+                case LEGGINGS -> SERVER.beeLeggingsProtection.get();
+                case BOOTS -> SERVER.beeBootsProtection.get();
+            };
+            case "bone" -> switch (type) {
+                case HELMET -> SERVER.boneHelmetProtection.get();
+                case CHESTPLATE -> SERVER.boneChestplateProtection.get();
+                case LEGGINGS -> SERVER.boneLeggingsProtection.get();
+                case BOOTS -> SERVER.boneBootsProtection.get();
+            };
+            case "cactus" -> switch (type) {
+                case HELMET -> SERVER.cactusHelmetProtection.get();
+                case CHESTPLATE -> SERVER.cactusChestplateProtection.get();
+                case LEGGINGS -> SERVER.cactusLeggingsProtection.get();
+                case BOOTS -> SERVER.cactusBootsProtection.get();
+            };
+            case "coal" -> switch (type) {
+                case HELMET -> SERVER.coalHelmetProtection.get();
+                case CHESTPLATE -> SERVER.coalChestplateProtection.get();
+                case LEGGINGS -> SERVER.coalLeggingsProtection.get();
+                case BOOTS -> SERVER.coalBootsProtection.get();
+            };
+            case "copper" -> switch (type) {
+                case HELMET -> SERVER.copperHelmetProtection.get();
+                case CHESTPLATE -> SERVER.copperChestplateProtection.get();
+                case LEGGINGS -> SERVER.copperLeggingsProtection.get();
+                case BOOTS -> SERVER.copperBootsProtection.get();
+            };
+            case "crafting" -> switch (type) {
+                case HELMET -> SERVER.craftingHelmetProtection.get();
+                case CHESTPLATE -> SERVER.craftingChestplateProtection.get();
+                case LEGGINGS -> SERVER.craftingLeggingsProtection.get();
+                case BOOTS -> SERVER.craftingBootsProtection.get();
+            };
+            case "dripstone" -> switch (type) {
+                case HELMET -> SERVER.dripstoneHelmetProtection.get();
+                case CHESTPLATE -> SERVER.dripstoneChestplateProtection.get();
+                case LEGGINGS -> SERVER.dripstoneLeggingsProtection.get();
+                case BOOTS -> SERVER.dripstoneBootsProtection.get();
+            };
+            case "emerald" -> switch (type) {
+                case HELMET -> SERVER.emeraldHelmetProtection.get();
+                case CHESTPLATE -> SERVER.emeraldChestplateProtection.get();
+                case LEGGINGS -> SERVER.emeraldLeggingsProtection.get();
+                case BOOTS -> SERVER.emeraldBootsProtection.get();
+            };
+            case "ender_dragon" -> switch (type) {
+                case HELMET -> SERVER.enderDragonHelmetProtection.get();
+                case CHESTPLATE -> SERVER.enderDragonChestplateProtection.get();
+                case LEGGINGS -> SERVER.enderDragonLeggingsProtection.get();
+                case BOOTS -> SERVER.enderDragonBootsProtection.get();
+            };
+            case "galaxy" -> switch (type) {
+                case HELMET -> SERVER.galaxyHelmetProtection.get();
+                case CHESTPLATE -> SERVER.galaxyChestplateProtection.get();
+                case LEGGINGS -> SERVER.galaxyLeggingsProtection.get();
+                case BOOTS -> SERVER.galaxyBootsProtection.get();
+            };
+            case "gilded" -> switch (type) {
+                case HELMET -> SERVER.gildedHelmetProtection.get();
+                case CHESTPLATE -> SERVER.gildedChestplateProtection.get();
+                case LEGGINGS -> SERVER.gildedLeggingsProtection.get();
+                case BOOTS -> SERVER.gildedBootsProtection.get();
+            };
+            case "glass" -> switch (type) {
+                case HELMET -> SERVER.glassHelmetProtection.get();
+                case CHESTPLATE -> SERVER.glassChestplateProtection.get();
+                case LEGGINGS -> SERVER.glassLeggingsProtection.get();
+                case BOOTS -> SERVER.glassBootsProtection.get();
+            };
+            case "guardian" -> switch (type) {
+                case HELMET -> SERVER.guardianHelmetProtection.get();
+                case CHESTPLATE -> SERVER.guardianChestplateProtection.get();
+                case LEGGINGS -> SERVER.guardianLeggingsProtection.get();
+                case BOOTS -> SERVER.guardianBootsProtection.get();
+            };
+            case "lapis" -> switch (type) {
+                case HELMET -> SERVER.lapisHelmetProtection.get();
+                case CHESTPLATE -> SERVER.lapisChestplateProtection.get();
+                case LEGGINGS -> SERVER.lapisLeggingsProtection.get();
+                case BOOTS -> SERVER.lapisBootsProtection.get();
+            };
+            case "machine" -> switch (type) {
+                case HELMET -> SERVER.machineHelmetProtection.get();
+                case CHESTPLATE -> SERVER.machineChestplateProtection.get();
+                case LEGGINGS -> SERVER.machineLeggingsProtection.get();
+                case BOOTS -> SERVER.machineBootsProtection.get();
+            };
+            case "magma" -> switch (type) {
+                case HELMET -> SERVER.magmaHelmetProtection.get();
+                case CHESTPLATE -> SERVER.magmaChestplateProtection.get();
+                case LEGGINGS -> SERVER.magmaLeggingsProtection.get();
+                case BOOTS -> SERVER.magmaBootsProtection.get();
+            };
+            case "music" -> switch (type) {
+                case HELMET -> SERVER.musicHelmetProtection.get();
+                case CHESTPLATE -> SERVER.musicChestplateProtection.get();
+                case LEGGINGS -> SERVER.musicLeggingsProtection.get();
+                case BOOTS -> SERVER.musicBootsProtection.get();
+            };
+            case "obsidian" -> switch (type) {
+                case HELMET -> SERVER.obsidianHelmetProtection.get();
+                case CHESTPLATE -> SERVER.obsidianChestplateProtection.get();
+                case LEGGINGS -> SERVER.obsidianLeggingsProtection.get();
+                case BOOTS -> SERVER.obsidianBootsProtection.get();
+            };
+            case "pot" -> switch (type) {
+                case HELMET -> SERVER.potHelmetProtection.get();
+                case CHESTPLATE -> SERVER.potChestplateProtection.get();
+                case LEGGINGS -> SERVER.potLeggingsProtection.get();
+                case BOOTS -> SERVER.potBootsProtection.get();
+            };
+            case "power_suit" -> switch (type) {
+                case HELMET -> SERVER.powerSuitHelmetProtection.get();
+                case CHESTPLATE -> SERVER.powerSuitChestplateProtection.get();
+                case LEGGINGS -> SERVER.powerSuitLeggingsProtection.get();
+                case BOOTS -> SERVER.powerSuitBootsProtection.get();
+            };
+            case "quartz" -> switch (type) {
+                case HELMET -> SERVER.quartzHelmetProtection.get();
+                case CHESTPLATE -> SERVER.quartzChestplateProtection.get();
+                case LEGGINGS -> SERVER.quartzLeggingsProtection.get();
+                case BOOTS -> SERVER.quartzBootsProtection.get();
+            };
+            case "red_dragon" -> switch (type) {
+                case HELMET -> SERVER.redDragonHelmetProtection.get();
+                case CHESTPLATE -> SERVER.redDragonChestplateProtection.get();
+                case LEGGINGS -> SERVER.redDragonLeggingsProtection.get();
+                case BOOTS -> SERVER.redDragonBootsProtection.get();
+            };
+            case "redstone" -> switch (type) {
+                case HELMET -> SERVER.redstoneHelmetProtection.get();
+                case CHESTPLATE -> SERVER.redstoneChestplateProtection.get();
+                case LEGGINGS -> SERVER.redstoneLeggingsProtection.get();
+                case BOOTS -> SERVER.redstoneBootsProtection.get();
+            };
+            case "reinforced_deepslate" -> switch (type) {
+                case HELMET -> SERVER.reinforcedDeepslateHelmetProtection.get();
+                case CHESTPLATE -> SERVER.reinforcedDeepslateChestplateProtection.get();
+                case LEGGINGS -> SERVER.reinforcedDeepslateLeggingsProtection.get();
+                case BOOTS -> SERVER.reinforcedDeepslateBootsProtection.get();
+            };
+            case "rgb" -> switch (type) {
+                case HELMET -> SERVER.rgbHelmetProtection.get();
+                case CHESTPLATE -> SERVER.rgbChestplateProtection.get();
+                case LEGGINGS -> SERVER.rgbLeggingsProtection.get();
+                case BOOTS -> SERVER.rgbBootsProtection.get();
+            };
+            case "ruby" -> switch (type) {
+                case HELMET -> SERVER.rubyHelmetProtection.get();
+                case CHESTPLATE -> SERVER.rubyChestplateProtection.get();
+                case LEGGINGS -> SERVER.rubyLeggingsProtection.get();
+                case BOOTS -> SERVER.rubyBootsProtection.get();
+            };
+            case "sculk" -> switch (type) {
+                case HELMET -> SERVER.sculkHelmetProtection.get();
+                case CHESTPLATE -> SERVER.sculkChestplateProtection.get();
+                case LEGGINGS -> SERVER.sculkLeggingsProtection.get();
+                case BOOTS -> SERVER.sculkBootsProtection.get();
+            };
+            case "shulker" -> switch (type) {
+                case HELMET -> SERVER.shulkerHelmetProtection.get();
+                case CHESTPLATE -> SERVER.shulkerChestplateProtection.get();
+                case LEGGINGS -> SERVER.shulkerLeggingsProtection.get();
+                case BOOTS -> SERVER.shulkerBootsProtection.get();
+            };
+            case "skeleton" -> switch (type) {
+                case HELMET -> SERVER.skeletonHelmetProtection.get();
+                case CHESTPLATE -> SERVER.skeletonChestplateProtection.get();
+                case LEGGINGS -> SERVER.skeletonLeggingsProtection.get();
+                case BOOTS -> SERVER.skeletonBootsProtection.get();
+            };
+            case "sniffer" -> switch (type) {
+                case HELMET -> SERVER.snifferHelmetProtection.get();
+                case CHESTPLATE -> SERVER.snifferChestplateProtection.get();
+                case LEGGINGS -> SERVER.snifferLeggingsProtection.get();
+                case BOOTS -> SERVER.snifferBootsProtection.get();
+            };
+            case "tnt" -> switch (type) {
+                case HELMET -> SERVER.tntHelmetProtection.get();
+                case CHESTPLATE -> SERVER.tntChestplateProtection.get();
+                case LEGGINGS -> SERVER.tntLeggingsProtection.get();
+                case BOOTS -> SERVER.tntBootsProtection.get();
+            };
+            case "totem" -> switch (type) {
+                case HELMET -> SERVER.totemHelmetProtection.get();
+                case CHESTPLATE -> SERVER.totemChestplateProtection.get();
+                case LEGGINGS -> SERVER.totemLeggingsProtection.get();
+                case BOOTS -> SERVER.totemBootsProtection.get();
+            };
+            case "wither_skeleton" -> switch (type) {
+                case HELMET -> SERVER.witherSkeletonHelmetProtection.get();
+                case CHESTPLATE -> SERVER.witherSkeletonChestplateProtection.get();
+                case LEGGINGS -> SERVER.witherSkeletonLeggingsProtection.get();
+                case BOOTS -> SERVER.witherSkeletonBootsProtection.get();
+            };
+            default -> {
+                ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+                yield stats != null ? stats.getProtection(type) : 1;
+            }
+        };
+        } catch (Exception e) {
+            // Config not loaded yet, fall back to defaults
+            ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+            return stats != null ? stats.getProtection(type) : 1;
+        }
+    }
+
+    private static int getEnchantment(String name) {
+        try {
+            return switch (name) {
+            case "amethyst" -> SERVER.amethystEnchantment.get();
+            case "ancient_debris" -> SERVER.ancientDebrisEnchantment.get();
+            case "bedrock" -> SERVER.bedrockEnchantment.get();
+            case "bee" -> SERVER.beeEnchantment.get();
+            case "bone" -> SERVER.boneEnchantment.get();
+            case "cactus" -> SERVER.cactusEnchantment.get();
+            case "coal" -> SERVER.coalEnchantment.get();
+            case "copper" -> SERVER.copperEnchantment.get();
+            case "crafting" -> SERVER.craftingEnchantment.get();
+            case "dripstone" -> SERVER.dripstoneEnchantment.get();
+            case "emerald" -> SERVER.emeraldEnchantment.get();
+            case "ender_dragon" -> SERVER.enderDragonEnchantment.get();
+            case "galaxy" -> SERVER.galaxyEnchantment.get();
+            case "gilded" -> SERVER.gildedEnchantment.get();
+            case "glass" -> SERVER.glassEnchantment.get();
+            case "guardian" -> SERVER.guardianEnchantment.get();
+            case "lapis" -> SERVER.lapisEnchantment.get();
+            case "machine" -> SERVER.machineEnchantment.get();
+            case "magma" -> SERVER.magmaEnchantment.get();
+            case "music" -> SERVER.musicEnchantment.get();
+            case "obsidian" -> SERVER.obsidianEnchantment.get();
+            case "pot" -> SERVER.potEnchantment.get();
+            case "power_suit" -> SERVER.powerSuitEnchantment.get();
+            case "quartz" -> SERVER.quartzEnchantment.get();
+            case "red_dragon" -> SERVER.redDragonEnchantment.get();
+            case "redstone" -> SERVER.redstoneEnchantment.get();
+            case "reinforced_deepslate" -> SERVER.reinforcedDeepslateEnchantment.get();
+            case "rgb" -> SERVER.rgbEnchantment.get();
+            case "ruby" -> SERVER.rubyEnchantment.get();
+            case "sculk" -> SERVER.sculkEnchantment.get();
+            case "shulker" -> SERVER.shulkerEnchantment.get();
+            case "skeleton" -> SERVER.skeletonEnchantment.get();
+            case "sniffer" -> SERVER.snifferEnchantment.get();
+            case "tnt" -> SERVER.tntEnchantment.get();
+            case "totem" -> SERVER.totemEnchantment.get();
+            case "wither_skeleton" -> SERVER.witherSkeletonEnchantment.get();
+            default -> {
+                ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+                yield stats != null ? stats.enchantment : 10;
+            }
+        };
+        } catch (Exception e) {
+            // Config not loaded yet, fall back to defaults
+            ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+            return stats != null ? stats.enchantment : 10;
+        }
+    }
+
+    private static float getToughnessValue(String name) {
+        try {
+            return switch (name) {
+            case "amethyst" -> SERVER.amethystToughness.get().floatValue();
+            case "ancient_debris" -> SERVER.ancientDebrisToughness.get().floatValue();
+            case "bedrock" -> SERVER.bedrockToughness.get().floatValue();
+            case "bee" -> SERVER.beeToughness.get().floatValue();
+            case "bone" -> SERVER.boneToughness.get().floatValue();
+            case "cactus" -> SERVER.cactusToughness.get().floatValue();
+            case "coal" -> SERVER.coalToughness.get().floatValue();
+            case "copper" -> SERVER.copperToughness.get().floatValue();
+            case "crafting" -> SERVER.craftingToughness.get().floatValue();
+            case "dripstone" -> SERVER.dripstoneToughness.get().floatValue();
+            case "emerald" -> SERVER.emeraldToughness.get().floatValue();
+            case "ender_dragon" -> SERVER.enderDragonToughness.get().floatValue();
+            case "galaxy" -> SERVER.galaxyToughness.get().floatValue();
+            case "gilded" -> SERVER.gildedToughness.get().floatValue();
+            case "glass" -> SERVER.glassToughness.get().floatValue();
+            case "guardian" -> SERVER.guardianToughness.get().floatValue();
+            case "lapis" -> SERVER.lapisToughness.get().floatValue();
+            case "machine" -> SERVER.machineToughness.get().floatValue();
+            case "magma" -> SERVER.magmaToughness.get().floatValue();
+            case "music" -> SERVER.musicToughness.get().floatValue();
+            case "obsidian" -> SERVER.obsidianToughness.get().floatValue();
+            case "pot" -> SERVER.potToughness.get().floatValue();
+            case "power_suit" -> SERVER.powerSuitToughness.get().floatValue();
+            case "quartz" -> SERVER.quartzToughness.get().floatValue();
+            case "red_dragon" -> SERVER.redDragonToughness.get().floatValue();
+            case "redstone" -> SERVER.redstoneToughness.get().floatValue();
+            case "reinforced_deepslate" -> SERVER.reinforcedDeepslateToughness.get().floatValue();
+            case "rgb" -> SERVER.rgbToughness.get().floatValue();
+            case "ruby" -> SERVER.rubyToughness.get().floatValue();
+            case "sculk" -> SERVER.sculkToughness.get().floatValue();
+            case "shulker" -> SERVER.shulkerToughness.get().floatValue();
+            case "skeleton" -> SERVER.skeletonToughness.get().floatValue();
+            case "sniffer" -> SERVER.snifferToughness.get().floatValue();
+            case "tnt" -> SERVER.tntToughness.get().floatValue();
+            case "totem" -> SERVER.totemToughness.get().floatValue();
+            case "wither_skeleton" -> SERVER.witherSkeletonToughness.get().floatValue();
+            default -> {
+                ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+                yield stats != null ? stats.toughness : 0.0f;
+            }
+        };
+        } catch (Exception e) {
+            // Config not loaded yet, fall back to defaults
+            ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+            return stats != null ? stats.toughness : 0.0f;
+        }
+    }
+
+    private static float getKnockbackResistanceValue(String name) {
+        try {
+            return switch (name) {
+            case "amethyst" -> SERVER.amethystKnockbackResistance.get().floatValue();
+            case "ancient_debris" -> SERVER.ancientDebrisKnockbackResistance.get().floatValue();
+            case "bedrock" -> SERVER.bedrockKnockbackResistance.get().floatValue();
+            case "bee" -> SERVER.beeKnockbackResistance.get().floatValue();
+            case "bone" -> SERVER.boneKnockbackResistance.get().floatValue();
+            case "cactus" -> SERVER.cactusKnockbackResistance.get().floatValue();
+            case "coal" -> SERVER.coalKnockbackResistance.get().floatValue();
+            case "copper" -> SERVER.copperKnockbackResistance.get().floatValue();
+            case "crafting" -> SERVER.craftingKnockbackResistance.get().floatValue();
+            case "dripstone" -> SERVER.dripstoneKnockbackResistance.get().floatValue();
+            case "emerald" -> SERVER.emeraldKnockbackResistance.get().floatValue();
+            case "ender_dragon" -> SERVER.enderDragonKnockbackResistance.get().floatValue();
+            case "galaxy" -> SERVER.galaxyKnockbackResistance.get().floatValue();
+            case "gilded" -> SERVER.gildedKnockbackResistance.get().floatValue();
+            case "glass" -> SERVER.glassKnockbackResistance.get().floatValue();
+            case "guardian" -> SERVER.guardianKnockbackResistance.get().floatValue();
+            case "lapis" -> SERVER.lapisKnockbackResistance.get().floatValue();
+            case "machine" -> SERVER.machineKnockbackResistance.get().floatValue();
+            case "magma" -> SERVER.magmaKnockbackResistance.get().floatValue();
+            case "music" -> SERVER.musicKnockbackResistance.get().floatValue();
+            case "obsidian" -> SERVER.obsidianKnockbackResistance.get().floatValue();
+            case "pot" -> SERVER.potKnockbackResistance.get().floatValue();
+            case "power_suit" -> SERVER.powerSuitKnockbackResistance.get().floatValue();
+            case "quartz" -> SERVER.quartzKnockbackResistance.get().floatValue();
+            case "red_dragon" -> SERVER.redDragonKnockbackResistance.get().floatValue();
+            case "redstone" -> SERVER.redstoneKnockbackResistance.get().floatValue();
+            case "reinforced_deepslate" -> SERVER.reinforcedDeepslateKnockbackResistance.get().floatValue();
+            case "rgb" -> SERVER.rgbKnockbackResistance.get().floatValue();
+            case "ruby" -> SERVER.rubyKnockbackResistance.get().floatValue();
+            case "sculk" -> SERVER.sculkKnockbackResistance.get().floatValue();
+            case "shulker" -> SERVER.shulkerKnockbackResistance.get().floatValue();
+            case "skeleton" -> SERVER.skeletonKnockbackResistance.get().floatValue();
+            case "sniffer" -> SERVER.snifferKnockbackResistance.get().floatValue();
+            case "tnt" -> SERVER.tntKnockbackResistance.get().floatValue();
+            case "totem" -> SERVER.totemKnockbackResistance.get().floatValue();
+            case "wither_skeleton" -> SERVER.witherSkeletonKnockbackResistance.get().floatValue();
+            default -> {
+                ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+                yield stats != null ? stats.knockbackResistance : 0.0f;
+            }
+        };
+        } catch (Exception e) {
+            // Config not loaded yet, fall back to defaults
+            ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
+            return stats != null ? stats.knockbackResistance : 0.0f;
+        }
+    }
+
+    /**
+     * Rounds a float value to 2 decimal places to avoid floating-point precision issues in config files
+     */
+    private static float roundFloat(float value) {
+        return Math.round(value * 100.0f) / 100.0f;
     }
 
     public static class Server {

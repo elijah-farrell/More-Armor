@@ -2,11 +2,10 @@ package com.morearmor.init.armors;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 
-public class RedDragonArmorItem extends ArmorItem {
+public class RedDragonArmorItem extends DefaultArmorItem {
     
     public RedDragonArmorItem(ArmorMaterial material, Type type, Properties properties) {
         super(material, type, properties);

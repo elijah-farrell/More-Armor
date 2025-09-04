@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 
 public class DefaultArmorItem extends ArmorItem {
+
     public DefaultArmorItem(ArmorMaterial material, Type type, Properties properties) {
         super(material, type, properties);
     }
@@ -18,5 +19,11 @@ public class DefaultArmorItem extends ArmorItem {
         String materialName = this.getMaterial().getName().replace(MoreArmor.MOD_ID + ":", "");
         return "morearmor:textures/models/averagetateman/armors/" + materialName + "/layer_" + 
                (slot == EquipmentSlot.LEGS ? "2" : "1") + ".png";
+    }
+    
+    @Override
+    public int getMaxDamage(ItemStack stack) {
+        // Use the material's current durability instead of the cached value
+        return this.getMaterial().getDurabilityForType(this.type);
     }
 }

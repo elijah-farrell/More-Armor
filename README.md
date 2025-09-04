@@ -9,7 +9,7 @@
 [![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.1-blue.svg)](https://www.minecraft.net/)
 [![Forge Version](https://img.shields.io/badge/Forge-47.1.0+-orange.svg)](https://files.minecraftforge.net/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Downloads](https://img.shields.io/badge/Downloads-Coming%20Soon-lightgrey.svg)](https://www.curseforge.com/)
+[![CurseForge](https://img.shields.io/badge/CurseForge-Download-blue.svg)](https://www.curseforge.com/minecraft/mc-mods/more-armorsets)
 
 [**Features**](#features) • [**Armor Showcase**](docs/ARMOR_SHOWCASE.md) • [**Gallery**](#gallery) • [**License**](#license)
 

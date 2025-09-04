@@ -1,13 +1,12 @@
 package com.morearmor.init.armors;
 
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 
-public class GalaxyArmorItem extends ArmorItem {
+public class GalaxyArmorItem extends DefaultArmorItem {
     public GalaxyArmorItem(ArmorMaterial material, Type type, Item.Properties properties) {
         super(material, type, properties);
     }
