@@ -20,45 +20,7 @@
 ## Features
 
 ### **36 Armor Sets**
-#### 14 Animated Armor Sets
-• Bee Armor
-• Ender Dragon Armor
-• Galaxy Armor
-• Guardian Armor
-• Machine Armor
-• Magma Armor
-• Music Armor
-• Obsidian Armor
-• Pot Armor
-• Red Dragon Armor
-• RGB Armor
-• Sculk Armor
-• Sniffer Armor
-• TNT Armor
-
-#### 22 Static Armor Sets
-• Ancient Debris Armor
-• Amethyst Armor
-• Bedrock Armor
-• Bone Armor
-• Cactus Armor
-• Coal Armor
-• Copper Armor
-• Crafting Armor
-• Dripstone Armor
-• Emerald Armor
-• Gilded Armor
-• Glass Armor
-• Lapis Armor
-• Power Suit Armor
-• Quartz Armor
-• Redstone Armor
-• Reinforced Deepslate Armor
-• Ruby Armor
-• Shulker Armor
-• Skeleton Armor
-• Totem Armor
-• Wither Skeleton Armor
+• Bee Armor • Ender Dragon Armor • Galaxy Armor • Guardian Armor • Machine Armor • Magma Armor • Music Armor • Obsidian Armor • Pot Armor • Red Dragon Armor • RGB Armor • Sculk Armor • Sniffer Armor • TNT Armor • Ancient Debris Armor • Amethyst Armor • Bedrock Armor • Bone Armor • Cactus Armor • Coal Armor • Copper Armor • Crafting Armor • Dripstone Armor • Emerald Armor • Gilded Armor • Glass Armor • Lapis Armor • Power Suit Armor • Quartz Armor • Redstone Armor • Reinforced Deepslate Armor • Ruby Armor • Shulker Armor • Skeleton Armor • Totem Armor • Wither Skeleton Armor
 
 ---
 

@@ -376,7 +376,7 @@ public class ArmorDefaults {
         193, 280, 263, 228,  // durability
         2, 6, 5, 2,          // protection
         11,                  // enchantment
-        0.6f, 0.0f,          // toughness, knockback resistance
+        0.0f, 0.0f,          // toughness, knockback resistance
         Items.BONE,           // repair item
         SoundEvents.ARMOR_EQUIP_GENERIC // equip sound
     );
