@@ -13,14 +13,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.Registries;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 
 @Mod(MoreArmor.MOD_ID)
 public class MoreArmor {
     public static final String MOD_ID = "morearmor";
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
-    public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MOD_ID);
 
     
     public static final RegistryObject<CreativeModeTab> MOREARMOR_TAB = CREATIVE_TABS.register("morearmor_tab",
@@ -258,8 +256,6 @@ public class MoreArmor {
         // Register creative tabs
         CREATIVE_TABS.register(FMLJavaModLoadingContext.get().getModEventBus());
         
-        // Register recipe serializers
-        RECIPE_SERIALIZERS.register(FMLJavaModLoadingContext.get().getModEventBus());
         
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
