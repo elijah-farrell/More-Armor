@@ -1,6 +1,6 @@
 package com.morearmor.events;
 
-import com.morearmor.init.Items;
+import com.morearmor.init.MoreArmorItems;
 import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffer;
@@ -36,19 +36,19 @@ public class WanderingTraderEvents {
         
         switch (pieceChoice) {
             case 0: // Helmet
-                rubyArmor = new ItemStack(Items.RUBY_HELMET.get());
+                rubyArmor = new ItemStack(MoreArmorItems.RUBY_HELMET.get());
                 break;
             case 1: // Chestplate
-                rubyArmor = new ItemStack(Items.RUBY_CHESTPLATE.get());
+                rubyArmor = new ItemStack(MoreArmorItems.RUBY_CHESTPLATE.get());
                 break;
             case 2: // Leggings
-                rubyArmor = new ItemStack(Items.RUBY_LEGGINGS.get());
+                rubyArmor = new ItemStack(MoreArmorItems.RUBY_LEGGINGS.get());
                 break;
             case 3: // Boots
-                rubyArmor = new ItemStack(Items.RUBY_BOOTS.get());
+                rubyArmor = new ItemStack(MoreArmorItems.RUBY_BOOTS.get());
                 break;
             default:
-                rubyArmor = new ItemStack(Items.RUBY_HELMET.get());
+                rubyArmor = new ItemStack(MoreArmorItems.RUBY_HELMET.get());
                 break;
         }
         

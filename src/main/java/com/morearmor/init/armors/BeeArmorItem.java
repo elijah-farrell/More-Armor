@@ -7,8 +7,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 
 public class BeeArmorItem extends DefaultArmorItem {
-    public BeeArmorItem(ArmorMaterial material, Type type, Item.Properties properties) {
-        super(material, type, properties);
+    public BeeArmorItem(String materialName, Type type, Item.Properties properties) {
+        super(materialName, type, properties);
     }
 
     @Override

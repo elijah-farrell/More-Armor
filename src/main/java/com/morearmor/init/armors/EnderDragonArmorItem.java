@@ -7,8 +7,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 
 public class EnderDragonArmorItem extends DefaultArmorItem {
-    public EnderDragonArmorItem(ArmorMaterial material, Type type, Item.Properties properties) {
-        super(material, type, properties);
+    public EnderDragonArmorItem(String materialName, Type type, Item.Properties properties) {
+        super(materialName, type, properties);
     }
 
     @Override

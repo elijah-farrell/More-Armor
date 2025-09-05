@@ -7,22 +7,14 @@ import net.minecraftforge.fml.common.Mod;
 import com.morearmor.MoreArmor;
 import org.apache.commons.lang3.tuple.Pair;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.sounds.SoundEvent;
-import javax.annotation.Nonnull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.Map;
-import java.util.HashMap;
 
 @Mod.EventBusSubscriber(modid = MoreArmor.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModConfigs {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final ForgeConfigSpec SERVER_SPEC;
     public static final Server SERVER;
-    private static final Map<String, ArmorMaterial> MATERIAL_CACHE = new HashMap<>();
 
     static {
         final Pair<Server, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Server::new);
@@ -37,7 +29,6 @@ public class ModConfigs {
     @net.minecraftforge.eventbus.api.SubscribeEvent
     public static void onConfigLoad(net.minecraftforge.fml.event.config.ModConfigEvent.Loading event) {
         if (event.getConfig().getModId().equals(MoreArmor.MOD_ID)) {
-            LOGGER.info("MoreArmor configuration loaded successfully");
             validateConfig();
         }
     }
@@ -47,8 +38,7 @@ public class ModConfigs {
      * This method can be called during mod initialization to provide helpful feedback.
      */
     public static void validateConfig() {
-        LOGGER.info("Validating MoreArmor configuration...");
-        
+        LOGGER.info("MoreArmor: Validating configuration...");
         // List of expected armor types
         String[] expectedArmorTypes = {
             "amethyst", "ancient_debris", "bedrock", "bee", "bone", "cactus", "coal", "copper",
@@ -65,94 +55,39 @@ public class ModConfigs {
         for (String armorType : expectedArmorTypes) {
             totalConfigs++;
             
-            // Test creating an armor material to see if all configs are accessible
+            // Test accessing config values to see if all configs are accessible
             try {
-                ArmorMaterial material = createArmorMaterial(armorType);
-                if (material != null) {
-                    validConfigs++;
-                    LOGGER.debug("✓ {} armor configuration loaded successfully", armorType);
-                } else {
-                    LOGGER.warn("✗ {} armor configuration failed to load", armorType);
-                    hasIssues = true;
-                }
+                // Test a few key config values to ensure they're accessible
+                getDurability(armorType, ArmorItem.Type.HELMET);
+                getProtection(armorType, ArmorItem.Type.HELMET);
+                getToughnessValue(armorType);
+                validConfigs++;
+                // No debug logging - only log issues
             } catch (Exception e) {
-                LOGGER.warn("✗ {} armor configuration error: {}", armorType, e.getMessage());
+                LOGGER.warn("MoreArmor: {} armor configuration error: {}", armorType, e.getMessage());
                 hasIssues = true;
             }
         }
 
         if (!hasIssues) {
-            LOGGER.info("✓ MoreArmor configuration validation completed successfully - {} of {} armor types configured", validConfigs, totalConfigs);
+            LOGGER.info("MoreArmor: Successfully loaded {} armor configurations", validConfigs);
         } else {
-            LOGGER.warn("⚠ MoreArmor configuration validation completed with issues. Check the log above for details.");
-            LOGGER.info("Armor types with issues will use default values from ArmorDefaults.");
+            LOGGER.warn("MoreArmor: Configuration loaded with {} issues. Some armor types will use default values.", totalConfigs - validConfigs);
         }
         
     }
 
-    /**
-     * Creates an ArmorMaterial using the Forge config values for the specified armor type.
-     * This ensures proper synchronization between client and server.
-     * Uses caching to avoid recreating materials and handles config loading timing.
-     */
-    public static ArmorMaterial createArmorMaterial(String name) {
-        return MATERIAL_CACHE.computeIfAbsent(name, ModConfigs::createMaterialInternal);
-    }
-    
-    private static ArmorMaterial createMaterialInternal(String name) {
-        return new ArmorMaterial() {
-            @Override
-            public int getDurabilityForType(@Nonnull ArmorItem.Type type) {
-                return getDurability(name, type);
-            }
+    // These methods are no longer needed since we use DynamicArmorMaterial directly
 
-            @Override
-            public int getDefenseForType(@Nonnull ArmorItem.Type type) {
-                return getProtection(name, type);
-            }
-
-            @Override
-            public int getEnchantmentValue() {
-                return getEnchantment(name);
-            }
-
-            @Override
-            public SoundEvent getEquipSound() {
-                return ArmorDefaults.getEquipSound(name);
-            }
-
-            @Override
-            public Ingredient getRepairIngredient() {
-                ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
-                return Ingredient.of(stats != null ? stats.repairItem : Items.IRON_INGOT);
-            }
-
-            @Override
-            public String getName() {
-                return MoreArmor.MOD_ID + ":" + name;
-            }
-
-            @Override
-            public float getToughness() {
-                return getToughnessValue(name);
-            }
-
-            @Override
-            public float getKnockbackResistance() {
-                return getKnockbackResistanceValue(name);
-            }
-        };
-    }
-
-    private static int getDurability(String name, ArmorItem.Type type) {
+    public static int getDurability(String name, ArmorItem.Type type) {
         try {
             int durability = switch (name) {
-                case "amethyst" -> switch (type) {
-                    case HELMET -> SERVER.amethystHelmetDurability.get();
-                    case CHESTPLATE -> SERVER.amethystChestplateDurability.get();
-                    case LEGGINGS -> SERVER.amethystLeggingsDurability.get();
-                    case BOOTS -> SERVER.amethystBootsDurability.get();
-                };
+                            case "amethyst" -> switch (type) {
+                case HELMET -> SERVER.amethystHelmetDurability.get();
+                case CHESTPLATE -> SERVER.amethystChestplateDurability.get();
+                case LEGGINGS -> SERVER.amethystLeggingsDurability.get();
+                case BOOTS -> SERVER.amethystBootsDurability.get();
+            };
                 case "ancient_debris" -> switch (type) {
                     case HELMET -> SERVER.ancientDebrisHelmetDurability.get();
                     case CHESTPLATE -> SERVER.ancientDebrisChestplateDurability.get();
@@ -373,13 +308,15 @@ public class ModConfigs {
         } catch (Exception e) {
             // Config not loaded yet, fall back to defaults
             ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
-            return stats != null ? stats.getDurability(type) : 100;
+            int fallback = stats != null ? stats.getDurability(type) : 100;
+            LOGGER.warn("MoreArmor: {} {} durability config error, using fallback {}: {}", name, type, fallback, e.getMessage());
+            return fallback;
         }
     }
 
-    private static int getProtection(String name, ArmorItem.Type type) {
+    public static int getProtection(String name, ArmorItem.Type type) {
         try {
-            return switch (name) {
+            int protection = switch (name) {
             case "amethyst" -> switch (type) {
                 case HELMET -> SERVER.amethystHelmetProtection.get();
                 case CHESTPLATE -> SERVER.amethystChestplateProtection.get();
@@ -601,16 +538,20 @@ public class ModConfigs {
                 yield stats != null ? stats.getProtection(type) : 1;
             }
         };
+        
+        return protection;
         } catch (Exception e) {
             // Config not loaded yet, fall back to defaults
             ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
-            return stats != null ? stats.getProtection(type) : 1;
+            int fallback = stats != null ? stats.getProtection(type) : 1;
+            LOGGER.warn("MoreArmor: {} {} protection config error, using fallback {}: {}", name, type, fallback, e.getMessage());
+            return fallback;
         }
     }
 
-    private static int getEnchantment(String name) {
+    public static int getEnchantment(String name) {
         try {
-            return switch (name) {
+            int enchantment = switch (name) {
             case "amethyst" -> SERVER.amethystEnchantment.get();
             case "ancient_debris" -> SERVER.ancientDebrisEnchantment.get();
             case "bedrock" -> SERVER.bedrockEnchantment.get();
@@ -652,16 +593,19 @@ public class ModConfigs {
                 yield stats != null ? stats.enchantment : 10;
             }
         };
+        return enchantment;
         } catch (Exception e) {
             // Config not loaded yet, fall back to defaults
             ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
-            return stats != null ? stats.enchantment : 10;
+            int fallback = stats != null ? stats.enchantment : 10;
+            LOGGER.warn("MoreArmor: {} enchantment config error, using fallback {}: {}", name, fallback, e.getMessage());
+            return fallback;
         }
     }
 
-    private static float getToughnessValue(String name) {
+    public static float getToughnessValue(String name) {
         try {
-            return switch (name) {
+            float toughness = switch (name) {
             case "amethyst" -> SERVER.amethystToughness.get().floatValue();
             case "ancient_debris" -> SERVER.ancientDebrisToughness.get().floatValue();
             case "bedrock" -> SERVER.bedrockToughness.get().floatValue();
@@ -703,16 +647,21 @@ public class ModConfigs {
                 yield stats != null ? stats.toughness : 0.0f;
             }
         };
+        
+        // Round to 1 decimal place to avoid floating-point precision issues
+        return (float) roundToOneDecimal(toughness);
         } catch (Exception e) {
             // Config not loaded yet, fall back to defaults
             ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
-            return stats != null ? stats.toughness : 0.0f;
+            float fallback = stats != null ? stats.toughness : 0.0f;
+            LOGGER.warn("MoreArmor: {} toughness config error, using fallback {}: {}", name, fallback, e.getMessage());
+            return (float) roundToOneDecimal(fallback);
         }
     }
 
-    private static float getKnockbackResistanceValue(String name) {
+    public static float getKnockbackResistanceValue(String name) {
         try {
-            return switch (name) {
+            float knockbackResistance = switch (name) {
             case "amethyst" -> SERVER.amethystKnockbackResistance.get().floatValue();
             case "ancient_debris" -> SERVER.ancientDebrisKnockbackResistance.get().floatValue();
             case "bedrock" -> SERVER.bedrockKnockbackResistance.get().floatValue();
@@ -754,18 +703,23 @@ public class ModConfigs {
                 yield stats != null ? stats.knockbackResistance : 0.0f;
             }
         };
+        
+        // Round to 1 decimal place to avoid floating-point precision issues
+        return (float) roundToOneDecimal(knockbackResistance);
         } catch (Exception e) {
             // Config not loaded yet, fall back to defaults
             ArmorDefaults.ArmorStats stats = ArmorDefaults.getStats(name);
-            return stats != null ? stats.knockbackResistance : 0.0f;
+            float fallback = stats != null ? stats.knockbackResistance : 0.0f;
+            LOGGER.warn("MoreArmor: {} knockback resistance config error, using fallback {}: {}", name, fallback, e.getMessage());
+            return (float) roundToOneDecimal(fallback);
         }
     }
 
     /**
-     * Rounds a float value to 2 decimal places to avoid floating-point precision issues in config files
+     * Rounds a value to 1 decimal place to avoid floating-point precision issues
      */
-    private static float roundFloat(float value) {
-        return Math.round(value * 100.0f) / 100.0f;
+    private static double roundToOneDecimal(double value) {
+        return Math.round(value * 10.0) / 10.0;
     }
 
     public static class Server {
@@ -997,8 +951,8 @@ public class ModConfigs {
             amethystLeggingsProtection = builder.comment("Protection for Amethyst Leggings").defineInRange("leggings_protection", ArmorDefaults.AMETHYST.leggingsProtection, 0, 20);
             amethystBootsProtection = builder.comment("Protection for Amethyst Boots").defineInRange("boots_protection", ArmorDefaults.AMETHYST.bootsProtection, 0, 20);
             amethystEnchantment = builder.comment("Enchantment value for Amethyst Armor").defineInRange("enchantment", ArmorDefaults.AMETHYST.enchantment, 0, 30);
-            amethystToughness = builder.comment("Toughness for Amethyst Armor").defineInRange("toughness", ArmorDefaults.AMETHYST.toughness, 0.0, 10.0);
-            amethystKnockbackResistance = builder.comment("Knockback resistance for Amethyst Armor").defineInRange("knockback_resistance", ArmorDefaults.AMETHYST.knockbackResistance, 0.0, 1.0);
+            amethystToughness = builder.comment("Toughness for Amethyst Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.AMETHYST.toughness), 0.0, 10.0);
+            amethystKnockbackResistance = builder.comment("Knockback resistance for Amethyst Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.AMETHYST.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Ancient Debris Armor
@@ -1012,8 +966,8 @@ public class ModConfigs {
             ancientDebrisLeggingsProtection = builder.comment("Protection for Ancient Debris Leggings").defineInRange("leggings_protection", ArmorDefaults.ANCIENT_DEBRIS.leggingsProtection, 0, 20);
             ancientDebrisBootsProtection = builder.comment("Protection for Ancient Debris Boots").defineInRange("boots_protection", ArmorDefaults.ANCIENT_DEBRIS.bootsProtection, 0, 20);
             ancientDebrisEnchantment = builder.comment("Enchantment value for Ancient Debris Armor").defineInRange("enchantment", ArmorDefaults.ANCIENT_DEBRIS.enchantment, 0, 30);
-            ancientDebrisToughness = builder.comment("Toughness for Ancient Debris Armor").defineInRange("toughness", ArmorDefaults.ANCIENT_DEBRIS.toughness, 0.0, 10.0);
-            ancientDebrisKnockbackResistance = builder.comment("Knockback resistance for Ancient Debris Armor").defineInRange("knockback_resistance", ArmorDefaults.ANCIENT_DEBRIS.knockbackResistance, 0.0, 1.0);
+            ancientDebrisToughness = builder.comment("Toughness for Ancient Debris Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.ANCIENT_DEBRIS.toughness), 0.0, 10.0);
+            ancientDebrisKnockbackResistance = builder.comment("Knockback resistance for Ancient Debris Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.ANCIENT_DEBRIS.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Bedrock Armor
@@ -1027,8 +981,8 @@ public class ModConfigs {
             bedrockLeggingsProtection = builder.comment("Protection for Bedrock Leggings").defineInRange("leggings_protection", ArmorDefaults.BEDROCK.leggingsProtection, 0, 20);
             bedrockBootsProtection = builder.comment("Protection for Bedrock Boots").defineInRange("boots_protection", ArmorDefaults.BEDROCK.bootsProtection, 0, 20);
             bedrockEnchantment = builder.comment("Enchantment value for Bedrock Armor").defineInRange("enchantment", ArmorDefaults.BEDROCK.enchantment, 0, 30);
-            bedrockToughness = builder.comment("Toughness for Bedrock Armor").defineInRange("toughness", ArmorDefaults.BEDROCK.toughness, 0.0, 10.0);
-            bedrockKnockbackResistance = builder.comment("Knockback resistance for Bedrock Armor").defineInRange("knockback_resistance", ArmorDefaults.BEDROCK.knockbackResistance, 0.0, 1.0);
+            bedrockToughness = builder.comment("Toughness for Bedrock Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.BEDROCK.toughness), 0.0, 10.0);
+            bedrockKnockbackResistance = builder.comment("Knockback resistance for Bedrock Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.BEDROCK.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Bee Armor
@@ -1042,8 +996,8 @@ public class ModConfigs {
             beeLeggingsProtection = builder.comment("Protection for Bee Leggings").defineInRange("leggings_protection", ArmorDefaults.BEE.leggingsProtection, 0, 20);
             beeBootsProtection = builder.comment("Protection for Bee Boots").defineInRange("boots_protection", ArmorDefaults.BEE.bootsProtection, 0, 20);
             beeEnchantment = builder.comment("Enchantment value for Bee Armor").defineInRange("enchantment", ArmorDefaults.BEE.enchantment, 0, 30);
-            beeToughness = builder.comment("Toughness for Bee Armor").defineInRange("toughness", ArmorDefaults.BEE.toughness, 0.0, 10.0);
-            beeKnockbackResistance = builder.comment("Knockback resistance for Bee Armor").defineInRange("knockback_resistance", ArmorDefaults.BEE.knockbackResistance, 0.0, 1.0);
+            beeToughness = builder.comment("Toughness for Bee Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.BEE.toughness), 0.0, 10.0);
+            beeKnockbackResistance = builder.comment("Knockback resistance for Bee Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.BEE.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Bone Armor
@@ -1057,8 +1011,8 @@ public class ModConfigs {
             boneLeggingsProtection = builder.comment("Protection for Bone Leggings").defineInRange("leggings_protection", ArmorDefaults.BONE.leggingsProtection, 0, 20);
             boneBootsProtection = builder.comment("Protection for Bone Boots").defineInRange("boots_protection", ArmorDefaults.BONE.bootsProtection, 0, 20);
             boneEnchantment = builder.comment("Enchantment value for Bone Armor").defineInRange("enchantment", ArmorDefaults.BONE.enchantment, 0, 30);
-            boneToughness = builder.comment("Toughness for Bone Armor").defineInRange("toughness", ArmorDefaults.BONE.toughness, 0.0, 10.0);
-            boneKnockbackResistance = builder.comment("Knockback resistance for Bone Armor").defineInRange("knockback_resistance", ArmorDefaults.BONE.knockbackResistance, 0.0, 1.0);
+            boneToughness = builder.comment("Toughness for Bone Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.BONE.toughness), 0.0, 10.0);
+            boneKnockbackResistance = builder.comment("Knockback resistance for Bone Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.BONE.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Cactus Armor
@@ -1072,8 +1026,8 @@ public class ModConfigs {
             cactusLeggingsProtection = builder.comment("Protection for Cactus Leggings").defineInRange("leggings_protection", ArmorDefaults.CACTUS.leggingsProtection, 0, 20);
             cactusBootsProtection = builder.comment("Protection for Cactus Boots").defineInRange("boots_protection", ArmorDefaults.CACTUS.bootsProtection, 0, 20);
             cactusEnchantment = builder.comment("Enchantment value for Cactus Armor").defineInRange("enchantment", ArmorDefaults.CACTUS.enchantment, 0, 30);
-            cactusToughness = builder.comment("Toughness for Cactus Armor").defineInRange("toughness", ArmorDefaults.CACTUS.toughness, 0.0, 10.0);
-            cactusKnockbackResistance = builder.comment("Knockback resistance for Cactus Armor").defineInRange("knockback_resistance", ArmorDefaults.CACTUS.knockbackResistance, 0.0, 1.0);
+            cactusToughness = builder.comment("Toughness for Cactus Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.CACTUS.toughness), 0.0, 10.0);
+            cactusKnockbackResistance = builder.comment("Knockback resistance for Cactus Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.CACTUS.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Coal Armor
@@ -1087,8 +1041,8 @@ public class ModConfigs {
             coalLeggingsProtection = builder.comment("Protection for Coal Leggings").defineInRange("leggings_protection", ArmorDefaults.COAL.leggingsProtection, 0, 20);
             coalBootsProtection = builder.comment("Protection for Coal Boots").defineInRange("boots_protection", ArmorDefaults.COAL.bootsProtection, 0, 20);
             coalEnchantment = builder.comment("Enchantment value for Coal Armor").defineInRange("enchantment", ArmorDefaults.COAL.enchantment, 0, 30);
-            coalToughness = builder.comment("Toughness for Coal Armor").defineInRange("toughness", ArmorDefaults.COAL.toughness, 0.0, 10.0);
-            coalKnockbackResistance = builder.comment("Knockback resistance for Coal Armor").defineInRange("knockback_resistance", ArmorDefaults.COAL.knockbackResistance, 0.0, 1.0);
+            coalToughness = builder.comment("Toughness for Coal Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.COAL.toughness), 0.0, 10.0);
+            coalKnockbackResistance = builder.comment("Knockback resistance for Coal Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.COAL.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Copper Armor
@@ -1102,8 +1056,8 @@ public class ModConfigs {
             copperLeggingsProtection = builder.comment("Protection for Copper Leggings").defineInRange("leggings_protection", ArmorDefaults.COPPER.leggingsProtection, 0, 20);
             copperBootsProtection = builder.comment("Protection for Copper Boots").defineInRange("boots_protection", ArmorDefaults.COPPER.bootsProtection, 0, 20);
             copperEnchantment = builder.comment("Enchantment value for Copper Armor").defineInRange("enchantment", ArmorDefaults.COPPER.enchantment, 0, 30);
-            copperToughness = builder.comment("Toughness for Copper Armor").defineInRange("toughness", ArmorDefaults.COPPER.toughness, 0.0, 10.0);
-            copperKnockbackResistance = builder.comment("Knockback resistance for Copper Armor").defineInRange("knockback_resistance", ArmorDefaults.COPPER.knockbackResistance, 0.0, 1.0);
+            copperToughness = builder.comment("Toughness for Copper Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.COPPER.toughness), 0.0, 10.0);
+            copperKnockbackResistance = builder.comment("Knockback resistance for Copper Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.COPPER.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Crafting Armor
@@ -1117,8 +1071,8 @@ public class ModConfigs {
             craftingLeggingsProtection = builder.comment("Protection for Crafting Leggings").defineInRange("leggings_protection", ArmorDefaults.CRAFTING.leggingsProtection, 0, 20);
             craftingBootsProtection = builder.comment("Protection for Crafting Boots").defineInRange("boots_protection", ArmorDefaults.CRAFTING.bootsProtection, 0, 20);
             craftingEnchantment = builder.comment("Enchantment value for Crafting Armor").defineInRange("enchantment", ArmorDefaults.CRAFTING.enchantment, 0, 30);
-            craftingToughness = builder.comment("Toughness for Crafting Armor").defineInRange("toughness", ArmorDefaults.CRAFTING.toughness, 0.0, 10.0);
-            craftingKnockbackResistance = builder.comment("Knockback resistance for Crafting Armor").defineInRange("knockback_resistance", ArmorDefaults.CRAFTING.knockbackResistance, 0.0, 1.0);
+            craftingToughness = builder.comment("Toughness for Crafting Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.CRAFTING.toughness), 0.0, 10.0);
+            craftingKnockbackResistance = builder.comment("Knockback resistance for Crafting Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.CRAFTING.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Dripstone Armor
@@ -1132,8 +1086,8 @@ public class ModConfigs {
             dripstoneLeggingsProtection = builder.comment("Protection for Dripstone Leggings").defineInRange("leggings_protection", ArmorDefaults.DRIPSTONE.leggingsProtection, 0, 20);
             dripstoneBootsProtection = builder.comment("Protection for Dripstone Boots").defineInRange("boots_protection", ArmorDefaults.DRIPSTONE.bootsProtection, 0, 20);
             dripstoneEnchantment = builder.comment("Enchantment value for Dripstone Armor").defineInRange("enchantment", ArmorDefaults.DRIPSTONE.enchantment, 0, 30);
-            dripstoneToughness = builder.comment("Toughness for Dripstone Armor").defineInRange("toughness", ArmorDefaults.DRIPSTONE.toughness, 0.0, 10.0);
-            dripstoneKnockbackResistance = builder.comment("Knockback resistance for Dripstone Armor").defineInRange("knockback_resistance", ArmorDefaults.DRIPSTONE.knockbackResistance, 0.0, 1.0);
+            dripstoneToughness = builder.comment("Toughness for Dripstone Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.DRIPSTONE.toughness), 0.0, 10.0);
+            dripstoneKnockbackResistance = builder.comment("Knockback resistance for Dripstone Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.DRIPSTONE.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Emerald Armor
@@ -1147,8 +1101,8 @@ public class ModConfigs {
             emeraldLeggingsProtection = builder.comment("Protection for Emerald Leggings").defineInRange("leggings_protection", ArmorDefaults.EMERALD.leggingsProtection, 0, 20);
             emeraldBootsProtection = builder.comment("Protection for Emerald Boots").defineInRange("boots_protection", ArmorDefaults.EMERALD.bootsProtection, 0, 20);
             emeraldEnchantment = builder.comment("Enchantment value for Emerald Armor").defineInRange("enchantment", ArmorDefaults.EMERALD.enchantment, 0, 30);
-            emeraldToughness = builder.comment("Toughness for Emerald Armor").defineInRange("toughness", ArmorDefaults.EMERALD.toughness, 0.0, 10.0);
-            emeraldKnockbackResistance = builder.comment("Knockback resistance for Emerald Armor").defineInRange("knockback_resistance", ArmorDefaults.EMERALD.knockbackResistance, 0.0, 1.0);
+            emeraldToughness = builder.comment("Toughness for Emerald Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.EMERALD.toughness), 0.0, 10.0);
+            emeraldKnockbackResistance = builder.comment("Knockback resistance for Emerald Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.EMERALD.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Ender Dragon Armor
@@ -1162,8 +1116,8 @@ public class ModConfigs {
             enderDragonLeggingsProtection = builder.comment("Protection for Ender Dragon Leggings").defineInRange("leggings_protection", ArmorDefaults.ENDER_DRAGON.leggingsProtection, 0, 20);
             enderDragonBootsProtection = builder.comment("Protection for Ender Dragon Boots").defineInRange("boots_protection", ArmorDefaults.ENDER_DRAGON.bootsProtection, 0, 20);
             enderDragonEnchantment = builder.comment("Enchantment value for Ender Dragon Armor").defineInRange("enchantment", ArmorDefaults.ENDER_DRAGON.enchantment, 0, 30);
-            enderDragonToughness = builder.comment("Toughness for Ender Dragon Armor").defineInRange("toughness", ArmorDefaults.ENDER_DRAGON.toughness, 0.0, 10.0);
-            enderDragonKnockbackResistance = builder.comment("Knockback resistance for Ender Dragon Armor").defineInRange("knockback_resistance", ArmorDefaults.ENDER_DRAGON.knockbackResistance, 0.0, 1.0);
+            enderDragonToughness = builder.comment("Toughness for Ender Dragon Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.ENDER_DRAGON.toughness), 0.0, 10.0);
+            enderDragonKnockbackResistance = builder.comment("Knockback resistance for Ender Dragon Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.ENDER_DRAGON.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Galaxy Armor
@@ -1177,8 +1131,8 @@ public class ModConfigs {
             galaxyLeggingsProtection = builder.comment("Protection for Galaxy Leggings").defineInRange("leggings_protection", ArmorDefaults.GALAXY.leggingsProtection, 0, 20);
             galaxyBootsProtection = builder.comment("Protection for Galaxy Boots").defineInRange("boots_protection", ArmorDefaults.GALAXY.bootsProtection, 0, 20);
             galaxyEnchantment = builder.comment("Enchantment value for Galaxy Armor").defineInRange("enchantment", ArmorDefaults.GALAXY.enchantment, 0, 30);
-            galaxyToughness = builder.comment("Toughness for Galaxy Armor").defineInRange("toughness", ArmorDefaults.GALAXY.toughness, 0.0, 10.0);
-            galaxyKnockbackResistance = builder.comment("Knockback resistance for Galaxy Armor").defineInRange("knockback_resistance", ArmorDefaults.GALAXY.knockbackResistance, 0.0, 1.0);
+            galaxyToughness = builder.comment("Toughness for Galaxy Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.GALAXY.toughness), 0.0, 10.0);
+            galaxyKnockbackResistance = builder.comment("Knockback resistance for Galaxy Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.GALAXY.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Gilded Armor
@@ -1192,8 +1146,8 @@ public class ModConfigs {
             gildedLeggingsProtection = builder.comment("Protection for Gilded Leggings").defineInRange("leggings_protection", ArmorDefaults.GILDED.leggingsProtection, 0, 20);
             gildedBootsProtection = builder.comment("Protection for Gilded Boots").defineInRange("boots_protection", ArmorDefaults.GILDED.bootsProtection, 0, 20);
             gildedEnchantment = builder.comment("Enchantment value for Gilded Armor").defineInRange("enchantment", ArmorDefaults.GILDED.enchantment, 0, 30);
-            gildedToughness = builder.comment("Toughness for Gilded Armor").defineInRange("toughness", ArmorDefaults.GILDED.toughness, 0.0, 10.0);
-            gildedKnockbackResistance = builder.comment("Knockback resistance for Gilded Armor").defineInRange("knockback_resistance", ArmorDefaults.GILDED.knockbackResistance, 0.0, 1.0);
+            gildedToughness = builder.comment("Toughness for Gilded Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.GILDED.toughness), 0.0, 10.0);
+            gildedKnockbackResistance = builder.comment("Knockback resistance for Gilded Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.GILDED.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Glass Armor
@@ -1207,8 +1161,8 @@ public class ModConfigs {
             glassLeggingsProtection = builder.comment("Protection for Glass Leggings").defineInRange("leggings_protection", ArmorDefaults.GLASS.leggingsProtection, 0, 20);
             glassBootsProtection = builder.comment("Protection for Glass Boots").defineInRange("boots_protection", ArmorDefaults.GLASS.bootsProtection, 0, 20);
             glassEnchantment = builder.comment("Enchantment value for Glass Armor").defineInRange("enchantment", ArmorDefaults.GLASS.enchantment, 0, 30);
-            glassToughness = builder.comment("Toughness for Glass Armor").defineInRange("toughness", ArmorDefaults.GLASS.toughness, 0.0, 10.0);
-            glassKnockbackResistance = builder.comment("Knockback resistance for Glass Armor").defineInRange("knockback_resistance", ArmorDefaults.GLASS.knockbackResistance, 0.0, 1.0);
+            glassToughness = builder.comment("Toughness for Glass Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.GLASS.toughness), 0.0, 10.0);
+            glassKnockbackResistance = builder.comment("Knockback resistance for Glass Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.GLASS.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Guardian Armor
@@ -1222,8 +1176,8 @@ public class ModConfigs {
             guardianLeggingsProtection = builder.comment("Protection for Guardian Leggings").defineInRange("leggings_protection", ArmorDefaults.GUARDIAN.leggingsProtection, 0, 20);
             guardianBootsProtection = builder.comment("Protection for Guardian Boots").defineInRange("boots_protection", ArmorDefaults.GUARDIAN.bootsProtection, 0, 20);
             guardianEnchantment = builder.comment("Enchantment value for Guardian Armor").defineInRange("enchantment", ArmorDefaults.GUARDIAN.enchantment, 0, 30);
-            guardianToughness = builder.comment("Toughness for Guardian Armor").defineInRange("toughness", ArmorDefaults.GUARDIAN.toughness, 0.0, 10.0);
-            guardianKnockbackResistance = builder.comment("Knockback resistance for Guardian Armor").defineInRange("knockback_resistance", ArmorDefaults.GUARDIAN.knockbackResistance, 0.0, 1.0);
+            guardianToughness = builder.comment("Toughness for Guardian Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.GUARDIAN.toughness), 0.0, 10.0);
+            guardianKnockbackResistance = builder.comment("Knockback resistance for Guardian Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.GUARDIAN.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Lapis Armor
@@ -1237,8 +1191,8 @@ public class ModConfigs {
             lapisLeggingsProtection = builder.comment("Protection for Lapis Leggings").defineInRange("leggings_protection", ArmorDefaults.LAPIS.leggingsProtection, 0, 20);
             lapisBootsProtection = builder.comment("Protection for Lapis Boots").defineInRange("boots_protection", ArmorDefaults.LAPIS.bootsProtection, 0, 20);
             lapisEnchantment = builder.comment("Enchantment value for Lapis Armor").defineInRange("enchantment", ArmorDefaults.LAPIS.enchantment, 0, 30);
-            lapisToughness = builder.comment("Toughness for Lapis Armor").defineInRange("toughness", ArmorDefaults.LAPIS.toughness, 0.0, 10.0);
-            lapisKnockbackResistance = builder.comment("Knockback resistance for Lapis Armor").defineInRange("knockback_resistance", ArmorDefaults.LAPIS.knockbackResistance, 0.0, 1.0);
+            lapisToughness = builder.comment("Toughness for Lapis Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.LAPIS.toughness), 0.0, 10.0);
+            lapisKnockbackResistance = builder.comment("Knockback resistance for Lapis Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.LAPIS.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Machine Armor
@@ -1252,8 +1206,8 @@ public class ModConfigs {
             machineLeggingsProtection = builder.comment("Protection for Machine Leggings").defineInRange("leggings_protection", ArmorDefaults.MACHINE.leggingsProtection, 0, 20);
             machineBootsProtection = builder.comment("Protection for Machine Boots").defineInRange("boots_protection", ArmorDefaults.MACHINE.bootsProtection, 0, 20);
             machineEnchantment = builder.comment("Enchantment value for Machine Armor").defineInRange("enchantment", ArmorDefaults.MACHINE.enchantment, 0, 30);
-            machineToughness = builder.comment("Toughness for Machine Armor").defineInRange("toughness", ArmorDefaults.MACHINE.toughness, 0.0, 10.0);
-            machineKnockbackResistance = builder.comment("Knockback resistance for Machine Armor").defineInRange("knockback_resistance", ArmorDefaults.MACHINE.knockbackResistance, 0.0, 1.0);
+            machineToughness = builder.comment("Toughness for Machine Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.MACHINE.toughness), 0.0, 10.0);
+            machineKnockbackResistance = builder.comment("Knockback resistance for Machine Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.MACHINE.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Magma Armor
@@ -1267,8 +1221,8 @@ public class ModConfigs {
             magmaLeggingsProtection = builder.comment("Protection for Magma Leggings").defineInRange("leggings_protection", ArmorDefaults.MAGMA.leggingsProtection, 0, 20);
             magmaBootsProtection = builder.comment("Protection for Magma Boots").defineInRange("boots_protection", ArmorDefaults.MAGMA.bootsProtection, 0, 20);
             magmaEnchantment = builder.comment("Enchantment value for Magma Armor").defineInRange("enchantment", ArmorDefaults.MAGMA.enchantment, 0, 30);
-            magmaToughness = builder.comment("Toughness for Magma Armor").defineInRange("toughness", ArmorDefaults.MAGMA.toughness, 0.0, 10.0);
-            magmaKnockbackResistance = builder.comment("Knockback resistance for Magma Armor").defineInRange("knockback_resistance", ArmorDefaults.MAGMA.knockbackResistance, 0.0, 1.0);
+            magmaToughness = builder.comment("Toughness for Magma Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.MAGMA.toughness), 0.0, 10.0);
+            magmaKnockbackResistance = builder.comment("Knockback resistance for Magma Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.MAGMA.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Music Armor
@@ -1282,8 +1236,8 @@ public class ModConfigs {
             musicLeggingsProtection = builder.comment("Protection for Music Leggings").defineInRange("leggings_protection", ArmorDefaults.MUSIC.leggingsProtection, 0, 20);
             musicBootsProtection = builder.comment("Protection for Music Boots").defineInRange("boots_protection", ArmorDefaults.MUSIC.bootsProtection, 0, 20);
             musicEnchantment = builder.comment("Enchantment value for Music Armor").defineInRange("enchantment", ArmorDefaults.MUSIC.enchantment, 0, 30);
-            musicToughness = builder.comment("Toughness for Music Armor").defineInRange("toughness", ArmorDefaults.MUSIC.toughness, 0.0, 10.0);
-            musicKnockbackResistance = builder.comment("Knockback resistance for Music Armor").defineInRange("knockback_resistance", ArmorDefaults.MUSIC.knockbackResistance, 0.0, 1.0);
+            musicToughness = builder.comment("Toughness for Music Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.MUSIC.toughness), 0.0, 10.0);
+            musicKnockbackResistance = builder.comment("Knockback resistance for Music Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.MUSIC.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Obsidian Armor
@@ -1297,8 +1251,8 @@ public class ModConfigs {
             obsidianLeggingsProtection = builder.comment("Protection for Obsidian Leggings").defineInRange("leggings_protection", ArmorDefaults.OBSIDIAN.leggingsProtection, 0, 20);
             obsidianBootsProtection = builder.comment("Protection for Obsidian Boots").defineInRange("boots_protection", ArmorDefaults.OBSIDIAN.bootsProtection, 0, 20);
             obsidianEnchantment = builder.comment("Enchantment value for Obsidian Armor").defineInRange("enchantment", ArmorDefaults.OBSIDIAN.enchantment, 0, 30);
-            obsidianToughness = builder.comment("Toughness for Obsidian Armor").defineInRange("toughness", ArmorDefaults.OBSIDIAN.toughness, 0.0, 10.0);
-            obsidianKnockbackResistance = builder.comment("Knockback resistance for Obsidian Armor").defineInRange("knockback_resistance", ArmorDefaults.OBSIDIAN.knockbackResistance, 0.0, 1.0);
+            obsidianToughness = builder.comment("Toughness for Obsidian Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.OBSIDIAN.toughness), 0.0, 10.0);
+            obsidianKnockbackResistance = builder.comment("Knockback resistance for Obsidian Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.OBSIDIAN.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Pot Armor
@@ -1312,8 +1266,8 @@ public class ModConfigs {
             potLeggingsProtection = builder.comment("Protection for Pot Leggings").defineInRange("leggings_protection", ArmorDefaults.POT.leggingsProtection, 0, 20);
             potBootsProtection = builder.comment("Protection for Pot Boots").defineInRange("boots_protection", ArmorDefaults.POT.bootsProtection, 0, 20);
             potEnchantment = builder.comment("Enchantment value for Pot Armor").defineInRange("enchantment", ArmorDefaults.POT.enchantment, 0, 30);
-            potToughness = builder.comment("Toughness for Pot Armor").defineInRange("toughness", ArmorDefaults.POT.toughness, 0.0, 10.0);
-            potKnockbackResistance = builder.comment("Knockback resistance for Pot Armor").defineInRange("knockback_resistance", ArmorDefaults.POT.knockbackResistance, 0.0, 1.0);
+            potToughness = builder.comment("Toughness for Pot Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.POT.toughness), 0.0, 10.0);
+            potKnockbackResistance = builder.comment("Knockback resistance for Pot Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.POT.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Power Suit Armor
@@ -1327,8 +1281,8 @@ public class ModConfigs {
             powerSuitLeggingsProtection = builder.comment("Protection for Power Suit Leggings").defineInRange("leggings_protection", ArmorDefaults.POWER_SUIT.leggingsProtection, 0, 20);
             powerSuitBootsProtection = builder.comment("Protection for Power Suit Boots").defineInRange("boots_protection", ArmorDefaults.POWER_SUIT.bootsProtection, 0, 20);
             powerSuitEnchantment = builder.comment("Enchantment value for Power Suit Armor").defineInRange("enchantment", ArmorDefaults.POWER_SUIT.enchantment, 0, 30);
-            powerSuitToughness = builder.comment("Toughness for Power Suit Armor").defineInRange("toughness", ArmorDefaults.POWER_SUIT.toughness, 0.0, 10.0);
-            powerSuitKnockbackResistance = builder.comment("Knockback resistance for Power Suit Armor").defineInRange("knockback_resistance", ArmorDefaults.POWER_SUIT.knockbackResistance, 0.0, 1.0);
+            powerSuitToughness = builder.comment("Toughness for Power Suit Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.POWER_SUIT.toughness), 0.0, 10.0);
+            powerSuitKnockbackResistance = builder.comment("Knockback resistance for Power Suit Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.POWER_SUIT.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Quartz Armor
@@ -1342,8 +1296,8 @@ public class ModConfigs {
             quartzLeggingsProtection = builder.comment("Protection for Quartz Leggings").defineInRange("leggings_protection", ArmorDefaults.QUARTZ.leggingsProtection, 0, 20);
             quartzBootsProtection = builder.comment("Protection for Quartz Boots").defineInRange("boots_protection", ArmorDefaults.QUARTZ.bootsProtection, 0, 20);
             quartzEnchantment = builder.comment("Enchantment value for Quartz Armor").defineInRange("enchantment", ArmorDefaults.QUARTZ.enchantment, 0, 30);
-            quartzToughness = builder.comment("Toughness for Quartz Armor").defineInRange("toughness", ArmorDefaults.QUARTZ.toughness, 0.0, 10.0);
-            quartzKnockbackResistance = builder.comment("Knockback resistance for Quartz Armor").defineInRange("knockback_resistance", ArmorDefaults.QUARTZ.knockbackResistance, 0.0, 1.0);
+            quartzToughness = builder.comment("Toughness for Quartz Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.QUARTZ.toughness), 0.0, 10.0);
+            quartzKnockbackResistance = builder.comment("Knockback resistance for Quartz Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.QUARTZ.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Red Dragon Armor
@@ -1357,8 +1311,8 @@ public class ModConfigs {
             redDragonLeggingsProtection = builder.comment("Protection for Red Dragon Leggings").defineInRange("leggings_protection", ArmorDefaults.RED_DRAGON.leggingsProtection, 0, 20);
             redDragonBootsProtection = builder.comment("Protection for Red Dragon Boots").defineInRange("boots_protection", ArmorDefaults.RED_DRAGON.bootsProtection, 0, 20);
             redDragonEnchantment = builder.comment("Enchantment value for Red Dragon Armor").defineInRange("enchantment", ArmorDefaults.RED_DRAGON.enchantment, 0, 30);
-            redDragonToughness = builder.comment("Toughness for Red Dragon Armor").defineInRange("toughness", ArmorDefaults.RED_DRAGON.toughness, 0.0, 10.0);
-            redDragonKnockbackResistance = builder.comment("Knockback resistance for Red Dragon Armor").defineInRange("knockback_resistance", ArmorDefaults.RED_DRAGON.knockbackResistance, 0.0, 1.0);
+            redDragonToughness = builder.comment("Toughness for Red Dragon Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.RED_DRAGON.toughness), 0.0, 10.0);
+            redDragonKnockbackResistance = builder.comment("Knockback resistance for Red Dragon Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.RED_DRAGON.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Redstone Armor
@@ -1372,8 +1326,8 @@ public class ModConfigs {
             redstoneLeggingsProtection = builder.comment("Protection for Redstone Leggings").defineInRange("leggings_protection", ArmorDefaults.REDSTONE.leggingsProtection, 0, 20);
             redstoneBootsProtection = builder.comment("Protection for Redstone Boots").defineInRange("boots_protection", ArmorDefaults.REDSTONE.bootsProtection, 0, 20);
             redstoneEnchantment = builder.comment("Enchantment value for Redstone Armor").defineInRange("enchantment", ArmorDefaults.REDSTONE.enchantment, 0, 30);
-            redstoneToughness = builder.comment("Toughness for Redstone Armor").defineInRange("toughness", ArmorDefaults.REDSTONE.toughness, 0.0, 10.0);
-            redstoneKnockbackResistance = builder.comment("Knockback resistance for Redstone Armor").defineInRange("knockback_resistance", ArmorDefaults.REDSTONE.knockbackResistance, 0.0, 1.0);
+            redstoneToughness = builder.comment("Toughness for Redstone Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.REDSTONE.toughness), 0.0, 10.0);
+            redstoneKnockbackResistance = builder.comment("Knockback resistance for Redstone Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.REDSTONE.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Reinforced Deepslate Armor
@@ -1387,8 +1341,8 @@ public class ModConfigs {
             reinforcedDeepslateLeggingsProtection = builder.comment("Protection for Reinforced Deepslate Leggings").defineInRange("leggings_protection", ArmorDefaults.REINFORCED_DEEPSLATE.leggingsProtection, 0, 20);
             reinforcedDeepslateBootsProtection = builder.comment("Protection for Reinforced Deepslate Boots").defineInRange("boots_protection", ArmorDefaults.REINFORCED_DEEPSLATE.bootsProtection, 0, 20);
             reinforcedDeepslateEnchantment = builder.comment("Enchantment value for Reinforced Deepslate Armor").defineInRange("enchantment", ArmorDefaults.REINFORCED_DEEPSLATE.enchantment, 0, 30);
-            reinforcedDeepslateToughness = builder.comment("Toughness for Reinforced Deepslate Armor").defineInRange("toughness", ArmorDefaults.REINFORCED_DEEPSLATE.toughness, 0.0, 10.0);
-            reinforcedDeepslateKnockbackResistance = builder.comment("Knockback resistance for Reinforced Deepslate Armor").defineInRange("knockback_resistance", ArmorDefaults.REINFORCED_DEEPSLATE.knockbackResistance, 0.0, 1.0);
+            reinforcedDeepslateToughness = builder.comment("Toughness for Reinforced Deepslate Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.REINFORCED_DEEPSLATE.toughness), 0.0, 10.0);
+            reinforcedDeepslateKnockbackResistance = builder.comment("Knockback resistance for Reinforced Deepslate Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.REINFORCED_DEEPSLATE.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // RGB Armor
@@ -1402,8 +1356,8 @@ public class ModConfigs {
             rgbLeggingsProtection = builder.comment("Protection for RGB Leggings").defineInRange("leggings_protection", ArmorDefaults.RGB.leggingsProtection, 0, 20);
             rgbBootsProtection = builder.comment("Protection for RGB Boots").defineInRange("boots_protection", ArmorDefaults.RGB.bootsProtection, 0, 20);
             rgbEnchantment = builder.comment("Enchantment value for RGB Armor").defineInRange("enchantment", ArmorDefaults.RGB.enchantment, 0, 30);
-            rgbToughness = builder.comment("Toughness for RGB Armor").defineInRange("toughness", ArmorDefaults.RGB.toughness, 0.0, 10.0);
-            rgbKnockbackResistance = builder.comment("Knockback resistance for RGB Armor").defineInRange("knockback_resistance", ArmorDefaults.RGB.knockbackResistance, 0.0, 1.0);
+            rgbToughness = builder.comment("Toughness for RGB Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.RGB.toughness), 0.0, 10.0);
+            rgbKnockbackResistance = builder.comment("Knockback resistance for RGB Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.RGB.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Ruby Armor
@@ -1417,8 +1371,8 @@ public class ModConfigs {
             rubyLeggingsProtection = builder.comment("Protection for Ruby Leggings").defineInRange("leggings_protection", ArmorDefaults.RUBY.leggingsProtection, 0, 20);
             rubyBootsProtection = builder.comment("Protection for Ruby Boots").defineInRange("boots_protection", ArmorDefaults.RUBY.bootsProtection, 0, 20);
             rubyEnchantment = builder.comment("Enchantment value for Ruby Armor").defineInRange("enchantment", ArmorDefaults.RUBY.enchantment, 0, 30);
-            rubyToughness = builder.comment("Toughness for Ruby Armor").defineInRange("toughness", ArmorDefaults.RUBY.toughness, 0.0, 10.0);
-            rubyKnockbackResistance = builder.comment("Knockback resistance for Ruby Armor").defineInRange("knockback_resistance", ArmorDefaults.RUBY.knockbackResistance, 0.0, 1.0);
+            rubyToughness = builder.comment("Toughness for Ruby Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.RUBY.toughness), 0.0, 10.0);
+            rubyKnockbackResistance = builder.comment("Knockback resistance for Ruby Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.RUBY.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Sculk Armor
@@ -1432,8 +1386,8 @@ public class ModConfigs {
             sculkLeggingsProtection = builder.comment("Protection for Sculk Leggings").defineInRange("leggings_protection", ArmorDefaults.SCULK.leggingsProtection, 0, 20);
             sculkBootsProtection = builder.comment("Protection for Sculk Boots").defineInRange("boots_protection", ArmorDefaults.SCULK.bootsProtection, 0, 20);
             sculkEnchantment = builder.comment("Enchantment value for Sculk Armor").defineInRange("enchantment", ArmorDefaults.SCULK.enchantment, 0, 30);
-            sculkToughness = builder.comment("Toughness for Sculk Armor").defineInRange("toughness", ArmorDefaults.SCULK.toughness, 0.0, 10.0);
-            sculkKnockbackResistance = builder.comment("Knockback resistance for Sculk Armor").defineInRange("knockback_resistance", ArmorDefaults.SCULK.knockbackResistance, 0.0, 1.0);
+            sculkToughness = builder.comment("Toughness for Sculk Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.SCULK.toughness), 0.0, 10.0);
+            sculkKnockbackResistance = builder.comment("Knockback resistance for Sculk Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.SCULK.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Shulker Armor
@@ -1447,8 +1401,8 @@ public class ModConfigs {
             shulkerLeggingsProtection = builder.comment("Protection for Shulker Leggings").defineInRange("leggings_protection", ArmorDefaults.SHULKER.leggingsProtection, 0, 20);
             shulkerBootsProtection = builder.comment("Protection for Shulker Boots").defineInRange("boots_protection", ArmorDefaults.SHULKER.bootsProtection, 0, 20);
             shulkerEnchantment = builder.comment("Enchantment value for Shulker Armor").defineInRange("enchantment", ArmorDefaults.SHULKER.enchantment, 0, 30);
-            shulkerToughness = builder.comment("Toughness for Shulker Armor").defineInRange("toughness", ArmorDefaults.SHULKER.toughness, 0.0, 10.0);
-            shulkerKnockbackResistance = builder.comment("Knockback resistance for Shulker Armor").defineInRange("knockback_resistance", ArmorDefaults.SHULKER.knockbackResistance, 0.0, 1.0);
+            shulkerToughness = builder.comment("Toughness for Shulker Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.SHULKER.toughness), 0.0, 10.0);
+            shulkerKnockbackResistance = builder.comment("Knockback resistance for Shulker Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.SHULKER.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Skeleton Armor
@@ -1462,8 +1416,8 @@ public class ModConfigs {
             skeletonLeggingsProtection = builder.comment("Protection for Skeleton Leggings").defineInRange("leggings_protection", ArmorDefaults.SKELETON.leggingsProtection, 0, 20);
             skeletonBootsProtection = builder.comment("Protection for Skeleton Boots").defineInRange("boots_protection", ArmorDefaults.SKELETON.bootsProtection, 0, 20);
             skeletonEnchantment = builder.comment("Enchantment value for Skeleton Armor").defineInRange("enchantment", ArmorDefaults.SKELETON.enchantment, 0, 30);
-            skeletonToughness = builder.comment("Toughness for Skeleton Armor").defineInRange("toughness", ArmorDefaults.SKELETON.toughness, 0.0, 10.0);
-            skeletonKnockbackResistance = builder.comment("Knockback resistance for Skeleton Armor").defineInRange("knockback_resistance", ArmorDefaults.SKELETON.knockbackResistance, 0.0, 1.0);
+            skeletonToughness = builder.comment("Toughness for Skeleton Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.SKELETON.toughness), 0.0, 10.0);
+            skeletonKnockbackResistance = builder.comment("Knockback resistance for Skeleton Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.SKELETON.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             
@@ -1478,8 +1432,8 @@ public class ModConfigs {
             snifferLeggingsProtection = builder.comment("Protection for Sniffer Leggings").defineInRange("leggings_protection", ArmorDefaults.SNIFFER.leggingsProtection, 0, 20);
             snifferBootsProtection = builder.comment("Protection for Sniffer Boots").defineInRange("boots_protection", ArmorDefaults.SNIFFER.bootsProtection, 0, 20);
             snifferEnchantment = builder.comment("Enchantment value for Sniffer Armor").defineInRange("enchantment", ArmorDefaults.SNIFFER.enchantment, 0, 30);
-            snifferToughness = builder.comment("Toughness for Sniffer Armor").defineInRange("toughness", ArmorDefaults.SNIFFER.toughness, 0.0, 10.0);
-            snifferKnockbackResistance = builder.comment("Knockback resistance for Sniffer Armor").defineInRange("knockback_resistance", ArmorDefaults.SNIFFER.knockbackResistance, 0.0, 1.0);
+            snifferToughness = builder.comment("Toughness for Sniffer Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.SNIFFER.toughness), 0.0, 10.0);
+            snifferKnockbackResistance = builder.comment("Knockback resistance for Sniffer Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.SNIFFER.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // TNT Armor
@@ -1493,8 +1447,8 @@ public class ModConfigs {
             tntLeggingsProtection = builder.comment("Protection for TNT Leggings").defineInRange("leggings_protection", ArmorDefaults.TNT.leggingsProtection, 0, 20);
             tntBootsProtection = builder.comment("Protection for TNT Boots").defineInRange("boots_protection", ArmorDefaults.TNT.bootsProtection, 0, 20);
             tntEnchantment = builder.comment("Enchantment value for TNT Armor").defineInRange("enchantment", ArmorDefaults.TNT.enchantment, 0, 30);
-            tntToughness = builder.comment("Toughness for TNT Armor").defineInRange("toughness", ArmorDefaults.TNT.toughness, 0.0, 10.0);
-            tntKnockbackResistance = builder.comment("Knockback resistance for TNT Armor").defineInRange("knockback_resistance", ArmorDefaults.TNT.knockbackResistance, 0.0, 1.0);
+            tntToughness = builder.comment("Toughness for TNT Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.TNT.toughness), 0.0, 10.0);
+            tntKnockbackResistance = builder.comment("Knockback resistance for TNT Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.TNT.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Totem Armor
@@ -1508,8 +1462,8 @@ public class ModConfigs {
             totemLeggingsProtection = builder.comment("Protection for Totem Leggings").defineInRange("leggings_protection", ArmorDefaults.TOTEM.leggingsProtection, 0, 20);
             totemBootsProtection = builder.comment("Protection for Totem Boots").defineInRange("boots_protection", ArmorDefaults.TOTEM.bootsProtection, 0, 20);
             totemEnchantment = builder.comment("Enchantment value for Totem Armor").defineInRange("enchantment", ArmorDefaults.TOTEM.enchantment, 0, 30);
-            totemToughness = builder.comment("Toughness for Totem Armor").defineInRange("toughness", ArmorDefaults.TOTEM.toughness, 0.0, 10.0);
-            totemKnockbackResistance = builder.comment("Knockback resistance for Totem Armor").defineInRange("knockback_resistance", ArmorDefaults.TOTEM.knockbackResistance, 0.0, 1.0);
+            totemToughness = builder.comment("Toughness for Totem Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.TOTEM.toughness), 0.0, 10.0);
+            totemKnockbackResistance = builder.comment("Knockback resistance for Totem Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.TOTEM.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
             // Wither Skeleton Armor
@@ -1523,8 +1477,8 @@ public class ModConfigs {
             witherSkeletonLeggingsProtection = builder.comment("Protection for Wither Skeleton Leggings").defineInRange("leggings_protection", ArmorDefaults.WITHER_SKELETON.leggingsProtection, 0, 20);
             witherSkeletonBootsProtection = builder.comment("Protection for Wither Skeleton Boots").defineInRange("boots_protection", ArmorDefaults.WITHER_SKELETON.bootsProtection, 0, 20);
             witherSkeletonEnchantment = builder.comment("Enchantment value for Wither Skeleton Armor").defineInRange("enchantment", ArmorDefaults.WITHER_SKELETON.enchantment, 0, 30);
-            witherSkeletonToughness = builder.comment("Toughness for Wither Skeleton Armor").defineInRange("toughness", ArmorDefaults.WITHER_SKELETON.toughness, 0.0, 10.0);
-            witherSkeletonKnockbackResistance = builder.comment("Knockback resistance for Wither Skeleton Armor").defineInRange("knockback_resistance", ArmorDefaults.WITHER_SKELETON.knockbackResistance, 0.0, 1.0);
+            witherSkeletonToughness = builder.comment("Toughness for Wither Skeleton Armor").defineInRange("toughness", roundToOneDecimal(ArmorDefaults.WITHER_SKELETON.toughness), 0.0, 10.0);
+            witherSkeletonKnockbackResistance = builder.comment("Knockback resistance for Wither Skeleton Armor").defineInRange("knockback_resistance", roundToOneDecimal(ArmorDefaults.WITHER_SKELETON.knockbackResistance), 0.0, 1.0);
             builder.pop();
 
         }

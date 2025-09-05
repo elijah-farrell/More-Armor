@@ -2,13 +2,12 @@ package com.morearmor.init.armors;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 
 public class RgbArmorItem extends DefaultArmorItem {
     
-    public RgbArmorItem(ArmorMaterial material, Type type, Properties properties) {
-        super(material, type, properties);
+    public RgbArmorItem(String materialName, Type type, Properties properties) {
+        super(materialName, type, properties);
     }
     
     @Override

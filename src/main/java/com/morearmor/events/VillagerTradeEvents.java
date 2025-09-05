@@ -8,6 +8,7 @@ import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import com.morearmor.MoreArmor;
+import com.morearmor.init.MoreArmorItems;
 import java.util.List;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 
@@ -22,7 +23,7 @@ public class VillagerTradeEvents {
             // Tier 4 (Apprentice) - Randomly Enchanted Emerald Helmet and Boots
             if (trades.containsKey(4)) {
                 trades.get(4).add((trader, rand) -> {
-                    ItemStack helmet = new ItemStack(com.morearmor.init.Items.EMERALD_HELMET.get());
+                    ItemStack helmet = new ItemStack(MoreArmorItems.EMERALD_HELMET.get());
                     // Random enchantments for helmet
                     if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
                         helmet.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
@@ -44,7 +45,7 @@ public class VillagerTradeEvents {
                 });
                 
                 trades.get(4).add((trader, rand) -> {
-                    ItemStack boots = new ItemStack(com.morearmor.init.Items.EMERALD_BOOTS.get());
+                    ItemStack boots = new ItemStack(MoreArmorItems.EMERALD_BOOTS.get());
                     // Random enchantments for boots
                     if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
                         boots.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
@@ -69,7 +70,7 @@ public class VillagerTradeEvents {
             // Tier 7 (Journeyman) - Randomly Enchanted Emerald Leggings
             if (trades.containsKey(7)) {
                 trades.get(7).add((trader, rand) -> {
-                    ItemStack leggings = new ItemStack(com.morearmor.init.Items.EMERALD_LEGGINGS.get());
+                    ItemStack leggings = new ItemStack(MoreArmorItems.EMERALD_LEGGINGS.get());
                     // Random enchantments for leggings
                     if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
                         leggings.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);
@@ -91,7 +92,7 @@ public class VillagerTradeEvents {
             // Tier 9 (Master) - Randomly Enchanted Emerald Chestplate
             if (trades.containsKey(9)) {
                 trades.get(9).add((trader, rand) -> {
-                    ItemStack chestplate = new ItemStack(com.morearmor.init.Items.EMERALD_CHESTPLATE.get());
+                    ItemStack chestplate = new ItemStack(MoreArmorItems.EMERALD_CHESTPLATE.get());
                     // Random enchantments for chestplate
                     if (rand.nextFloat() < 0.7f) { // 70% chance for Protection
                         chestplate.enchant(net.minecraft.world.item.enchantment.Enchantments.ALL_DAMAGE_PROTECTION, rand.nextInt(3) + 1);

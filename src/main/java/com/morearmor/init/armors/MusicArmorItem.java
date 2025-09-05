@@ -1,14 +1,13 @@
 package com.morearmor.init.armors;
 
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 
 public class MusicArmorItem extends DefaultArmorItem {
-    public MusicArmorItem(ArmorMaterial material, Type type, Item.Properties properties) {
-        super(material, type, properties);
+    public MusicArmorItem(String materialName, Type type, Item.Properties properties) {
+        super(materialName, type, properties);
     }
 
     @Override
