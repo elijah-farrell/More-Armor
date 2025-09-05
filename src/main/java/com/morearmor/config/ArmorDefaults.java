@@ -187,7 +187,7 @@ public class ArmorDefaults {
         4, 8, 6, 4,          // protection
         19,                  // enchantment
         3.0f, 0.1f,          // toughness, knockback resistance
-        Items.NETHERITE_INGOT, // repair item
+        Items.NETHER_STAR,    // repair item
         SoundEvents.ARMOR_EQUIP_GENERIC // equip sound
     );
     
@@ -287,7 +287,7 @@ public class ArmorDefaults {
         3, 8, 6, 3,          // protection
         19,                  // enchantment
         3.0f, 0.1f,          // toughness, knockback resistance
-        Items.REDSTONE,       // repair item
+        Items.NETHERITE_INGOT, // repair item
         SoundEvents.ARMOR_EQUIP_IRON // equip sound
     );
     
@@ -307,7 +307,7 @@ public class ArmorDefaults {
         2, 7, 5, 2,          // protection
         19,                  // enchantment
         0.0f, 0.0f,          // toughness, knockback resistance
-        Items.DRAGON_EGG,     // repair item
+        null,                // repair item - no repair item (can only be repaired with other red dragon armor pieces)
         SoundEvents.ARMOR_EQUIP_GENERIC // equip sound
     );
     
@@ -337,7 +337,7 @@ public class ArmorDefaults {
         1, 1, 1, 1,          // protection
         16,                  // enchantment
         0.0f, 0.0f,          // toughness, knockback resistance
-        Items.REDSTONE,       // repair item (placeholder)
+        Items.RED_DYE,        // repair item - any dye can be used
         SoundEvents.ARMOR_EQUIP_GENERIC // equip sound
     );
     
@@ -347,7 +347,7 @@ public class ArmorDefaults {
         3, 5, 6, 3,          // protection
         19,                  // enchantment
         2.0f, 0.0f,          // toughness, knockback resistance
-        Items.REDSTONE,       // repair item
+        null,                // repair item - no repair item (can only be repaired with other ruby armor pieces)
         SoundEvents.ARMOR_EQUIP_GENERIC // equip sound
     );
     
